@@ -4,8 +4,8 @@
 
 It is built on the idea of {{package_slices}} - minimal, complimentary, and
 loosely coupled sets of files, based on the package's metadata and content.
-Slices are basically subsets of the Ubuntu packages, with their own content and
-set of dependencies to other internal and external slices.
+Slices are basically logical subsets of the Ubuntu packages, with their own
+content and set of dependencies to other internal and external slices.
 
 Chisel is able to extract a highly customised and specialised _Slice_ of the
 Ubuntu distribution, which one could see as a block of stone from which we can

@@ -64,11 +64,11 @@ The "jsonwall" header is a single JSON object on the first line of the file. For
 
 Where:
 
-| Field      | Type  | Required | Description                                                       |
-| ---------- | ----- | -------- | ----------------------------------------------------------------- |
-| `jsonwall` | `str` | required | version of jsonwall.                                              |
-| `schema`   | `str` | required | schema version that Chisel manifest uses.                         |
-| `count`    | `int` | required | number of JSON entries in this file, including the header itself. |
+| Field      | Type      | Required | Description                                                       |
+| ---------- | --------- | -------- | ----------------------------------------------------------------- |
+| `jsonwall` | `string`  | Required | Version of jsonwall.                                              |
+| `schema`   | `string`  | Required | Schema version that Chisel manifest uses.                         |
+| `count`    | `integer` | Required | Number of JSON entries in this file, including the header itself. |
 
 
 (chisel_manifest_packages)=
@@ -83,13 +83,13 @@ the manifest. For example:
 
 Where:
 
-| Field     | Type  | Required | Description                                                   |
-| --------- | ----- | -------- | ------------------------------------------------------------- |
-| `kind`    | `str` | required | type of JSON object -- must always be `package` for packages. |
-| `name`    | `str` | required | name of the package.                                          |
-| `version` | `str` | required | version of the package.                                       |
-| `sha256`  | `str` | required | digest of the package (in hex format).                        |
-| `arch`    | `str` | required | architecture of the package.                                  |
+| Field     | Type     | Required | Description                                                   |
+| --------- | -------- | -------- | ------------------------------------------------------------- |
+| `kind`    | `string` | Required | Type of JSON object -- must always be `package` for packages. |
+| `name`    | `string` | Required | Name of the package.                                          |
+| `version` | `string` | Required | Cersion of the package.                                       |
+| `sha256`  | `string` | Required | Digest of the package (in hex format).                        |
+| `arch`    | `string` | Required | Architecture of the package.                                  |
 
 
 (chisel_manifest_slices)=
@@ -104,10 +104,10 @@ is present in the manifest. For example:
 
 Where:
 
-| Field  | Type  | Required | Description                                               |
-| ------ | ----- | -------- | --------------------------------------------------------- |
-| `kind` | `str` | required | type of JSON object -- must always be `slice` for slices. |
-| `name` | `str` | required | name of the slice, in the `pkg_slice` format.             |
+| Field  | Type     | Required | Description                                               |
+| ------ | -------- | -------- | --------------------------------------------------------- |
+| `kind` | `string` | Required | Type of JSON object -- must always be `slice` for slices. |
+| `name` | `string` | Required | Name of the slice, in the `pkg_slice` format.             |
 
 
 (chisel_manifest_paths)=
@@ -126,16 +126,16 @@ example:
 
 Where:
 
-| Field          | Type   | Required | Description                                                                                                                                                                              |
-| -------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `kind`         | `str`  | required | type of JSON object -- must always be `path` for paths.                                                                                                                                  |
-| `path`         | `str`  | required | location of the path.                                                                                                                                                                    |
-| `mode`         | `str`  | required | permissions of the path, in an octal value format.                                                                                                                                       |
-| `slices`       | `list` | required | the slices that have added or modified this path.                                                                                                                                        |
-| `sha256`       | `str`  | optional | original checksum of the file as in the Debian package (in hex format). This attribute is required for all regular files, except the `manifest.wall` file itself, which is an exception. |
-| `final_sha256` | `str`  | optional | checksum of the file after it has been modified during installation (in hex format). This attribute is required only for files that have been mutated.                                   |
-| `size`         | `int`  | optional | final size of the file, in bytes. This attribute is required for regular files, except the `manifest.wall` file itself, which is an exception.                                           |
-| `link`         | `str`  | optional | the target, if the file is a symbolic link.                                                                                                                                              |
+| Field          | Type            | Required | Description                                                                                                                                                                              |
+| -------------- | --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `kind`         | `string`        | Required | Type of JSON object -- must always be `path` for paths.                                                                                                                                  |
+| `path`         | `string`        | Required | Location of the path.                                                                                                                                                                    |
+| `mode`         | `string`        | Required | Permissions of the path, in an octal value format.                                                                                                                                       |
+| `slices`       | `array<string>` | Required | The slices that have added or modified this path.                                                                                                                                        |
+| `sha256`       | `string`        | Optional | Original checksum of the file as in the Debian package (in hex format). This attribute is required for all regular files, except the `manifest.wall` file itself, which is an exception. |
+| `final_sha256` | `string`        | Optional | Checksum of the file after it has been modified during installation (in hex format). This attribute is required only for files that have been mutated.                                   |
+| `size`         | `integer`       | Optional | Final size of the file, in bytes. This attribute is required for regular files, except the `manifest.wall` file itself, which is an exception.                                           |
+| `link`         | `string`        | Optional | The target, if the file is a symbolic link.                                                                                                                                              |
 
 
 (chisel_manifest_list_of_paths_in_slice)=
@@ -150,8 +150,8 @@ To state the paths that a slice has added/modified, JSON objects with
 
 Where:
 
-| Field   | Type  | Required | Description                                                         |
-| ------- | ----- | -------- | ------------------------------------------------------------------- |
-| `kind`  | `str` | required | type of JSON object -- must always be `content` for slice contents. |
-| `slice` | `str` | required | name of the slice.                                                  |
-| `path`  | `str` | required | location of the path.                                               |
+| Field   | Type     | Required | Description                                                         |
+| ------- | -------- | -------- | ------------------------------------------------------------------- |
+| `kind`  | `string` | Required | Type of JSON object -- must always be `content` for slice contents. |
+| `slice` | `string` | Required | Name of the slice.                                                  |
+| `path`  | `string` | Required | Location of the path.                                               |

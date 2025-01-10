@@ -34,12 +34,21 @@ python3.11_utils      -
 
 ```{note}
 Notice that there are some python3.11 slices in the output as well. This is
-because the find command finds partially-matched slices with
-{{Levenshtein_distance}} of up to 1.
+because the find command finds partially-matched slices.
 ```
 
 The first three lines are logs, which you can ignore with:
 
-```sh
-chisel find --release ubuntu-22.04 python3.10 2>logs
+```{terminal}
+:input: chisel find --release ubuntu-22.04 python3.10 2>/dev/null
+
+Slice                 Summary
+python3.10_copyright  -
+python3.10_core       -
+python3.10_standard   -
+python3.10_utils      -
+python3.11_copyright  -
+python3.11_core       -
+python3.11_standard   -
+python3.11_utils      -
 ```

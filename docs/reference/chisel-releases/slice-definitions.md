@@ -25,9 +25,9 @@ Although the `hello.yaml` file can be placed in a sub-directory of `slices/` e.g
 (slice_definitions_format_package)=
 ### `package`
 
-| Field     | Type  | Required |
-| --------- | ----- | -------- |
-| `package` | `str` | Required |
+| Field     | Type     | Required |
+| --------- | -------- | -------- |
+| `package` | `string` | Required |
 
 Indicates the package name. It must follow the
 [Debian policy for package name](https://www.debian.org/doc/debian-policy/ch-binary.html#the-package-name).
@@ -43,9 +43,9 @@ package: hello
 (slice_definitions_format_archive)=
 ### `archive`
 
-| Field     | Type  | Required | Supported values                                                      |
-| --------- | ----- | -------- | --------------------------------------------------------------------- |
-| `archive` | `str` | Optional | Archive name, from {ref}`archives<chisel_yaml_format_spec_archives>`. |
+| Field     | Type     | Required | Supported values                                                      |
+| --------- | -------- | -------- | --------------------------------------------------------------------- |
+| `archive` | `string` | Optional | Archive name, from {ref}`archives<chisel_yaml_format_spec_archives>`. |
 
 Specifies a particular
 {ref}`archive<chisel_yaml_format_spec_archives>` from where this package should be
@@ -65,9 +65,9 @@ archive: ubuntu
 (slice_definitions_format_essential)=
 ### `essential`
 
-| Field       | Type        | Required | Supported values   |
-| ----------- | ----------- | -------- | ------------------ |
-| `essential` | `list(str)` | Optional | An existing slice. |
+| Field       | Type            | Required | Supported values   |
+| ----------- | --------------- | -------- | ------------------ |
+| `essential` | `array<string>` | Optional | An existing slice. |
 
 Lists the slices that are needed for **every slice** of the
 current package. Slices in this list must be written in their full name, e.g.
@@ -94,9 +94,9 @@ slices:
 (slice_definitions_format_slices)=
 ### `slices`
 
-| Field    | Type              | Required |
-| -------- | ----------------- | -------- |
-| `slices` | `dict(str, dict)` | Required |
+| Field    | Type     | Required |
+| -------- | -------- | -------- |
+| `slices` | `object` | Required |
 
 Defines the slices of a package. 
 
@@ -128,9 +128,9 @@ slices:
 (slice_definitions_format_slices_essential)=
 ### `slices.<name>.essential`
 
-| Field       | Type        | Required | Supported values   |
-| ----------- | ----------- | -------- | ------------------ |
-| `essential` | `list(str)` | Optional | An existing slice. |
+| Field       | Type            | Required | Supported values   |
+| ----------- | --------------- | -------- | ------------------ |
+| `essential` | `array<string>` | Optional | An existing slice. |
 
 Lists the slices that are needed and that must be installed before the current slice.
 Slices in this list must be written in their full name
@@ -152,9 +152,9 @@ slices:
 (slice_definitions_format_slices_contents)=
 ### `slices.<name>.contents`
 
-| Field      | Type              | Required |
-| ---------- | ----------------- | -------- |
-| `contents` | `dict(str, dict)` | Optional |
+| Field      | Type     | Required |
+| ---------- | -------- | -------- |
+| `contents` | `object` | Optional |
 
 Describes the paths that come from this slice.
 
@@ -171,9 +171,9 @@ Also, paths can have wildcard characters (`?`, `*` and `**`), where
 (slice_definitions_format_slices_contents_copy)=
 ### `slices.<name>.contents.<path>.copy`
 
-| Field  | Type  | Required |
-| ------ | ----- | -------- |
-| `copy` | `str` | Optional |
+| Field  | Type     | Required |
+| ------ | -------- | -------- |
+| `copy` | `string` | Optional |
 
 The `copy` field refers to the path Chisel should copy the target path from.
 
@@ -193,9 +193,9 @@ must also be an absolute path with no wildcards.
 (slice_definitions_format_slices_contents_make)=
 ### `slices.<name>.contents.<path>.make`
 
-| Field  | Type   | Required | Supported values |
-| ------ | ------ | -------- | ---------------- |
-| `make` | `bool` | Optional | `true`, `false`  |
+| Field  | Type      | Required | Supported values |
+| ------ | --------- | -------- | ---------------- |
+| `make` | `boolean` | Optional | `true`, `false`  |
 
 If `make` is true, Chisel creates the specified directory path. Note that, the
 path must be an absolute directory path with a trailing `/`. If
@@ -214,9 +214,9 @@ This field is only applicable for paths with no wildcards.
 (slice_definitions_format_slices_contents_text)=
 ### `slices.<name>.contents.<path>.text`
 
-| Field  | Type  | Required |
-| ------ | ----- | -------- |
-| `text` | `str` | Optional |
+| Field  | Type     | Required |
+| ------ | -------- | -------- |
+| `text` | `string` | Optional |
 
 The `text` field instructs Chisel to create a text file with the specified
 value as the file content. If empty, Chisel creates an empty file of 0 bytes.
@@ -237,9 +237,9 @@ This field is only applicable for paths with no wildcards.
 (slice_definitions_format_slices_contents_symlink)=
 ### `slices.<name>.contents.<path>.symlink`
 
-| Field     | Type  | Required |
-| --------- | ----- | -------- |
-| `symlink` | `str` | Optional |
+| Field     | Type     | Required |
+| --------- | -------- | -------- |
+| `symlink` | `string` | Optional |
 
 The `symlink` field is used to create symbolic links. If specified, Chisel
 creates a symlink to the target path specified by the `symlink` value. The value
@@ -260,9 +260,9 @@ This field is only applicable for paths with no wildcards.
 (slice_definitions_format_slices_contents_mode)=
 ### `slices.<name>.contents.<path>.mode`
 
-| Field  | Type  | Required |
-| ------ | ----- | -------- |
-| `mode` | `int` | Optional |
+| Field  | Type      | Required |
+| ------ | --------- | -------- |
+| `mode` | `integer` | Optional |
 
 The `mode` field is used to specify the permission bits for any path Chisel
 creates. It takes in a 32 bit unsigned integer, preferably in an octal value
@@ -285,9 +285,9 @@ This field is only applicable for paths with no wildcards.
 (slice_definitions_format_slices_contents_arch)=
 ### `slices.<name>.contents.<path>.arch`
 
-| Field  | Type                 | Required | Supported values                                                 |
-| ------ | -------------------- | -------- | ---------------------------------------------------------------- |
-| `arch` | `str` or `list(str)` | Optional | `amd64`, `arm64`, `armhf`, `i386`, `ppc64el`, `riscv64`, `s390x` |
+| Field  | Type                        | Required | Supported values                                                 |
+| ------ | --------------------------- | -------- | ---------------------------------------------------------------- |
+| `arch` | `string` or `array<string>` | Optional | `amd64`, `arm64`, `armhf`, `i386`, `ppc64el`, `riscv64`, `s390x` |
 
 Used to specify the package architectures a path should be
 installed for. This field can take a single architecture string or a list, as its
@@ -306,9 +306,9 @@ In the following example, `/foo` will be installed for `i386` installations and
 (slice_definitions_format_slices_contents_mutable)=
 ### `slices.<name>.contents.<path>.mutable`
 
-| Field     | Type   | Required | Supported values |
-| --------- | ------ | -------- | ---------------- |
-| `mutable` | `bool` | Optional | `true`, `false`  |
+| Field     | Type      | Required | Supported values |
+| --------- | --------- | -------- | ---------------- |
+| `mutable` | `boolean` | Optional | `true`, `false`  |
 
 If `mutable` f set to `true`, indicates that this path can be later
 _mutated_ (modified) by the {{mutation_scripts}}.
@@ -317,16 +317,17 @@ _mutated_ (modified) by the {{mutation_scripts}}.
 (slice_definitions_format_slices_contents_until)=
 ### `slices.<name>.contents.<path>.until`
 
-| Field   | Type  | Required | Supported values |
-| ------- | ----- | -------- | ---------------- |
-| `until` | `str` | Optional | `mutate`         |
+| Field   | Type     | Required | Supported values |
+| ------- | -------- | -------- | ---------------- |
+| `until` | `string` | Optional | `mutate`         |
 
 The `until` field indicates that the path will be available until a certain
-event takes place. The file is eventually not installed in the final root file
-system.
+event takes place. The file is eventually removed as soon as no other slices need
+it.
 
-It currently accepts only one value - `mutate`. If specified, the path will only
-be available until the {{mutation_scripts}} execute, and is removed afterwards.
+It currently accepts only one value - `mutate`. If specified, it means the
+corresponding slice needs it to be available only until the {{mutation_scripts}}
+execute. It is removed afterwards.
 
 In the following example, `/file` will not be installed in the final root file
 system but will exist throughout the execution of the {{mutation_scripts}}.
@@ -340,9 +341,9 @@ system but will exist throughout the execution of the {{mutation_scripts}}.
 (slice_definitions_format_slices_contents_generate)=
 ### `slices.<name>.contents.<path>.generate`
 
-| Field      | Type  | Required | Supported values |
-| ---------- | ----- | -------- | ---------------- |
-| `generate` | `str` | Optional | `manifest`       |
+| Field      | Type     | Required | Supported values |
+| ---------- | -------- | -------- | ---------------- |
+| `generate` | `string` | Optional | `manifest`       |
 
 Used to specify the location where Chisel should produce metadata at. The path
 this field applies to must not have any other fields applied to it.
@@ -365,9 +366,9 @@ In the following example, Chisel creates the `/var/lib/chisel` directory with
 (slice_definitions_format_slices_mutate)=
 ### `slices.<name>.mutate`
 
-| Field    | Type  | Required | Supported values    |
-| -------- | ----- | -------- | ------------------- |
-| `mutate` | `str` | Optional | {{Starlark}} script |
+| Field    | Type     | Required | Supported values    |
+| -------- | -------- | -------- | ------------------- |
+| `mutate` | `string` | Optional | {{Starlark}} script |
 
 Describes a slice's mutation scripts. The mutation scripts are conceptually similar
 to [Debian's maintainer
@@ -381,11 +382,11 @@ slices.
 In addition to {{Starlark}}'s native syntax, Chisel introduces the following
 functions:
 
-| Function              | Return type | Description                                                      |
-| --------------------- | ----------- | ---------------------------------------------------------------- |
-| `content.list(d)`     | `list(str)` | Lists and returns directory `d`'s contents (similar to GNU `ls`) |
-| `content.read(f)`     | `str`       | Reads a text file `f` and returns its contents                   |
-| `content.write(f, s)` | -           | Writes the text content `s` to a file `f`                        |
+| Function              | Return type     | Description                                                      |
+| --------------------- | --------------- | ---------------------------------------------------------------- |
+| `content.list(d)`     | `array<string>` | Lists and returns directory `d`'s contents (similar to GNU `ls`) |
+| `content.read(f)`     | `string`        | Reads a text file `f` and returns its contents                   |
+| `content.write(f, s)` | -               | Writes the text content `s` to a file `f`                        |
 
 Reusing the above {ref}`"ca-certificates_data"<slice_definitions_format_slices>` example,
 Chisel initially creates the `/etc/ssl/certs/ca-certificates.crt` text file with `FIXME` as its content. When the mutation scripts execute, Chisel concatenates the contents of
