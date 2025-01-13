@@ -327,7 +327,7 @@ it.
 
 It currently accepts only one value - `mutate`. If specified, it means the
 corresponding slice needs it to be available only until the {{mutation_scripts}}
-execute. It is removed afterwards.
+execute. It is removed afterwards, if no slices need it.
 
 In the following example, `/file` will not be installed in the final root file
 system but will exist throughout the execution of the {{mutation_scripts}}.
