@@ -38,7 +38,7 @@ The {{hello_pkg}} package has already been sliced and its slice definitions are
 [available in the chisel-releases
 repository](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/hello.yaml). 
 
-Before running Chisel, creating the empty directory where the root file system should be
+Before running Chisel, create an empty directory where the root file system should be
 located:
 ```
 mkdir rootfs
@@ -101,7 +101,7 @@ rootfs/lib
 ```
 
 ````{note}
-Notice, however, that there are a few other files besides the `hello` binary.
+Notice that there are other files besides the `hello` binary.
 This is because the `hello_bins` slice depends on other slices, such as `libc6_libs`,
 which provides necessary runtime libraries:
 
@@ -123,7 +123,7 @@ When installing a slice, Chisel installs its dependencies as well.
 
 ## Test the application
 
-To run `hello` from the chiseled root file system, do the following:
+Run `hello` from the chiseled root file system to verify that it works:
 
 ```{terminal}
 :input: sudo chroot rootfs/ hello

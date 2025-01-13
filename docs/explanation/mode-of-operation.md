@@ -1,10 +1,12 @@
 (chisel_mo_explanation)=
-# How it works
+# How Chisel works
 
-The main purpose of Chisel is to create a slice of Ubuntu - a minimal root file system 
-comprising only the application and its runtime dependencies.
+The purpose of Chisel is to create a minimal Ubuntu root file system comprising
+only the application and its runtime dependencies. Chisel is especially useful
+for developers who are looking to create minimal and distroless-like container
+images.
 
-Such task can be accomplished with the {{cut_cmd}} command, whose workflow is depicted below:
+Chisel uses the {{cut_cmd}} to _slice_ Ubuntu packages, as depicted in the workflow below:
 
 <table style="width: 100%;">
   <colgroup>
