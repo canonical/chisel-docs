@@ -61,6 +61,7 @@ The Chisel project is sponsored by {{Canonical}}.
 
 - [Code of conduct](https://ubuntu.com/community/ethos/code-of-conduct)
 - [Contribute](https://github.com/canonical/chisel)
+- [Security policy](https://github.com/canonical/chisel/blob/main/SECURITY.md)
 
 
 ```{toctree}
