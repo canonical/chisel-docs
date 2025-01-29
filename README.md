@@ -34,35 +34,33 @@ Chisel documentation is built on top of [Sphinx starter pack] and hosted on
 To work on the project, you will need to have Python, `python3.12-venv`, and `make` packages.
 
 ```bash
-sudo apt install make
-sudo apt install python3
-sudo apt install python3.12-venv
+sudo apt install make python3 python3.12-venv
 ```
 
 
 ### Build documentation locally
 
-The [docs/](docs/) directory contains a couple of Makefiles. To see all possible
-`make` commands, run `make help`.
+The Makefile in the [docs/](docs/) directory contains many targets. To see all
+possible `make` commands, run `make help`.
 
 To watch, build and serve the document, run `make run`. To learn more, check
 out the [Sphinx starter pack website].
 
 
-### Submitting a Pull Request
+### Submit a pull request
 
-After submitting a Pull Request, a few Github workflows run automatically to
+After submitting a pull request, a few Github workflows run automatically to
 test the changes. If one of those fails, click on the failing workflow to see
 the logs to troubleshoot.
 
 Note: more tests will be added in the future.
 <!-- TODO: update the tests description once there are more -->
 
-After submitting a Pull Request, you changes will be reviewed by a project
+After submitting a pull request, you changes will be reviewed by a project
 maintainer.
 
 
-### Getting help
+### Get help
 
 If you are a new contributor to documentation in general and would like some
 guidance, you can check out the [Open Documentation Academy repository] or ask
