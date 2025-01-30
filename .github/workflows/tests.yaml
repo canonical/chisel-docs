@@ -16,9 +16,11 @@ concurrency:
 
 jobs:
   docs-check:
+    name: "Check docs"
     uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
     with:
       working-directory: "docs"
+      runs-on: ubuntu-latest
       fetch-depth: 0
 
   markdown-lint:
