@@ -40,6 +40,7 @@ repository](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slice
 
 Before running Chisel, create an empty directory where the root file system should be
 located:
+
 ```
 mkdir rootfs
 ```

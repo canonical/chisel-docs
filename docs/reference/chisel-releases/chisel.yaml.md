@@ -167,6 +167,7 @@ available in two archives, it is fetched from the archive with higher priority,
 unless the package's slice definitions file specifies {ref}`"archive"<slice_definitions_format_archive>`.
 
 Note that:
+
 - an unspecified `priority` field **does not** yield a 0 value, and
 - two archives cannot have the same `priority` value.
 
@@ -221,7 +222,7 @@ Although not enforced, the following `priority` values are suggested when
 | `public-keys` | `object` | Required |
 
 The top-level `public-keys` field is used to define OpenPGP public keys that are
-needed to verify the `InRelease` file signatures of the 
+needed to verify the `InRelease` file signatures of the
 {ref}`chisel_yaml_format_spec_archives`.
 
 For example:

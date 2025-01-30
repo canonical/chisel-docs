@@ -105,7 +105,7 @@ slices:
 | -------- | -------- | -------- |
 | `slices` | `object` | Required |
 
-Defines the slices of a package. 
+Defines the slices of a package.
 
 The slice names must consist only of lower case letters(`a-z`), digits(`0-9`)
 and minus (`-`) signs. They must be at least three characters long and must start
@@ -407,11 +407,12 @@ functions:
 | `content.read(f)`     | `string`        | Reads a text file `f` and returns its contents                   |
 | `content.write(f, s)` | -               | Writes the text content `s` to a file `f`                        |
 
-Reusing the above {ref}`"ca-certificates_data"<slice_definitions_format_slices>` example,
-Chisel initially creates the `/etc/ssl/certs/ca-certificates.crt` text file with `FIXME` as its content. When the mutation scripts execute, Chisel concatenates the contents of
-every file in the `/usr/share/ca-certificates/mozilla/` directory and writes the
-concatenated data to the previously created `/etc/ssl/certs/ca-certificates.crt`
-file.
+Reusing the above {ref}`"ca-certificates_data"<slice_definitions_format_slices>`
+example, Chisel initially creates the `/etc/ssl/certs/ca-certificates.crt` text
+file with `FIXME` as its content. When the mutation scripts execute, Chisel
+concatenates the contents of every file in the `/usr/share/ca-certificates/mozilla/`
+directory and writes the concatenated data to the previously created
+`/etc/ssl/certs/ca-certificates.crt` file.
 
 ```yaml
     contents:
