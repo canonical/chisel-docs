@@ -9,6 +9,7 @@ methods:
 
 
 (install_chisel_binary)=
+
 ## Install the binary
 
 We publish pre-built binaries for every version of Chisel on GitHub. To install
@@ -49,6 +50,7 @@ the latest Chisel binary:
 <!-- End: Install Chisel binary -->
 
 (install_chisel_source)=
+
 ## Install from source
 
 Alternatively, you can install the latest version of Chisel from source:
@@ -67,6 +69,7 @@ Alternatively, you can install the latest version of Chisel from source:
 
 
 (install_chisel_snap)=
+
 ## Install Snap
 
 You can also install the latest version of Chisel from the Snap store. Run the

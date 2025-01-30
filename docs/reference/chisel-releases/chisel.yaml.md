@@ -1,4 +1,5 @@
 (chisel_yaml_ref)=
+
 # chisel.yaml
 
 The `chisel.yaml` file defines various configuration values for Chisel,
@@ -6,6 +7,7 @@ for a given _chisel-release_.
 
 
 (chisel_yaml_location)=
+
 ## Location
 
 The file must be placed in the root level of a {ref}`chisel-releases_ref`
@@ -13,9 +15,11 @@ directory.
 
 
 (chisel_yaml_format_spec)=
+
 ## Format specification
 
 (chisel_yaml_format_spec_format)=
+
 ### `format`
 
 | Field    | Type     | Required | Supported values |
@@ -36,6 +40,7 @@ introduce disruptive changes to the previous formats.
 
 
 (chisel_yaml_format_spec_archives)=
+
 ### `archives`
 
 | Field      | Type     | Required |
@@ -73,6 +78,7 @@ otherwise, the archive point to the Ubuntu Pro archives listed
 
 
 (chisel_yaml_format_spec_archives_default)=
+
 ### `archives.<name>.default`
 
 | Field     | Type      | Required                                                                                            | Supported values |
@@ -93,6 +99,7 @@ so use {ref}`chisel_yaml_format_spec_archives_priority` instead.
 
 
 (chisel_yaml_format_spec_archives_version)=
+
 ### `archives.<name>.version`
 
 | Field     | Type     | Required | Supported values                                        |
@@ -105,6 +112,7 @@ the archive behaviour.
 
 
 (chisel_yaml_format_spec_archives_suites)=
+
 ### `archives.<name>.suites`
 
 | Field    | Type            | Required | Supported values                                              |
@@ -117,6 +125,7 @@ guide](https://canonical-ubuntu-packaging-guide.readthedocs-hosted.com/en/latest
 
 
 (chisel_yaml_format_spec_archives_components)=
+
 ### `archives.<name>.components`
 
 | Field        | Type            | Required | Supported values                                   |
@@ -132,6 +141,7 @@ locate packages.
 
 
 (chisel_yaml_format_spec_archives_public_keys)=
+
 ### `archives.<name>.public-keys`
 
 | Field         | Type            | Required | Supported values                                                            |
@@ -144,6 +154,7 @@ file signatures. These key names must be defined in
 
 
 (chisel_yaml_format_spec_archives_priority)=
+
 ### `archives.<name>.priority`
 
 | Field      | Type      | Required                                         | Supported values                   |
@@ -156,11 +167,13 @@ available in two archives, it is fetched from the archive with higher priority,
 unless the package's slice definitions file specifies {ref}`"archive"<slice_definitions_format_archive>`.
 
 Note that:
+
 - an unspecified `priority` field **does not** yield a 0 value, and
 - two archives cannot have the same `priority` value.
 
 
 (chisel_yaml_format_spec_archives_pro)=
+
 ### `archives.<name>.pro`
 
 | Field | Type     | Required | Supported values                                 |
@@ -201,6 +214,7 @@ Although not enforced, the following `priority` values are suggested when
 ```
 
 (chisel_yaml_format_spec_public_keys)=
+
 ### `public-keys`
 
 | Field         | Type     | Required |
@@ -208,7 +222,7 @@ Although not enforced, the following `priority` values are suggested when
 | `public-keys` | `object` | Required |
 
 The top-level `public-keys` field is used to define OpenPGP public keys that are
-needed to verify the `InRelease` file signatures of the 
+needed to verify the `InRelease` file signatures of the
 {ref}`chisel_yaml_format_spec_archives`.
 
 For example:
@@ -230,6 +244,7 @@ The key names are then referenced in
 
 
 (chisel_yaml_format_spec_public_keys_id)=
+
 ### `public-keys.<name>.id`
 
 | Field | Type     | Required |
@@ -242,6 +257,7 @@ fingerprint in {ref}`chisel_yaml_format_spec_public_keys_armor`.
 
 
 (chisel_yaml_format_spec_public_keys_armor)=
+
 ### `public-keys.<name>.armor`
 
 | Field   | Type     | Required |
@@ -253,6 +269,7 @@ key.
 
 
 (chisel_yaml_example)=
+
 ## Example
 
 The following `chisel.yaml` is used in Ubuntu 24.04 (Noble) release:

@@ -1,4 +1,5 @@
 (cut_command_reference)=
+
 # cut command
 
 The **cut** command uses the provided selection of package slices to create a

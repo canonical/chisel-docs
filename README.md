@@ -15,6 +15,7 @@ Documentation pages for Chisel.
 ## Contribution guides
 
 Prior to contributing, you must -
+
 - read and get acquainted with the [Ubuntu Code of Conduct] and
 - sign the [Canonical contributor license agreement].
 

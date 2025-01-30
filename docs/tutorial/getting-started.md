@@ -1,8 +1,8 @@
 # Getting started with Chisel
 
 This tutorial will walk you through the creation of your first
-chiseled Ubuntu root filesystem, from installation to the slicing of
-Ubuntu packages. 
+chiseled Ubuntu root file system, from installation to the slicing of
+Ubuntu packages.
 
 The goal is to give you a basic understanding of what Chisel is and
 how to use it to install {{package_slices}}. By the end of it,
@@ -36,10 +36,11 @@ To install the latest Chisel binary:
 
 The {{hello_pkg}} package has already been sliced and its slice definitions are
 [available in the chisel-releases
-repository](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/hello.yaml). 
+repository](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/hello.yaml).
 
 Before running Chisel, create an empty directory where the root file system should be
 located:
+
 ```
 mkdir rootfs
 ```
@@ -136,4 +137,4 @@ Hello, world!
 
 See what other [](/reference/cmd/index) are there, and have a look at
 the {ref}`how_to_guides` for learning about other typical
-Chisel operations. 
+Chisel operations.
