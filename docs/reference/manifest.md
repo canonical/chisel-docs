@@ -87,7 +87,7 @@ Where:
 | --------- | -------- | -------- | ------------------------------------------------------------- |
 | `kind`    | `string` | Required | Type of JSON object -- must always be `package` for packages. |
 | `name`    | `string` | Required | Name of the package.                                          |
-| `version` | `string` | Required | Cersion of the package.                                       |
+| `version` | `string` | Required | Version of the package.                                       |
 | `sha256`  | `string` | Required | Digest of the package (in hex format).                        |
 | `arch`    | `string` | Required | Architecture of the package.                                  |
 
