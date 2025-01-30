@@ -1,4 +1,5 @@
 (slice_definitions_ref)=
+
 # Slice definitions
 
 {ref}`Slices <slices_explanation>` are described in slice definitions files (aka SDFs).
@@ -6,6 +7,7 @@ These are YAML files, named after the package name.
 
 
 (slice_definitions_location)=
+
 ## Location
 
 The slice definitions files are located in the `slices/` directory of
@@ -20,9 +22,11 @@ Although the `hello.yaml` file can be placed in a sub-directory of `slices/` e.g
 
 
 (slice_definitions_format)=
+
 ## Format specification
 
 (slice_definitions_format_package)=
+
 ### `package`
 
 | Field     | Type     | Required |
@@ -41,6 +45,7 @@ package: hello
 
 
 (slice_definitions_format_archive)=
+
 ### `archive`
 
 | Field     | Type     | Required | Supported values                                                      |
@@ -63,6 +68,7 @@ archive: ubuntu
 
 
 (slice_definitions_format_essential)=
+
 ### `essential`
 
 | Field       | Type            | Required | Supported values   |
@@ -92,6 +98,7 @@ slices:
 
 
 (slice_definitions_format_slices)=
+
 ### `slices`
 
 | Field    | Type     | Required |
@@ -126,6 +133,7 @@ slices:
 
 
 (slice_definitions_format_slices_essential)=
+
 ### `slices.<name>.essential`
 
 | Field       | Type            | Required | Supported values   |
@@ -150,6 +158,7 @@ slices:
 
 
 (slice_definitions_format_slices_contents)=
+
 ### `slices.<name>.contents`
 
 | Field      | Type     | Required |
@@ -169,6 +178,7 @@ Also, paths can have wildcard characters (`?`, `*` and `**`), where
 ```
 
 (slice_definitions_format_slices_contents_copy)=
+
 ### `slices.<name>.contents.<path>.copy`
 
 | Field  | Type     | Required |
@@ -191,6 +201,7 @@ must also be an absolute path with no wildcards.
 ```
 
 (slice_definitions_format_slices_contents_make)=
+
 ### `slices.<name>.contents.<path>.make`
 
 | Field  | Type      | Required | Supported values |
@@ -212,6 +223,7 @@ This field is only applicable for paths with no wildcards.
 ```
 
 (slice_definitions_format_slices_contents_text)=
+
 ### `slices.<name>.contents.<path>.text`
 
 | Field  | Type     | Required |
@@ -235,6 +247,7 @@ This field is only applicable for paths with no wildcards.
 ```
 
 (slice_definitions_format_slices_contents_symlink)=
+
 ### `slices.<name>.contents.<path>.symlink`
 
 | Field     | Type     | Required |
@@ -258,6 +271,7 @@ This field is only applicable for paths with no wildcards.
 ```
 
 (slice_definitions_format_slices_contents_mode)=
+
 ### `slices.<name>.contents.<path>.mode`
 
 | Field  | Type      | Required |
@@ -283,6 +297,7 @@ This field is only applicable for paths with no wildcards.
 ```
 
 (slice_definitions_format_slices_contents_arch)=
+
 ### `slices.<name>.contents.<path>.arch`
 
 | Field  | Type                        | Required | Supported values                                                 |
@@ -304,6 +319,7 @@ In the following example, `/foo` will be installed for `i386` installations and
 
 
 (slice_definitions_format_slices_contents_mutable)=
+
 ### `slices.<name>.contents.<path>.mutable`
 
 | Field     | Type      | Required | Supported values |
@@ -315,6 +331,7 @@ _mutated_ (modified) by the {{mutation_scripts}}.
 
 
 (slice_definitions_format_slices_contents_until)=
+
 ### `slices.<name>.contents.<path>.until`
 
 | Field   | Type     | Required | Supported values |
@@ -339,6 +356,7 @@ system but will exist throughout the execution of the {{mutation_scripts}}.
 
 
 (slice_definitions_format_slices_contents_generate)=
+
 ### `slices.<name>.contents.<path>.generate`
 
 | Field      | Type     | Required | Supported values |
@@ -364,6 +382,7 @@ In the following example, Chisel creates the `/var/lib/chisel` directory with
 
 
 (slice_definitions_format_slices_mutate)=
+
 ### `slices.<name>.mutate`
 
 | Field    | Type     | Required | Supported values    |
@@ -412,6 +431,7 @@ and the files inside are not present in the final root file system.
 
 
 (slice_definitions_example)=
+
 ## Example
 
 The slice definitions files can be found in the {{chisel_releases_repo}}, or

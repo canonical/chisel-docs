@@ -1,4 +1,5 @@
 (chisel_mo_explanation)=
+
 # How Chisel works
 
 The purpose of Chisel is to create a minimal Ubuntu root file system comprising

@@ -1,4 +1,5 @@
 (chisel_manifest_ref)=
+
 # Chisel Manifest
 
 The Chisel manifest is a ZSTD-compressed file which lists the metadata about
@@ -13,6 +14,7 @@ generators and vulnerability scanners) can work with.
 
 
 (chisel_manifest_location)=
+
 ## Location of the manifest
 
 Chisel manifests may be generated anywhere in the newly created root file system.
@@ -25,6 +27,7 @@ path. If there are multiple paths of this kind being installed, a manifest will 
 created in each one of them.
 
 (chisel_manifest_pre-defined_location)=
+
 ### Pre-defined location
 
 There is a pre-defined slice named `base-files_chisel` that is available in all
@@ -45,6 +48,7 @@ Installing the `base-files_chisel` slice produces a manifest at
 
 
 (chisel_manifest_format)=
+
 ## Manifest format
 
 The uncompressed manifest is a "jsonwall" file. This is a custom database file
@@ -54,6 +58,7 @@ according to the "kind" of object, to optimize for searching and iterating over 
 
 
 (chisel_manifest_jsonwall_header)=
+
 ### Header
 
 The "jsonwall" header is a single JSON object on the first line of the file. For example:
@@ -72,6 +77,7 @@ Where:
 
 
 (chisel_manifest_packages)=
+
 ### Packages
 
 For each package installed, a JSON object with `"kind":"package"` is present in
@@ -93,6 +99,7 @@ Where:
 
 
 (chisel_manifest_slices)=
+
 ### Slices
 
 For each slice installed in the file system, a JSON object with `"kind":"slice"`
@@ -111,6 +118,7 @@ Where:
 
 
 (chisel_manifest_paths)=
+
 ### Paths
 
 For each path (file, directory, symlink, etc.) that Chisel installs in the file
@@ -139,6 +147,7 @@ Where:
 
 
 (chisel_manifest_list_of_paths_in_slice)=
+
 ### List of {ref}`Paths<chisel_manifest_paths>` under a Slice
 
 To state the paths that a slice has added/modified, JSON objects with
