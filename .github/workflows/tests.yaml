@@ -30,3 +30,6 @@ jobs:
     - uses: DavidAnson/markdownlint-cli2-action@v19
       with:
         config: "docs/.sphinx/.markdownlint.json"
+        globs: |
+          **/*.{md,markdown}
+          ! docs/.sphinx/**
