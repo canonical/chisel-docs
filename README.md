@@ -12,7 +12,7 @@ Documentation pages for Chisel.
 - [chisel-releases] - collection of package slice definitions
 
 
-## Documentation contribution guide
+## Contribution guides
 
 Prior to contributing, you must -
 - read and get acquainted with the [Ubuntu Code of Conduct] and
