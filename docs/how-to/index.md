@@ -16,3 +16,14 @@ yourself.
 
 install-chisel
 ```
+
+## Creating a chiselled Docker image
+
+Since Chisel can produce a minimal root file system, using it in Docker images
+has lots of value.
+
+```{toctree}
+:maxdepth: 1
+
+create-chiselled-docker-image
+```
