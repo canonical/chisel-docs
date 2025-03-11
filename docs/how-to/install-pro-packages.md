@@ -1,6 +1,6 @@
 (install_pro_packages)=
 
-# How to install Ubuntu Pro packages
+# Install Ubuntu Pro package slices
 
 This guide explains how to fetch and install {{ubuntu_pro}} package slices using
 Chisel.
@@ -10,17 +10,16 @@ Chisel.
 
 ## Pre-requisites
 
-To install Ubuntu Pro packages, you must have an {{ubuntu_pro}} subscription.
-See {{ubuntu_pro_docs}}.
+You must have an {{ubuntu_pro}} subscription. See {{ubuntu_pro_docs}}.
 
 
 (install_pro_packages_configure_archives)=
 
 ## Configure archive definitions
 
-To fetch and install Pro packages, you need to define the Pro archives. Chisel
-uses the {ref}`chisel_yaml_format_spec_archives_pro` field to define a Pro
-archive.
+To fetch and install Pro package slices, you need to define the Pro archives.
+Chisel uses the {ref}`chisel_yaml_format_spec_archives_pro` field to define a
+Pro archive.
 
 ```yaml
 # chisel.yaml
@@ -36,7 +35,9 @@ archives:
   :end-before:  <!-- End: Supported Pro values -->
 ```
 
-You may define multiple (Pro) archives. In that case, you must use the
+### Configuring multiple archives
+
+You may define multiple archives. Use the
 {ref}`chisel_yaml_format_spec_archives_priority` field to specify archive
 priorities.
 
@@ -53,7 +54,7 @@ priorities.
 
 If the system is using the [Pro client] and the services are enabled, the
 credentials will be automatically picked up from `/etc/apt/auth.conf.d/`.
-However, the default permissions of the credentials file(s) need to be changed
+However, you must change the default permissions of the credentials file(s)
 so that Chisel can read it.
 
 ```sh
@@ -76,7 +77,7 @@ Chisel will fail if it does not have read access to the credentials.
 
 (install_pro_packages_example)=
 
-## Example
+## Example of `chisel.yaml` with Pro archive definitions
 
 The following archive definitions are taken from the `chisel.yaml` file of
 `ubuntu-20.04` release of the {{chisel_releases_repo}}.
