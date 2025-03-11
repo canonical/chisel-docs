@@ -14,6 +14,7 @@ do. Let's consider a Python 3 image, which contains a Python 3 interpreter and
 is able to run Python 3 scripts and commands.
 
 Goals:
+
 - The [image entrypoint] must be `python3`.
 - The image must be chiselled i.e. there must not be anything else.
 - The image must be able to run Python 3 scripts.
@@ -22,6 +23,7 @@ Goals:
 To build this image, we will use [multi-stage docker builds].
 
 In earlier stage(s),
+
 1. We will install Chisel and other dependencies that we may
 need.
 2. We will install the slices using Chisel and prepare a root file system.
