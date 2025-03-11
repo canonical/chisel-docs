@@ -12,10 +12,12 @@ armored
 basename
 chiseled
 distroless
+entrypoint
 esm
 fips
 http
 https
+initialize
 jsonwall
 optimize
 recognized
