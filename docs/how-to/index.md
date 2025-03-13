@@ -16,3 +16,15 @@ yourself.
 
 install-chisel
 ```
+
+## Ubuntu Pro
+
+Chisel supports fetching and installing {{ubuntu_pro}} package slices from the ESM
+archives. These guides provide more hands-on information on how to use Chisel
+with Ubuntu Pro.
+
+```{toctree}
+:maxdepth: 1
+
+install-pro-packages
+```
