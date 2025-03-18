@@ -1,11 +1,14 @@
 AGPL
 Armored
+GID
 Levenshtein
 OpenPGP
+PPAs
 SBOM
 SDFs
 Starlark
 Subcommands
+UID
 ZSTD
 armor
 armored
