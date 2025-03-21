@@ -23,9 +23,8 @@ In earlier stage(s), we will
 2. install the slices, using Chisel, into a staging area.
 
 Finally, we will copy the staging area's root file system to the `/` directory
-in the final stage. The final stage's base image will be [`scratch`], i.e.
-nothing. Thus, the image only contains the root file system installed by Chisel
-and nothing else.
+in the final stage. The final stage's base image will be [`scratch`]. Thus, the
+image only contains the root file system installed by Chisel and nothing else.
 
 
 ## Write the Dockerfile

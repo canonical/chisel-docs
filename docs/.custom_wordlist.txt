@@ -1,5 +1,6 @@
 AGPL
 Armored
+Dockerfile
 Levenshtein
 OpenPGP
 SBOM
@@ -14,6 +15,7 @@ chiseled
 distroless
 entrypoint
 esm
+favorite
 fips
 http
 https
