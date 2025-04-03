@@ -82,7 +82,6 @@ along with a few others:
 - `base-files_base` for file structure.
 - `base-files_release-info` for release info.
 - `base-files_chisel` for the chisel manifest.
-- `base-passwd_data` slice for users and groups.
 - `ca-certificates_data` for network support.
 
 ```docker
@@ -91,9 +90,17 @@ RUN mkdir /staging-rootfs \
         base-files_base \
         base-files_release-info \
         base-files_chisel \
-        base-passwd_data \
         ca-certificates_data \
         python3_standard
+```
+
+Next, let's copy the `/etc/passwd` and `/etc/group` files to the installed root
+file system to use the existing `ubuntu` user. We will also create a working
+directory for the user, per the `/etc/passwd` file.
+
+```docker
+RUN cp /etc/passwd /etc/group /staging-rootfs/etc \
+    && install -o ubuntu -g ubuntu -d /staging-rootfs/home/ubuntu
 ```
 
 
@@ -106,6 +113,16 @@ file system (`/staging-rootfs`) from the previous stage.
 FROM scratch
 
 COPY --from=builder /staging-rootfs /
+```
+
+
+### Set user and working directory
+
+Now we will set the `USER` to `ubuntu` and the `WORKDIR` to `/home/ubuntu`.
+
+```docker
+USER ubuntu
+WORKDIR /home/ubuntu
 ```
 
 
@@ -145,13 +162,19 @@ RUN mkdir /staging-rootfs \
         base-files_base \
         base-files_release-info \
         base-files_chisel \
-        base-passwd_data \
         ca-certificates_data \
         python3_standard
+
+RUN cp /etc/passwd /etc/group /staging-rootfs/etc \
+    && install -o ubuntu -g ubuntu -d /staging-rootfs/home/ubuntu
+
 
 FROM scratch
 
 COPY --from=builder /staging-rootfs /
+
+USER ubuntu
+WORKDIR /home/ubuntu
 
 ENTRYPOINT ["python3"]
 ```
@@ -171,6 +194,11 @@ Python 3.12.3 (main, Feb  4 2025, 14:48:35) [GCC 13.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> print('Hello world!')
 Hello world!
+>>> import os
+>>> os.getuid()
+1000
+>>> os.getcwd()
+'/home/ubuntu'
 >>> exit()
 ```
 
