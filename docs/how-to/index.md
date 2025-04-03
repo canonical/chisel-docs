@@ -16,3 +16,14 @@ yourself.
 
 install-chisel
 ```
+
+## Creating a chiseled container image
+
+Chiseled file systems are ideal for creating minimal and distroless-like
+container images.
+
+```{toctree}
+:maxdepth: 1
+
+use-chisel-in-dockerfile
+```

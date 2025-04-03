@@ -1,5 +1,6 @@
 AGPL
 Armored
+Dockerfile
 GID
 Levenshtein
 OpenPGP
@@ -15,10 +16,13 @@ armored
 basename
 chiseled
 distroless
+entrypoint
 esm
+favorite
 fips
 http
 https
+initialize
 jsonwall
 optimize
 recognized
