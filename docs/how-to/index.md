@@ -27,3 +27,15 @@ container images.
 
 use-chisel-in-dockerfile
 ```
+
+
+## Creating a slice definition
+
+Creating slice definitions can be simple and fun. Make sure to follow the best
+practices.
+
+```{toctree}
+:maxdepth: 1
+
+create-a-slice-definition
+```
