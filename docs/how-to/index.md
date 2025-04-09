@@ -37,5 +37,5 @@ with Ubuntu Pro.
 ```{toctree}
 :maxdepth: 1
 
-install-pro-packages
+install-pro-package-slices
 ```

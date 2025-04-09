@@ -19,14 +19,20 @@ You must have an {{ubuntu_pro}} subscription. See {{ubuntu_pro_docs}}.
 
 To fetch and install Pro package slices, you need to define the Pro archives.
 Chisel uses the {ref}`chisel_yaml_format_spec_archives_pro` field to define a
-Pro archive.
+Pro archive and {ref}`chisel_yaml_format_spec_archives_priority` field to
+specify the priority of multiple archives defined.
 
 ```yaml
 # chisel.yaml
 format: v1
 archives:
-  <name>:
+  <name-1>:
     pro: <supported-pro-value>
+    priority: <value-1>
+    ...
+  <name-2>:
+    pro: <supported-pro-value>
+    priority: <value-2>
     ...
 ```
 
@@ -34,12 +40,6 @@ archives:
   :start-after: <!-- Start: Supported Pro values -->
   :end-before:  <!-- End: Supported Pro values -->
 ```
-
-### Configuring multiple archives
-
-You may define multiple archives. Use the
-{ref}`chisel_yaml_format_spec_archives_priority` field to specify archive
-priorities.
 
 ```{tip}
 ```{include} /reference/chisel-releases/chisel.yaml.md
