@@ -6,5 +6,4 @@
 cmd/index
 chisel-releases/index
 Manifest <manifest>
-faq
 ```
