@@ -11,7 +11,10 @@ ZSTD
 armor
 armored
 basename
+behavior
 chiseled
+conffiles
+config
 distroless
 entrypoint
 esm
@@ -21,6 +24,8 @@ http
 https
 initialize
 jsonwall
+manpages
+openssl
 optimize
 recognized
 runtime
@@ -28,6 +33,7 @@ schemas
 subcommand
 subcommands
 symlink
+symlinks
 ubuntu
 whitespace
 yaml
