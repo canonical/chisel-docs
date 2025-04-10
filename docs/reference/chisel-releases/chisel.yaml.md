@@ -190,6 +190,8 @@ To chisel a Pro package you need to have a Pro-enabled host.
 Chisel reads the Pro archives' credentials from the directory defined by the
 environment variable `CHISEL_AUTH_DIR` (which defaults to `/etc/apt/auth.conf.d`).
 
+<!-- Start: Supported Pro values -->
+
 The following `pro` values are supported, and if specified, the
 archive points to their corresponding base URLs.
 
@@ -200,7 +202,11 @@ archive points to their corresponding base URLs.
 | `esm-apps`     | https://esm.ubuntu.com/apps/ubuntu         |
 | `esm-infra`    | https://esm.ubuntu.com/infra/ubuntu        |
 
+<!-- End: Supported Pro values -->
+
 ```{tip}
+<!-- Start: Suggested Priority values -->
+
 Although not enforced, the following `priority` values are suggested when
 `pro` is used:
 
@@ -211,6 +217,8 @@ Although not enforced, the following `priority` values are suggested when
 | `esm-apps`                                                                         | 16                   |
 | `esm-infra`                                                                        | 15                   |
 | `""` (empty, indicates a {ref}`non-Pro archive<chisel_yaml_format_spec_archives>`) | 10                   |
+
+<!-- End: Suggested Priority values -->
 ```
 
 (chisel_yaml_format_spec_public_keys)=
