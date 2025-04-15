@@ -1,15 +1,18 @@
 AGPL
 Armored
 Dockerfile
+GID
 Levenshtein
 OpenPGP
 OpenSSL
 OpenSSL's
+PPAs
 SBOM
 SDF
 SDFs
 Starlark
 Subcommands
+UID
 ZSTD
 amd64
 analyze
@@ -35,6 +38,7 @@ openssl
 optimize
 recognized
 repo
+rootfs
 runtime
 schemas
 subcommand
