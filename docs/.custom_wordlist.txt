@@ -1,12 +1,15 @@
 AGPL
 Armored
 Dockerfile
+GID
 Levenshtein
 OpenPGP
+PPAs
 SBOM
 SDFs
 Starlark
 Subcommands
+UID
 ZSTD
 armor
 armored
@@ -28,6 +31,7 @@ manpages
 openssl
 optimize
 recognized
+rootfs
 runtime
 schemas
 subcommand
