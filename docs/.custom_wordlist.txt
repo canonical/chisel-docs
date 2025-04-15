@@ -14,6 +14,7 @@ Starlark
 Subcommands
 UID
 ZSTD
+amd
 amd64
 analyze
 armor
