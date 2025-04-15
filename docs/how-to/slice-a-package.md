@@ -145,7 +145,7 @@ dependencies.
 
 ## Design the slices
 
-Your second taks is to **design the slices**. There are a few
+Your second task is to **design the slices**. There are a few
 considerations to be made, such as figuring out what slices we need and the
 contents of those slices.
 
@@ -159,7 +159,7 @@ There are **two schools of thought** when designing slices:
   - Group by function
 * - This means putting all the binaries together in one slice, all the
   libraries together in another slice, and so on.
-  A good example is the [`dpkg` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-24.10/slices/dpkg.yaml).
+  A good example is the [`dpkg` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/dpkg.yaml).
     ```{tip}
     In this case, the best practice is to create:
     - a `bins` slice which contains all the binaries,
@@ -190,7 +190,7 @@ There are **two schools of thought** when designing slices:
 ```{important}
 **Every slice** must install the package's copyright file(s).
 
-It is therefore recommeded to create a `copyright` slice for every package, that
+It is therefore recommended to create a `copyright` slice for every package, that
 other slices can depend on.
 ```
 
@@ -373,7 +373,7 @@ other slices can depend on.
 
     By running `chisel info --release ubuntu-24.10 libc6 libssl3t64` we can
     confirm that these two OpenSSL's package dependencies are already sliced.
-    So the finall `bins` slice will look like this:
+    So the final `bins` slice will look like this:
 
     ```yaml
     slices:
@@ -456,7 +456,7 @@ other slices can depend on.
 
     </details>
 
-16. [ ] **Repeat for inexisting package slices**
+16. [ ] **Repeat for nonexistent package slices**
 
     If any of the dependencies are not sliced yet, repeat the above design
     process for them too.
