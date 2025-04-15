@@ -37,5 +37,5 @@ practices.
 ```{toctree}
 :maxdepth: 1
 
-create-a-slice-definition
+slice-a-package
 ```
