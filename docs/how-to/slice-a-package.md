@@ -116,7 +116,11 @@ indicated by the package.
 
       Since Chisel doesn't remove files, we can focus on only the `preinst` and
       `postinst` scripts. Whatever these scripts do, you should aim to reproduce
-      when defining the slices.
+      when defining the slices. In Chisel, such scripts are called "mutation
+      scripts", and are written in
+      [Starlark](https://github.com/canonical/starlark/).
+
+      ```{note}
 
       <details>
 
