@@ -199,13 +199,6 @@ There are **two schools of thought** when designing slices:
     ```
 ```
 
-```{important}
-**Every slice** must install the package's copyright file(s).
-
-It is therefore recommended to create a `copyright` slice for every package, that
-other slices can depend on.
-```
-
 6. [ ] **Choose the design approach that aligns best with your package**
 
     Given the {ref}`above package inspection <create_sdf_inspect_pkg>`, the
@@ -216,6 +209,13 @@ other slices can depend on.
      - a `config` slice for the {ref}`configuration files <create_sdf_inspect_pkg_conffiles>`,
      - a `data` slice for the package's certificates files, and
      - a `copyright` slice for the copyright file.
+
+```{important}
+**Every slice** must install the package's copyright file(s).
+
+It is therefore recommended to create a `copyright` slice for every package, that
+other slices can depend on.
+```
 
 7. [ ] **Prepare to write the slice definitions**
 
