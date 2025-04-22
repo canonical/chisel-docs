@@ -250,7 +250,9 @@ html_css_files = [
 
 # Adds custom JavaScript files, located under 'html_static_path'
 
-# html_js_files = []
+html_js_files = [
+    "js/checkbox.js",
+]
 
 
 # Specifies a reST snippet to be appended to each .rst file
