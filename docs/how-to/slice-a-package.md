@@ -300,8 +300,8 @@ other slices can depend on.
     anything that can be considered as application data.
 
     For the OpenSSL package, notice the `/etc/ssl/certs/` and
-    `/etc/ssl/private/` directories among its files. These are locations where
-    certificates are supposed to be stored. There is also a symbolic link from
+    `/etc/ssl/private/` directories among its files. These are locations contain
+    certificates. There is also a symbolic link from
     `/usr/lib/ssl/cert.pem` to `/etc/ssl/certs/ca-certificates.crt` that we
     need to include in this slice.
 
