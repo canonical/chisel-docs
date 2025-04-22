@@ -89,12 +89,14 @@ indicated by the package.
 
 4. [ ] [**Inspect the package metadata**]{#create_sdf_inspect_pkg_control}
 
-    The package metadata files include the [`control` file] (which you can use
-    to re-check the package dependencies you got from above),
-    [maintainer scripts], and [`conffiles`] file.
+    The package metadata files include:
+    - the [`control` file] (which you can use
+    to double-check the package dependencies you got from above),
+    - [maintainer scripts], and
+    - [`conffiles`] file.
 
-    Extract them from the previously downloaded `.deb` via `dpkg -e openss*.deb`.
-    This command will extract the metadata files into a new `DEBIAN/` directory.
+    Run `dpkg -e openss*.deb` to extract the metadata files into a new
+    `DEBIAN/` directory for inspection.
 
    1. [ ] [**Inspect package [`conffiles`] file**]{#create_sdf_inspect_pkg_conffiles}
 
