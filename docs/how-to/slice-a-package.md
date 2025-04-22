@@ -495,7 +495,7 @@ A slice definition is only complete when it has been tested.
 As a manual test, you can just install your slices into an empty folder, and test your application with `chroot`.
 
 But for upstream contributions, you must also add integration tests in the form
-of Spread tasks.
+of [Spread tasks](https://github.com/canonical/spread).
 
 17. [ ] **Install the `openssl_bins` locally**
 
