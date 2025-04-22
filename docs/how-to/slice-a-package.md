@@ -1,6 +1,6 @@
 # Slice a package
 
-This guide provides instructions on the slicing of an Ubuntu package, for
+This guide provides instructions on the slicing of an Ubuntu package for
 Chisel.
 
 A package slice is represented via a
@@ -15,9 +15,11 @@ Ubuntu 24.10**.
 
 ## Inspect the package
 
-Your first task is to **understand the package** to be sliced. Packages have
-dependencies, and when you slice them, each slice may only need a subset of said
-dependencies.
+Your first task is to **understand the package** to be sliced. Packages are primarily
+composed of files for installation and may reference additional packages as dependencies such as
+libraries or other resources. During the slicing process, we identify subsets of files in a package 
+which can be installed alone to accomplish one or more tasks. Consequently, the dependencies 
+required for this slice may be a subset of the dependencies indicated by the package.```
 
 1. [ ] **Is it an Ubuntu package?**
 
@@ -300,7 +302,7 @@ other slices can depend on.
     anything that can be considered as application data.
 
     For the OpenSSL package, notice the `/etc/ssl/certs/` and
-    `/etc/ssl/private/` directories in the. These are locations where
+    `/etc/ssl/private/` directories among its files. These are locations where
     certificates are supposed to be stored. There is also a symbolic link from
     `/usr/lib/ssl/cert.pem` to `/etc/ssl/certs/ca-certificates.crt` that we
     need to include in this slice.
