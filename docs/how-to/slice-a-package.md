@@ -47,7 +47,7 @@ indicated by the package.
 
     <details>
 
-    <summary>Snippet of the OpenSSL's contents in Ubuntu 24.10, for amd64</summary>
+    <summary>Example: OpenSSL's contents in Ubuntu 24.10, for amd64</summary>
 
     ```{terminal}
     :input: dpkg -c openssl_3.3.1-2ubuntu2.1_amd64.deb
@@ -105,7 +105,7 @@ indicated by the package.
 
       <details>
 
-      <summary>Snippet of the OpenSSL's conffiles</summary>
+      <summary>Example: OpenSSL's conffiles</summary>
 
       ```{terminal}
       :input: cat DEBIAN/conffiles
@@ -122,11 +122,9 @@ indicated by the package.
       scripts", and are written in
       [Starlark](https://github.com/canonical/starlark/).
 
-      ```{note}
-
       <details>
 
-      <summary>Analysing OpenSSL's maintainer scripts</summary>
+      <summary>Example: OpenSSL's maintainer scripts</summary>
 
       From the `postinst` script, we see:
 
@@ -231,14 +229,6 @@ other slices can depend on.
 
    Create a new file in the `slices/` directory, named after the package you
    are slicing. For example, `openssl.yaml`.
-
-   <details>
-   <summary>Snippet of the slices/openssl.yaml file</summary>
-
-   ```yaml
-   package: openssl
-   slices:
-   ```
 
 9. [ ] **Specify `package` name**
 
@@ -440,8 +430,7 @@ other slices can depend on.
      slice while keeping the resulting paths specific to the package. See
      {ref}`create_sdf_examples`.
 
-    <details>
-    <summary>The complete slices/openssl.yaml file</summary>
+    The complete `slices/openssl.yaml` file should look something like this:
 
     ```yaml
     package: openssl
@@ -473,8 +462,6 @@ other slices can depend on.
         contents:
           /usr/share/doc/openssl/copyright:
     ```
-
-    </details>
 
     ```{important}
     If any of your slices' paths are architecture-specific, you must add the
@@ -529,7 +516,7 @@ of [Spread tasks](https://github.com/canonical/spread).
         write your test in the format of a [Spread task](https://github.com/canonical/spread).
 
         <details>
-        <summary>Example of a Spread test for OpenSSL</summary>
+        <summary>Example: Spread test for OpenSSL</summary>
 
         ```yaml
         summary: Integration tests for openssl
