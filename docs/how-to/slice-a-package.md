@@ -261,10 +261,8 @@ other slices can depend on.
           - libssl3t64_copyright
     ```
 
-    ```{tip}
     Although we are writing the copyright slice first, we typically list the
     slice at the bottom of the slice definition file.
-    ```
 
     ```{important}
     Although the above copyright file is a symlink, we **don't need to
