@@ -370,6 +370,12 @@ other slices can depend on.
           /lib64/ld-linux-x86-64.so.2 (0x000078310b286000)
     ```
 
+    ```{note}
+    Note that some times, libraries may be used on a "per need basis" (e.g. only
+    when a certain feature is enabled) and thus may not show up when doing a
+    basic inspection of your binary.
+    ```
+
     Now, what packages own these objects? Using `dpkg -S`, we can find out:
      - `libc6`
      - `libssl3t64`
