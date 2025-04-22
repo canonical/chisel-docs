@@ -36,11 +36,11 @@ indicated by the package.
 3. [ ] [**Inspect the files the package provides**]{#create_sdf_inspect_pkg_files}
 
     You can run `apt download openssl` and then `dpkg -c openssl*.deb` to check
-    the package's data contents. Or check the [`openssl` package contents in the
+    the package data contents. Or check the [`openssl` package contents in the
     Ubuntu Packages Search] website.
 
     ````{note}
-    A package's contents and dependencies may change depending on the
+    A package contents and dependencies may change depending on the
     architecture. Make sure to double check any differences and adjust your slices
     accordingly.
     ````
@@ -87,7 +87,7 @@ indicated by the package.
     configuration files, the copyright files, manpages and so on.
     </details>
 
-4. [ ] [**Inspect the package's metadata**]{#create_sdf_inspect_pkg_control}
+4. [ ] [**Inspect the package metadata**]{#create_sdf_inspect_pkg_control}
 
     The package metadata files include the [`control` file] (which you can use
     to re-check the package dependencies you got from above),
@@ -96,7 +96,7 @@ indicated by the package.
     Extract them from the previously downloaded `.deb` via `dpkg -e openss*.deb`.
     This command will extract the metadata files into a new `DEBIAN/` directory.
 
-   1. [ ] [**Inspect package's [`conffiles`] file**]{#create_sdf_inspect_pkg_conffiles}
+   1. [ ] [**Inspect package [`conffiles`] file**]{#create_sdf_inspect_pkg_conffiles}
 
       This file lists the configuration files a package provides. This can be
       useful later, when deciding whether to create a `config` slice or not.
@@ -112,7 +112,7 @@ indicated by the package.
 
       </details>
 
-   2. [ ] [**Inspect package's [maintainer scripts]**]{#create_sdf_inspect_pkg_maintainer_scripts}
+   2. [ ] [**Inspect package [maintainer scripts]**]{#create_sdf_inspect_pkg_maintainer_scripts}
 
       Since Chisel doesn't remove files, we can focus on only the `preinst` and
       `postinst` scripts. Whatever these scripts do, you should aim to reproduce
