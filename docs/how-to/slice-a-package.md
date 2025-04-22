@@ -15,11 +15,15 @@ Ubuntu 24.10**.
 
 ## Inspect the package
 
-Your first task is to **understand the package** to be sliced. Packages are primarily
-composed of files for installation and may reference additional packages as dependencies such as
-libraries or other resources. During the slicing process, we identify subsets of files in a package 
-which can be installed alone to accomplish one or more tasks. Consequently, the dependencies 
-required for this slice may be a subset of the dependencies indicated by the package.```
+Your first task is to **understand the package** to be sliced.
+
+Packages are primarily composed of files for installation and may reference
+additional packages as dependencies such as libraries or other resources.
+
+During the slicing process, we identify subsets of files in a package which can
+be installed alone to accomplish one or more tasks. Consequently, the
+dependencies required for this slice may be a subset of the dependencies
+indicated by the package.
 
 1. [ ] **Is it an Ubuntu package?**
 
@@ -457,6 +461,14 @@ other slices can depend on.
     ```
 
     </details>
+
+    ```{important}
+    If any of your slices' paths are architecture-specific, you must add the
+    `arch` field. For
+    [example](https://github.com/canonical/chisel-releases/blob/e5db53e97e03c46944a84e7ab5abeb1b7cb53cd9/slices/libc6.yaml#L29):
+
+    >  `/usr/lib/*-linux-*/libmvec.so.*: {arch: [amd64, arm64]}`
+    ```
 
 16. [ ] **Repeat for nonexistent package slices**
 
