@@ -405,7 +405,8 @@ other slices can depend on.
 
     ```{tip}
     Sometimes, a package (and thus its slices) may have "essential"
-    dependencies that are not explicitly listed in the package's control file.
+    dependencies that are not explicitly listed in the package's
+    [`control` file].
     E.g. OpenSSL's `c_rehash` requires Perl to run, but the OpenSSL package
     does not mention it. The same happens frequently for Bash scripts that may
     assume certain packages (like `coreutils`) are installed.
@@ -635,3 +636,4 @@ slices:
 [`conffiles`]: https://www.debian.org/doc/debian-policy/ap-pkg-conffiles.html
 [maintainer scripts]: https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html
 [chisel-releases]: https://github.com/canonical/chisel-releases/blob/ubuntu-24.10/
+[`control` file]: https://www.debian.org/doc/debian-policy/ch-controlfields.html
