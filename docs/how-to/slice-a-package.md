@@ -407,7 +407,8 @@ other slices can depend on.
     Sometimes, a package (and thus its slices) may have "essential"
     dependencies that are not explicitly listed in the package's control file.
     E.g. OpenSSL's `c_rehash` requires Perl to run, but the OpenSSL package
-    does not mention it.
+    does not mention it. The same happens frequently for Bash scripts that may
+    assume certain packages (like `coreutils`) are installed.
     ```
 
 14. [ ] **Format your slice definitions files**
