@@ -208,12 +208,11 @@ There are **two schools of thought** when designing slices:
      - a `data` slice for the package's certificates files, and
      - a `copyright` slice for the copyright file.
 
-```{important}
-**Every slice** must install the package's copyright file(s).
+    ```{important}
+    **Every slice** must install the package's copyright file(s).
 
-It is therefore recommended to create a `copyright` slice for every package, that
-other slices can depend on.
-```
+    It is therefore recommended to create a `copyright` slice for every package, that other slices can depend on.
+    ```
 
 7. [ ] **Prepare to write the slice definitions**
 
@@ -485,6 +484,20 @@ As a manual test, you can just install your slices into an empty folder, and tes
 
 But for upstream contributions, you must also add integration tests in the form
 of [Spread tasks](https://github.com/canonical/spread).
+
+```{important}
+**All slices that deliver *"functionality"*** must be tested!
+
+While it might be redundant to test that a specific path has been properly
+installed by Chisel, it is **paramount** to test slices that should offer a
+specific function. Examples:
+ - if you define a [`coreutils` slice that contains only printing functionality](https://github.com/canonical/chisel-releases/blob/63b2311e16308bb1380af32a5a64ff924a493248/slices/coreutils.yaml#L225),
+ you must test that when you `cut` that slice alone, its contents
+ will be functional;
+ - if you slice all the [`python3` modules by function](https://github.com/canonical/chisel-releases/blob/ubuntu-24.10/slices/libpython3.12-stdlib.yaml),
+ then you must ensure that each group of modules is functional by itself,
+ without other undeclared dependencies.
+```
 
 17. [ ] **Install the `openssl_bins` locally**
 
