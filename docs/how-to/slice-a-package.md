@@ -251,14 +251,14 @@ other slices can depend on.
 
     slices:
       copyright:
+        # Notice that the copyright path is a symlink to a copyright file in
+        # the libssl3t64 package (which is a dependency of openssl).
+        # So we need to add that package's copyright slice as a dependency.
+        essential:
+          - libssl3t64_copyright
         contents:
           # This path is taken from the package contents inspected above.
           /usr/share/doc/openssl/copyright:
-          # Notice that this path is in fact a symlink to a copyright file in
-          # the libssl3t64 package (which is a dependency of openssl).
-          # So we need to add that package's copyright slice as a dependency.
-        essential:
-          - libssl3t64_copyright
     ```
 
     Although we are writing the copyright slice first, we typically list the
@@ -456,6 +456,8 @@ other slices can depend on.
           /usr/lib/ssl/private:
 
       copyright:
+        essential:
+          - libssl3t64_copyright
         contents:
           /usr/share/doc/openssl/copyright:
     ```
