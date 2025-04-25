@@ -120,7 +120,7 @@ indicated by the package.
       `postinst` scripts. Whatever these scripts do, you should aim to reproduce
       when defining the slices. In Chisel, such scripts are called "mutation
       scripts", and are written in
-      [Starlark](https://github.com/canonical/starlark/).
+      [Starlark](https://github.com/google/starlark-go).
 
       <details>
 
