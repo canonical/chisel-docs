@@ -95,7 +95,7 @@ indicated by the package.
     - [maintainer scripts], and
     - [`conffiles`] file.
 
-    Run `dpkg -e openss*.deb` to extract the metadata files into a new
+    Run `dpkg -e openssl*.deb` to extract the metadata files into a new
     `DEBIAN/` directory for inspection.
 
    1. [ ] [**Inspect package [`conffiles`] file**]{#create_sdf_inspect_pkg_conffiles}
@@ -300,8 +300,8 @@ other slices can depend on.
     anything that can be considered as application data.
 
     For the OpenSSL package, notice the `/etc/ssl/certs/` and
-    `/etc/ssl/private/` directories among its files. These are locations contain
-    certificates. There is also a symbolic link from
+    `/etc/ssl/private/` directories among its files. These are locations which
+    contain certificates. There is also a symbolic link from
     `/usr/lib/ssl/cert.pem` to `/etc/ssl/certs/ca-certificates.crt` that we
     need to include in this slice.
 
@@ -315,7 +315,6 @@ other slices can depend on.
         contents:
           /etc/ssl/certs/:
           /etc/ssl/private/:
-
           # NOTE: this is a symlink to /etc/ssl/certs/ca-certificates.crt.
           # OpenSSL doesn't depend on ca-certificates, but the opposite is true.
           # So ca-certificates may depend on this slice.
@@ -605,7 +604,7 @@ slices:
 
       # Chose to group by type, but still mixing types within the same slice
       /usr/lib/python3.12/netrc.py:
-      /usr/lib/python3.12/pydoc_data/_pydoc.css
+      /usr/lib/python3.12/pydoc_data/_pydoc.css:
 
       # Bad glob, possibly conflicting with other python packages
       /usr/lib/python3.*/tomllib/**:
