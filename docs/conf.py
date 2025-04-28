@@ -145,9 +145,8 @@ html_context = {
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
     "sequential_nav": "both",
-
-    # Required for feedback button    
-    'github_issues': 'enabled',
+    # Required for feedback button
+    "github_issues": "enabled",
 }
 
 # Project slug; see https://meta.discourse.org/t/what-is-category-slug/87897
@@ -155,7 +154,7 @@ html_context = {
 # TODO: If your documentation is hosted on https://docs.ubuntu.com/,
 #       uncomment and update as needed.
 
-slug = 'chisel'
+slug = "chisel"
 
 
 # Template and asset locations
@@ -206,7 +205,9 @@ linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
 # NOTE: By default, the following MyST extensions are enabled:
 #       substitution, deflist, linkify
 
-# myst_enable_extensions = set()
+myst_enable_extensions = set(
+    ["substitution", "deflist", "linkify", "tasklist", "attrs_inline"]
+)
 
 
 # Custom Sphinx extensions; see
@@ -249,12 +250,14 @@ html_css_files = [
 
 # Adds custom JavaScript files, located under 'html_static_path'
 
-# html_js_files = []
+html_js_files = [
+    "js/checkbox.js",
+]
 
 
 # Specifies a reST snippet to be appended to each .rst file
 
-if os.path.exists('./reuse/links.txt'):
+if os.path.exists("./reuse/links.txt"):
     rst_epilog = """
     .. include:: /reuse/links.txt
     """
@@ -263,8 +266,8 @@ if os.path.exists('./reuse/links.txt'):
 # formatting, use substitutions.
 # https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/style-guide-myst/#substitution
 
-if os.path.exists('./reuse/substitutions.yaml'):
-  with open('./reuse/substitutions.yaml', 'r') as fd:
+if os.path.exists("./reuse/substitutions.yaml"):
+    with open("./reuse/substitutions.yaml", "r") as fd:
         myst_substitutions = yaml.safe_load(fd.read())
 
 # Feedback button at the top; enabled by default

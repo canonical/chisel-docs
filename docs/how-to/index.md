@@ -39,3 +39,15 @@ with Ubuntu Pro.
 
 install-pro-package-slices
 ```
+
+
+## Creating a slice definition
+
+Creating slice definitions can be simple and fun. Make sure to follow the best
+practices.
+
+```{toctree}
+:maxdepth: 1
+
+slice-a-package
+```
