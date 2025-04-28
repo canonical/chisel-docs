@@ -116,10 +116,13 @@ indicated by the package.
 
    2. [ ] [**Inspect package [maintainer scripts]**]{#create_sdf_inspect_pkg_maintainer_scripts}
 
-      Since Chisel doesn't remove files, we can focus on only the `preinst` and
+      Since Chisel doesn't remove files, we can focus only on the `preinst` and
       `postinst` scripts. Whatever these scripts do, you should aim to reproduce
-      when defining the slices. In Chisel, such scripts are called "mutation
-      scripts", and are written in
+      when defining the slices. For the simplest cases where the maintainer
+      scripts are creating new contents (e.g. new symlinks), one should simply
+      declare said paths as contents of the slice. Otherwise, if logic is
+      involved, such scripts should be declared as "mutation scripts",
+      which are written in
       [Starlark](https://github.com/google/starlark-go).
 
       <details>
