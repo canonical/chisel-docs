@@ -317,12 +317,10 @@ There are **two schools of thought** when designing slices:
         contents:
           /etc/ssl/certs/:
           /etc/ssl/private/:
-          # NOTE: this is a symlink to /etc/ssl/certs/ca-certificates.crt.
-          # OpenSSL doesn't depend on ca-certificates, but the opposite is true.
-          # So ca-certificates may depend on this slice.
-          /usr/lib/ssl/cert.pem:
-          /usr/lib/ssl/certs:
-          /usr/lib/ssl/private:
+          # NOTE: there are some symlinks to ca-certificates data files
+	  # that could also be considered as "data".
+          # Since we don't need ca-certificates for this example, we'll leave
+	  # those paths out of this slice definitions file.
     ```
 
 13. [ ] **Write the `bins` slice**
