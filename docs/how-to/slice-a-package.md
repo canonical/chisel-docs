@@ -8,8 +8,8 @@ A package slice is represented via a
 of said slice definitions is a result of the **inspection** and **design
 process** depicted below.
 
-As an example, this guide will focus on **slicing the `openssl` package from
-Ubuntu 24.10**.
+As an example, this guide will focus on **slicing the `vim-tiny` package from
+Ubuntu 24.04**.
 
 (create_sdf_inspect_pkg)=
 
@@ -31,59 +31,71 @@ indicated by the package.
 
 2. [ ] [**Get the package dependencies**]{#create_sdf_inspect_pkg_deps}
 
-    You can run `apt depends openssl` or use the [Ubuntu Packages Search] website.
+    You can run `apt depends vim-tiny` or use the [Ubuntu Packages Search] website.
+
+    <details>
+
+    <summary>Example: vim-tiny pkg dependencies</summary>
+
+    ```{terminal}
+    :input: apt depends vim-tiny
+    vim-tiny
+      Depends: vim-common (= 2:9.1.0016-1ubuntu7.8)
+      Depends: libacl1 (>= 2.2.23)
+      Depends: libc6 (>= 2.34)
+      Depends: libselinux1 (>= 3.1~)
+      Depends: libtinfo6 (>= 6)
+      Suggests: indent
+    ```
+
+    </details>
 
 3. [ ] [**Inspect the files the package provides**]{#create_sdf_inspect_pkg_files}
 
-    You can run `apt download openssl` and then `dpkg -c openssl*.deb` to check
-    the package data contents. Or check the [`openssl` package contents in the
-    Ubuntu Packages Search] website.
+    You can run `apt download vim-tiny` and then `dpkg -c vim-tiny*.deb` to
+    check the package data contents. Or check the
+    [`vim-tiny` package contents in the Ubuntu Packages Search] website.
 
     ````{note}
-    A package contents and dependencies may change depending on the
-    architecture. Make sure to double check any differences and adjust your slices
-    accordingly.
+    A package's contents and dependencies may change depending on the
+    architecture. Make sure to double check any differences and adjust your slices accordingly.
     ````
 
     <details>
 
-    <summary>Example: OpenSSL's contents in Ubuntu 24.10, for amd64</summary>
+    <summary>Example: vim-tiny contents in Ubuntu 24.04, for amd64</summary>
 
     ```{terminal}
-    :input: dpkg -c openssl_3.3.1-2ubuntu2.1_amd64.deb
+    :input: dpkg -c vim-tiny_2%3a9.1.0016-1ubuntu7.8_amd64.deb
 
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./etc/
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./etc/ssl/
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./etc/ssl/certs/
-    -rw-r--r-- root/root     12434 2025-02-05 12:56 ./etc/ssl/openssl.cnf
-    drwx------ root/root         0 2025-02-05 12:56 ./etc/ssl/private/
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./usr/
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./usr/bin/
-    -rwxr-xr-x root/root      6835 2025-02-05 12:56 ./usr/bin/c_rehash
-    -rwxr-xr-x root/root   1075296 2025-02-05 12:56 ./usr/bin/openssl
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./usr/lib/
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./usr/lib/ssl/
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./usr/lib/ssl/misc/
-    -rwxr-xr-x root/root      8063 2025-02-05 12:56 ./usr/lib/ssl/misc/CA.pl
-    -rwxr-xr-x root/root      6742 2025-02-05 12:56 ./usr/lib/ssl/misc/tsget.pl
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./usr/share/
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./usr/share/doc/
-    drwxr-xr-x root/root         0 2025-02-05 12:56 ./usr/share/doc/openssl/
-    ...
-    ...
-    lrwxrwxrwx root/root         0 2025-02-05 12:56 ./usr/lib/ssl/cert.pem -> /etc/ssl/certs/ca-certificates.crt
-    lrwxrwxrwx root/root         0 2025-02-05 12:56 ./usr/lib/ssl/certs -> /etc/ssl/certs
-    lrwxrwxrwx root/root         0 2025-02-05 12:56 ./usr/lib/ssl/misc/tsget -> tsget.pl
-    lrwxrwxrwx root/root         0 2025-02-05 12:56 ./usr/lib/ssl/openssl.cnf -> /etc/ssl/openssl.cnf
-    lrwxrwxrwx root/root         0 2025-02-05 12:56 ./usr/lib/ssl/private -> /etc/ssl/private
-    lrwxrwxrwx root/root         0 2025-02-05 12:56 ./usr/share/doc/openssl/changelog.Debian.gz -> ../libssl3t64/changelog.Debian.gz
-    lrwxrwxrwx root/root         0 2025-02-05 12:56 ./usr/share/doc/openssl/copyright -> ../libssl3t64/copyright
-    ...
-    ...
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./etc/
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./etc/vim/
+    -rw-r--r-- root/root       662 2025-04-01 20:12 ./etc/vim/vimrc.tiny
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/bin/
+    -rwxr-xr-x root/root   1736392 2025-04-01 20:12 ./usr/bin/vim.tiny
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/share/
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/share/bug/
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/share/bug/vim-tiny/
+    -rw-r--r-- root/root       302 2024-08-27 04:05 ./usr/share/bug/vim-tiny/presubj
+    -rwxr-xr-x root/root       204 2024-08-27 04:05 ./usr/share/bug/vim-tiny/script
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/share/doc/
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/share/doc/vim-tiny/
+    -rw-r--r-- root/root     14394 2025-04-01 20:12 ./usr/share/doc/vim-tiny/changelog.Debian.gz
+    -rw-r--r-- root/root     28068 2024-08-27 04:05 ./usr/share/doc/vim-tiny/copyright
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/share/lintian/
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/share/lintian/overrides/
+    -rw-r--r-- root/root       119 2024-08-27 04:05 ./usr/share/lintian/overrides/vim-tiny
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/share/vim/
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/share/vim/vim91/
+    drwxr-xr-x root/root         0 2025-04-01 20:12 ./usr/share/vim/vim91/doc/
+    -rw-r--r-- root/root       324 2024-08-27 04:05 ./usr/share/vim/vim91/doc/README.Debian
+    -rw-r--r-- root/root      1350 2024-08-27 04:05 ./usr/share/vim/vim91/doc/help.txt
+    -rw-r--r-- root/root      1935 2025-04-01 20:12 ./usr/share/vim/vim91/doc/tags
     ```
 
-    For `openssl`, we see that there are a few binaries at `/usr/bin/`, a few
+    For `vim-tiny`, we see that there are a few binaries at `/usr/bin/`, a few
     configuration files, the copyright files, manpages and so on.
     </details>
 
@@ -95,7 +107,7 @@ indicated by the package.
     - [maintainer scripts], and
     - [`conffiles`] file.
 
-    Run `dpkg -e openssl*.deb` to extract the metadata files into a new
+    Run `dpkg -e vim-tiny*.deb` to extract the metadata files into a new
     `DEBIAN/` directory for inspection.
 
    1. [ ] [**Inspect package [`conffiles`] file**]{#create_sdf_inspect_pkg_conffiles}
@@ -105,18 +117,19 @@ indicated by the package.
 
       <details>
 
-      <summary>Example: OpenSSL's conffiles</summary>
+      <summary>Example: vim-tiny conffiles</summary>
 
       ```{terminal}
       :input: cat DEBIAN/conffiles
-      /etc/ssl/openssl.cnf
+      /etc/vim/vimrc.tiny
       ```
 
       </details>
 
    2. [ ] [**Inspect package [maintainer scripts]**]{#create_sdf_inspect_pkg_maintainer_scripts}
 
-      Since Chisel doesn't remove files, we can focus only on the `preinst` and
+      Since Chisel doesn't remove files (except when [`until: mutate` is used](#slice_definitions_format_slices_contents_until)),
+      we can focus only on the `preinst` and
       `postinst` scripts. Whatever these scripts do, you should aim to reproduce
       when defining the slices. For the simplest cases where the maintainer
       scripts are creating new contents (e.g. new symlinks), one should simply
@@ -127,32 +140,106 @@ indicated by the package.
 
       <details>
 
-      <summary>Example: OpenSSL's maintainer scripts</summary>
+      <summary>Example: vim-tiny maintainer scripts</summary>
 
       From the `postinst` script, we see:
 
       ```sh
 
-      # !/bin/sh -e
+      #!/bin/sh
 
-      if [ ! -e /usr/lib/ssl ]
-      then
-        echo Linking /usr/lib/ssl to /etc/ssl
-        ln -sf /etc/ssl /usr/lib/ssl
+      set -e
+
+      # Automatically added by dh_installalternatives/13.14.1ubuntu5
+
+      if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ]; then
+              update-alternatives --install /usr/bin/editor editor /usr/bin/vim.tiny 15 \
+                  --slave /usr/share/man/man1/editor.1.gz editor.1.gz /usr/share/man/man1/vim.1.gz \
+                  --slave /usr/share/man/da/man1/editor.1.gz editor.da.1.gz /usr/share/man/da/man1/vim.1.gz \
+                  --slave /usr/share/man/de/man1/editor.1.gz editor.de.1.gz /usr/share/man/de/man1/vim.1.gz \
+                  --slave /usr/share/man/fr/man1/editor.1.gz editor.fr.1.gz /usr/share/man/fr/man1/vim.1.gz \
+                  --slave /usr/share/man/it/man1/editor.1.gz editor.it.1.gz /usr/share/man/it/man1/vim.1.gz \
+                  --slave /usr/share/man/ja/man1/editor.1.gz editor.ja.1.gz /usr/share/man/ja/man1/vim.1.gz \
+                  --slave /usr/share/man/pl/man1/editor.1.gz editor.pl.1.gz /usr/share/man/pl/man1/vim.1.gz \
+                  --slave /usr/share/man/ru/man1/editor.1.gz editor.ru.1.gz /usr/share/man/ru/man1/vim.1.gz \
+                  --slave /usr/share/man/tr/man1/editor.1.gz editor.tr.1.gz /usr/share/man/tr/man1/vim.1.gz
       fi
+
+      # End automatically added section
+
+      # Automatically added by dh_installalternatives/13.14.1ubuntu5
+
+      if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ]; then
+              update-alternatives --install /usr/bin/ex ex /usr/bin/vim.tiny 15 \
+                  --slave /usr/share/man/man1/ex.1.gz ex.1.gz /usr/share/man/man1/vim.1.gz \
+                  --slave /usr/share/man/da/man1/ex.1.gz ex.da.1.gz /usr/share/man/da/man1/vim.1.gz \
+                  --slave /usr/share/man/de/man1/ex.1.gz ex.de.1.gz /usr/share/man/de/man1/vim.1.gz \
+                  --slave /usr/share/man/fr/man1/ex.1.gz ex.fr.1.gz /usr/share/man/fr/man1/vim.1.gz \
+                  --slave /usr/share/man/it/man1/ex.1.gz ex.it.1.gz /usr/share/man/it/man1/vim.1.gz \
+                  --slave /usr/share/man/ja/man1/ex.1.gz ex.ja.1.gz /usr/share/man/ja/man1/vim.1.gz \
+                  --slave /usr/share/man/pl/man1/ex.1.gz ex.pl.1.gz /usr/share/man/pl/man1/vim.1.gz \
+                  --slave /usr/share/man/ru/man1/ex.1.gz ex.ru.1.gz /usr/share/man/ru/man1/vim.1.gz \
+                  --slave /usr/share/man/tr/man1/ex.1.gz ex.tr.1.gz /usr/share/man/tr/man1/vim.1.gz
+      fi
+
+      # End automatically added section
+
+      # Automatically added by dh_installalternatives/13.14.1ubuntu5
+
+      if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ]; then
+              update-alternatives --install /usr/bin/rview rview /usr/bin/vim.tiny 15
+      fi
+
+      # End automatically added section
+
+      # Automatically added by dh_installalternatives/13.14.1ubuntu5
+
+      if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ]; then
+              update-alternatives --install /usr/bin/vi vi /usr/bin/vim.tiny 15 \
+                  --slave /usr/share/man/man1/vi.1.gz vi.1.gz /usr/share/man/man1/vim.1.gz \
+                  --slave /usr/share/man/da/man1/vi.1.gz vi.da.1.gz /usr/share/man/da/man1/vim.1.gz \
+                  --slave /usr/share/man/de/man1/vi.1.gz vi.de.1.gz /usr/share/man/de/man1/vim.1.gz \
+                  --slave /usr/share/man/fr/man1/vi.1.gz vi.fr.1.gz /usr/share/man/fr/man1/vim.1.gz \
+                  --slave /usr/share/man/it/man1/vi.1.gz vi.it.1.gz /usr/share/man/it/man1/vim.1.gz \
+                  --slave /usr/share/man/ja/man1/vi.1.gz vi.ja.1.gz /usr/share/man/ja/man1/vim.1.gz \
+                  --slave /usr/share/man/pl/man1/vi.1.gz vi.pl.1.gz /usr/share/man/pl/man1/vim.1.gz \
+                  --slave /usr/share/man/ru/man1/vi.1.gz vi.ru.1.gz /usr/share/man/ru/man1/vim.1.gz \
+                  --slave /usr/share/man/tr/man1/vi.1.gz vi.tr.1.gz /usr/share/man/tr/man1/vim.1.gz
+      fi
+
+      # End automatically added section
+
+      # Automatically added by dh_installalternatives/13.14.1ubuntu5
+
+      if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ]; then
+              update-alternatives --install /usr/bin/view view /usr/bin/vim.tiny 15 \
+                  --slave /usr/share/man/man1/view.1.gz view.1.gz /usr/share/man/man1/vim.1.gz \
+                  --slave /usr/share/man/da/man1/view.1.gz view.da.1.gz /usr/share/man/da/man1/vim.1.gz \
+                  --slave /usr/share/man/de/man1/view.1.gz view.de.1.gz /usr/share/man/de/man1/vim.1.gz \
+                  --slave /usr/share/man/fr/man1/view.1.gz view.fr.1.gz /usr/share/man/fr/man1/vim.1.gz \
+                  --slave /usr/share/man/it/man1/view.1.gz view.it.1.gz /usr/share/man/it/man1/vim.1.gz \
+                  --slave /usr/share/man/ja/man1/view.1.gz view.ja.1.gz /usr/share/man/ja/man1/vim.1.gz \
+                  --slave /usr/share/man/pl/man1/view.1.gz view.pl.1.gz /usr/share/man/pl/man1/vim.1.gz \
+                  --slave /usr/share/man/ru/man1/view.1.gz view.ru.1.gz /usr/share/man/ru/man1/vim.1.gz \
+                  --slave /usr/share/man/tr/man1/view.1.gz view.tr.1.gz /usr/share/man/tr/man1/vim.1.gz
+      fi
+
+      # End automatically added section
 
       ```
 
-      The `openssl` maintainer scripts create a new symlink, so should its
-      slices then.
+      The `vim-tiny` maintainer scripts register `/usr/bin/vim.tiny` as an
+      alternative implementation for various standard editor commands like `vi`,
+      `view`, `editor`, etc. This is done by the `update-alternatives` command,
+      and if necessary, we can reproduce this in our slice definitions.
 
       </details>
 
 5. [ ] **Repeat the above for all dependencies**
 
-    Slices must also exist for every other package that `openssl` depends on. So
-    if these dependencies aren't yet sliced upstream in [chisel-releases], you
-    must do the same inspection for them, and create their slices too.
+    Slices must also exist for every other package that `vim-tiny` depends on.
+    So if these dependencies aren't yet sliced upstream in [chisel-releases],
+    you must do the same inspection for them, and create their slices too.
 
 (create_sdf_design_slices)=
 
@@ -186,7 +273,7 @@ There are **two schools of thought** when designing slices:
     reserve the above as a catch-all for their respective types.
     ```
   - This means grouping the contents into slices that deliver a specific
-  functionality. For example, the [`python3` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-24.10/slices/python3.yaml)
+  functionality. For example, the [`python3` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/python3.yaml)
   has a `core` slice providing a very minimal `python3` runtime, but also a
   `standard` slice with the additional libraries on top of `core`.
     ```{tip}
@@ -196,19 +283,16 @@ There are **two schools of thought** when designing slices:
     - a `standard` slice which contains a standard set of files supporting the
       full operation of the application,
     - and other slices which are scoped and named after the functionality they
-      provide (e.g. see the [`libpython3.12-stdlib` slices](https://github.com/canonical/chisel-releases/blob/ubuntu-24.10/slices/libpython3.12-stdlib.yaml)).
+      provide (e.g. see the [`libpython3.12-stdlib` slices](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/libpython3.12-stdlib.yaml)).
     ```
 ```
 
 6. [ ] **Choose the design approach that aligns best with your package**
 
     Given the {ref}`above package inspection <create_sdf_inspect_pkg>`, the
-    `openssl` package can be sliced by *type of content*:
-     - a `bins` slice for the `/usr/bin/openssl` binary,
-       - note that although `c_rehash` is also under `/usr/bin/`, it is
-       actually a Perl script,
-     - a `config` slice for the {ref}`configuration files <create_sdf_inspect_pkg_conffiles>`,
-     - a `data` slice for the package's certificates files, and
+    `vim-tiny` package can be sliced by *type of content*:
+     - a `bins` slice for the `/usr/bin/vim.tiny` binary,
+     - a `config` slice for the {ref}`configuration files <create_sdf_inspect_pkg_conffiles>`, and
      - a `copyright` slice for the copyright file.
 
     ```{important}
@@ -230,16 +314,16 @@ There are **two schools of thought** when designing slices:
 8. [ ] **Create the YAML Slice Definitions File**
 
    Create a new file in the `slices/` directory, named after the package you
-   are slicing. For example, `openssl.yaml`.
+   are slicing. For example, `vim-tiny.yaml`.
 
 9. [ ] **Specify `package` name**
 
    The first thing to do is to write the package name in the
    {ref}`slice_definitions_format_package` field. For example, open
-   `slices/openssl.yaml` and write:
+   `slices/vim-tiny.yaml` and write:
 
    ```yaml
-   package: openssl
+   package: vim-tiny
    ```
 
 10. [ ] **Write the `copyright` slice**
@@ -249,30 +333,17 @@ There are **two schools of thought** when designing slices:
 
     ```yaml
     essential:
-      - openssl_copyright
+      - vim-tiny_copyright
 
     slices:
       copyright:
-        # Notice that the copyright path is a symlink to a copyright file in
-        # the libssl3t64 package (which is a dependency of openssl).
-        # So we need to add that package's copyright slice as a dependency.
-        essential:
-          - libssl3t64_copyright
         contents:
           # This path is taken from the package contents inspected above.
-          /usr/share/doc/openssl/copyright:
+          /usr/share/doc/vim-tiny/copyright:
     ```
 
     Although we are writing the copyright slice first, we typically list the
     slice at the bottom of the slice definition file.
-
-    ```{important}
-    Although the above copyright file is a symlink, we **don't need to
-    explicitly create it** (using the
-    {ref}`slice_definitions_format_slices_contents_symlink` directive) because
-    the link is defined in the deb, and Chisel will respect that link during
-    the extraction.
-    ```
 
 11. [ ] [**Write the `config` slice**]{#create_sdf_design_slices_config_slice}
 
@@ -283,8 +354,7 @@ There are **two schools of thought** when designing slices:
     slices:
       config:
         contents:
-          /etc/ssl/openssl.cnf:
-          /usr/lib/ssl/openssl.cnf:
+          /etc/vim/vimrc.tiny:
     ```
 
     1. [ ] **Are there any other files of the same type?**
@@ -296,52 +366,20 @@ There are **two schools of thought** when designing slices:
         So, based on the {ref}`package files <create_sdf_inspect_pkg_files>`,
         you should also identify any other config files.
 
-12. [ ] [**Write the `data` slice**]{#create_sdf_design_slices_data_slice}
+12. [ ] **Write the `bins` slice**
 
-    From the {ref}`package files <create_sdf_inspect_pkg_files>`, identify
-    anything that can be considered as application data.
-
-    For the OpenSSL package, notice the `/etc/ssl/certs/` and
-    `/etc/ssl/private/` directories among its files. These are locations which
-    contain certificates. There is also a symbolic link from
-    `/usr/lib/ssl/cert.pem` to `/etc/ssl/certs/ca-certificates.crt` that we
-    need to include in this slice.
-
-    The `postinst` maintainer script also creates a symlink from
-    `/usr/lib/ssl` to `/etc/ssl` if `/usr/lib/ssl` does not exist, in this slice
-    `/usr/lib/ssl` **does exist** and we can safely ignore that script.
-
-    ```yaml
-    slices:
-      data:
-        contents:
-          /etc/ssl/certs/:
-          /etc/ssl/private/:
-          # NOTE: there are some symlinks to ca-certificates data files
-	  # that could also be considered as "data".
-          # Since we don't need ca-certificates for this example, we'll leave
-	  # those paths out of this slice definitions file.
-    ```
-
-13. [ ] **Write the `bins` slice**
-
-    This is a {ref}`function-specific slice <create_sdf_design_slices>`. In
-    this case, it will contain just the `/usr/bin/openssl` binary, so we can
-    name it after that.
-
-    `/usr/bin/openssl` is this slice's only content. We know it will need the
-    internal slices [`openssl_config`](#create_sdf_design_slices_data_slice)
-    and [`openssl_data`](#create_sdf_design_slices_config_slice). But given the
+    `/usr/bin/vim.tiny` is this slice's only content. We know it will need the
+    internal slices [`vim-tiny_config`](#create_sdf_design_slices_config_slice). But given the
     {ref}`above package dependency inspection <create_sdf_inspect_pkg_deps>`,
     we should confirm whether this binary also needs all of those package
     dependencies, or just a subset.
 
-    Let's closely look at the `/usr/bin/openssl` file. Let's use the `file` command to determine the type.
+    Let's closely look at the `/usr/bin/vim.tiny` file. Let's use the `file` command to determine the type.
 
     ```{terminal}
-    :input: file /usr/bin/openssl
+    :input: file /usr/bin/vim.tiny
 
-    /usr/bin/openssl: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=035bc52088d56b575b788c42a7be4fa44f76e6fd, for GNU/Linux 3.2.0, stripped
+    /usr/bin/vim.tiny: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=244c06f7943459e771bbf3279ef507ad64f477b5, for GNU/Linux 3.2.0, stripped
     ```
 
     Since this is a dynamically linked ELF binary, let's use a tool (like `ldd`,
@@ -349,14 +387,15 @@ There are **two schools of thought** when designing slices:
     libraries it depends on.
 
     ```{terminal}
-    :input: ldd /usr/bin/openssl
-          linux-vdso.so.1 (0x00007ffc1bb1f000)
-          libssl.so.3 => /lib/x86_64-linux-gnu/libssl.so.3 (0x000078310b075000)
-          libcrypto.so.3 => /lib/x86_64-linux-gnu/libcrypto.so.3 (0x000078310ab19000)
-          libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000078310a907000)
-          libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x000078310a8eb000)
-          libzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x000078310a82d000)
-          /lib64/ld-linux-x86-64.so.2 (0x000078310b286000)
+    :input: ldd /usr/bin/vim.tiny
+          linux-vdso.so.1 (0x00007ffcdfecd000)
+          libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000744edc6ac000)
+          libtinfo.so.6 => /lib/x86_64-linux-gnu/libtinfo.so.6 (0x0000744edc678000)
+          libselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x0000744edc64b000)
+          libacl.so.1 => /lib/x86_64-linux-gnu/libacl.so.1 (0x0000744edc641000)
+          libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000744edc42f000)
+          /lib64/ld-linux-x86-64.so.2 (0x0000744edc948000)
+          libpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x0000744edc393000)
     ```
 
     ```{note}
@@ -367,29 +406,37 @@ There are **two schools of thought** when designing slices:
 
     Now, what packages own these objects? Using `dpkg -S`, we can find out:
      - `libc6`
-     - `libssl3t64`
+     - `libtinfo6`
+     - `libselinux1`
+     - `libacl1`
+     - `libpcre2-8-0`
 
-    and two additional packages, that are in fact dependencies of `libssl3t64`:
-     - `libzstd1`
-     - `zlib1g`
+    Note that `libpcre2-8-0` is not listed as a dependency of `vim-tiny`, but if
+    we recursively check `vim-tiny`'s dependencies
+    (via `apt-rdepends vim-tiny`), we can see that it is a dependency of
+    `libselinux1`, which is an original dependency of `vim-tiny`.
 
     So it matches with what we expected in the {ref}`initial dependency analysis
     <create_sdf_inspect_pkg_deps>`.
 
-    By running `chisel info --release ubuntu-24.10 libc6 libssl3t64` we can
-    confirm that these two OpenSSL's package dependencies are already sliced.
+    By running `chisel info --release ubuntu-24.04 libc6 libtinfo6 libselinux1
+    libacl1 vim-common` we can
+    confirm that all the `vim-tiny`'s package dependencies are already sliced.
     So the final `bins` slice will look like this:
 
     ```yaml
     slices:
       bins:
         essential:
+          - libacl1_libs
           - libc6_libs
-          - libssl3t64_libs
-          - openssl_config
-          - openssl_data
+          - libselinux1_libs
+          - libtinfo6_libs
+          - vim-common_addons
+          - vim-common_config
+          - vim-tiny_config
         contents:
-          /usr/bin/openssl:
+          /usr/bin/vim.tiny:
     ```
 
     ```{tip}
@@ -401,7 +448,7 @@ There are **two schools of thought** when designing slices:
     assume certain packages (like `coreutils`) are installed.
     ```
 
-14. [ ] **Format your slice definitions files**
+13. [ ] **Format your slice definitions files**
 
       Every slice definition file will be checked with linters.
 
@@ -414,7 +461,7 @@ There are **two schools of thought** when designing slices:
 
           Keep the top-level `essential` at the top, and the `copyright` slice at the bottom.
 
-15. [ ] **Review your slice definitions**
+14. [ ] **Review your slice definitions**
 
     Assemble your slice definitions file, and review it. Make sure you have
     included all the necessary slices, contents, dependencies and mutation
@@ -432,34 +479,29 @@ There are **two schools of thought** when designing slices:
     ```yaml
     package: openssl
 
+    essential:
+      - vim-tiny_copyright
+
     slices:
       bins:
         essential:
+          - libacl1_libs
           - libc6_libs
-          - libssl3t64_libs
-          - openssl_config
-          - openssl_data
+          - libselinux1_libs
+          - libtinfo6_libs
+          - vim-common_addons
+          - vim-common_config
+          - vim-tiny_config
         contents:
-          /usr/bin/openssl:
+          /usr/bin/vim.tiny:
 
       config:
         contents:
-          /etc/ssl/openssl.cnf:
-          /usr/lib/ssl/openssl.cnf:
-
-      data:
-        contents:
-          /etc/ssl/certs/:
-          /etc/ssl/private/:
-          /usr/lib/ssl/cert.pem:
-          /usr/lib/ssl/certs:
-          /usr/lib/ssl/private:
+          /etc/vim/vimrc.tiny:
 
       copyright:
-        essential:
-          - libssl3t64_copyright
         contents:
-          /usr/share/doc/openssl/copyright:
+          /usr/share/doc/vim-tiny/copyright:
     ```
 
     ```{important}
@@ -470,7 +512,7 @@ There are **two schools of thought** when designing slices:
     >  `/usr/lib/*-linux-*/libmvec.so.*: {arch: [amd64, arm64]}`
     ```
 
-16. [ ] **Repeat for nonexistent package slices**
+15. [ ] **Repeat for nonexistent package slices**
 
     If any of the dependencies are not sliced yet, repeat the above design
     process for them too.
@@ -495,52 +537,56 @@ specific function. Examples:
  - if you define a [`coreutils` slice that contains only printing functionality](https://github.com/canonical/chisel-releases/blob/63b2311e16308bb1380af32a5a64ff924a493248/slices/coreutils.yaml#L225),
  you must test that when you `cut` that slice alone, its contents
  will be functional;
- - if you slice all the [`python3` modules by function](https://github.com/canonical/chisel-releases/blob/ubuntu-24.10/slices/libpython3.12-stdlib.yaml),
+ - if you slice all the [`python3` modules by function](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/libpython3.12-stdlib.yaml),
  then you must ensure that each group of modules is functional by itself,
  without other undeclared dependencies.
 ```
 
-17. [ ] **Install the `openssl_bins` locally**
+16. [ ] **Install the `vim-tiny_bins` locally**
 
     Create a new rootfs directory, and pointing Chisel to your "chisel-releases"
     clone, cut your packages locally.
 
     ```bash
     mkdir rootfs/
-    # Cut the openssl package, to get the openssl binary only
-    chisel cut --release ./ --root rootfs/ openssl_bins
+    # Cut the vim-tiny package, to get the vim.tiny binary only
+    chisel cut --release ./ --root rootfs/ vim-tiny_bins
     ```
 
     Test the `bins` binary:
 
     ```{terminal}
-    :input: sudo chroot rootfs/ openssl passwd foo
-    $1$UNOQEnmV$tX3Bbxnrix6fjTtEA2ZvZ1
+    :input: sudo chroot rootfs/ vim.tiny --version
+    VIM - Vi IMproved 9.1 (2024 Jan 02, compiled Apr 01 2025 15:29:41)
+    Included patches: 1-16, 647-648, 678, 697, 689, 17-496, 707
+    Modified by <team+vim@tracker.debian.org>
+    Compiled by <team+vim@tracker.debian.org>
+    Tiny version without GUI.  Features included (+) or not (-):
+    ...
     ```
 
-18. [ ] **Create the Spread test**
+17. [ ] **Create the Spread test**
 
     In your clone of the {{chisel_releases_repo}}, create the new folder
-    `tests/spread/integration/openssl`.
+    `tests/spread/integration/vim-tiny`.
 
     1. [ ] **Create the `task.yaml` file**
 
-        Create a file named `tests/spread/integration/openssl/task.yaml` and
+        Create a file named `tests/spread/integration/vim-tiny/task.yaml` and
         write your test in the format of a [Spread task](https://github.com/canonical/spread).
 
         <details>
-        <summary>Example: Spread test for OpenSSL</summary>
+        <summary>Example: Spread test for vim-tiny</summary>
 
         ```yaml
-        summary: Integration tests for openssl
+        summary: Integration tests for vim-tiny
 
         execute: |
-          rootfs="$(install-slices openssl_bins)"
- 
-          chroot "$rootfs" openssl --help
- 
-          test_sha1="4e1243bd22c66e76c2ba9eddc1f91394e57f9f83"
-          chroot "$rootfs" openssl sha1 <<< "test" | grep $test_sha1
+          rootfs="$(install-slices vim-tiny_bins)"
+          chroot "${rootfs}/" vim.tiny --version
+          echo "hello world" > "$rootfs/test"
+          chroot "$rootfs" vim.tiny -c ":s/hello/bye/" -c ":wq" test
+          test "$(cat "$rootfs/test")" = "bye world"
         ```
 
         </details>
@@ -550,12 +596,12 @@ specific function. Examples:
         Run the test with `spread`:
 
         ```{terminal}
-        :input: spread lxd:tests/spread/integration/openssl
+        :input: spread lxd:tests/spread/integration/vim-tiny
 
         ...
-        2025-04-14 18:29:40 Preparing lxd:ubuntu-oracular:tests/spread/integration/openssl (lxd:ubuntu-oracular)...
-        2025-04-14 18:29:40 Executing lxd:ubuntu-oracular:tests/spread/integration/openssl (lxd:ubuntu-oracular) (1/1)...
-        2025-04-14 18:29:50 Discarding lxd:ubuntu-oracular...
+        2025-04-14 18:29:40 Preparing lxd:ubuntu-noble:tests/spread/integration/vim-tiny (lxd:ubuntu-noble)...
+        2025-04-14 18:29:40 Executing lxd:ubuntu-noble:tests/spread/integration/vim-tiny (lxd:ubuntu-noble) (1/1)...
+        2025-04-14 18:29:50 Discarding lxd:ubuntu-noble...
         2025-04-14 18:29:52 Successful tasks: 1
         2025-04-14 18:29:52 Aborted tasks: 0
         ```
@@ -633,9 +679,9 @@ slices:
 
 <!-- LINKS -->
 
-[Ubuntu Packages Search]: https://packages.ubuntu.com/oracular/openssl
-[`openssl` package contents in the Ubuntu Packages Search]: https://packages.ubuntu.com/oracular/amd64/openssl/filelist
+[Ubuntu Packages Search]: https://packages.ubuntu.com/noble/vim-tiny
+[`vim-tiny` package contents in the Ubuntu Packages Search]: https://packages.ubuntu.com/noble/amd64/vim-tiny/filelist
 [`conffiles`]: https://www.debian.org/doc/debian-policy/ap-pkg-conffiles.html
 [maintainer scripts]: https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html
-[chisel-releases]: https://github.com/canonical/chisel-releases/blob/ubuntu-24.10/
+[chisel-releases]: https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/
 [`control` file]: https://www.debian.org/doc/debian-policy/ch-controlfields.html
