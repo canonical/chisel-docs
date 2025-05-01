@@ -35,7 +35,7 @@ indicated by the package.
 
     <details>
 
-    <summary>Example: vim-tiny's pkg dependencies</summary>
+    <summary>Example: vim-tiny pkg dependencies</summary>
 
     ```{terminal}
     :input: apt depends vim-tiny
@@ -63,7 +63,7 @@ indicated by the package.
 
     <details>
 
-    <summary>Example: vim-tiny's contents in Ubuntu 24.04, for amd64</summary>
+    <summary>Example: vim-tiny contents in Ubuntu 24.04, for amd64</summary>
 
     ```{terminal}
     :input: dpkg -c vim-tiny_2%3a9.1.0016-1ubuntu7.8_amd64.deb
@@ -117,7 +117,7 @@ indicated by the package.
 
       <details>
 
-      <summary>Example: vim-tiny's conffiles</summary>
+      <summary>Example: vim-tiny conffiles</summary>
 
       ```{terminal}
       :input: cat DEBIAN/conffiles
@@ -140,7 +140,7 @@ indicated by the package.
 
       <details>
 
-      <summary>Example: vim-tiny's maintainer scripts</summary>
+      <summary>Example: vim-tiny maintainer scripts</summary>
 
       From the `postinst` script, we see:
 
