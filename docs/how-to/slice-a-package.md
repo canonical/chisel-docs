@@ -474,10 +474,10 @@ There are **two schools of thought** when designing slices:
      slice while keeping the resulting paths specific to the package. See
      {ref}`create_sdf_examples`.
 
-    The complete `slices/openssl.yaml` file should look something like this:
+    The complete `slices/vim-tiny.yaml` file should look something like this:
 
     ```yaml
-    package: openssl
+    package: vim-tiny
 
     essential:
       - vim-tiny_copyright
