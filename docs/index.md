@@ -2,7 +2,7 @@
 
 **Chisel** is a tool for carving and cutting Ubuntu packages.
 
-It is built on the idea of {{package_slices}} - minimal, complimentary, and
+It is built on the idea of {{package_slices}} - minimal, complementary, and
 loosely coupled sets of files, based on the package's metadata and content.
 Slices are basically logical subsets of the Ubuntu packages, with their own
 content and set of dependencies to other internal and external slices.
@@ -11,7 +11,7 @@ Chisel is able to extract a highly customised and specialised _Slice_ of the
 Ubuntu distribution, which one could see as a block of stone from which we can
 carve and extract the small and relevant parts we need to run our applications.
 
-It operates similar to a package manager, but for package slices, thus being
+It operates similarly to a package manager, but for package slices, thus being
 particularly useful for supporting developers in the creation of smaller but
 equally functional container images.
 
