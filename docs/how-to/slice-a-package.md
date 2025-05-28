@@ -243,7 +243,7 @@ indicated by the package.
 
     \* *Note that you may sometimes find dependencies that are only needed for
     specific parts of the package (like maintainer scripts) that you may not
-    need or that you're going to fulfill through other means (e.g. with mutation
+    need or that you're going to fulfil through other means (e.g. with mutation
     scripts). In such cases, you may not need to slice said dependencies in
     order to create a functional slice.*
 
