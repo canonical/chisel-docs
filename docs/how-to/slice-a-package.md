@@ -237,9 +237,15 @@ indicated by the package.
 
 5. [ ] **Repeat the above for all dependencies**
 
-    Slices must also exist for every other package that `vim-tiny` depends on.
+    Slices must also exist for every\* other package that `vim-tiny` depends on.
     So if these dependencies aren't yet sliced upstream in [chisel-releases],
     you must do the same inspection for them, and create their slices too.
+
+    \* *Note that you may sometimes find dependencies that are only needed for
+    specific parts of the package (like maintainer scripts) that you may not
+    need or that you're going to fulfil through other means (e.g. with mutation
+    scripts). In such cases, you may not need to slice said dependencies in
+    order to create a functional slice.*
 
 (create_sdf_design_slices)=
 
@@ -610,6 +616,15 @@ specific function. Examples:
 
     New slice definitions are welcome! Please contribute your new slices to the
     {{chisel_releases_repo}}. See the [contributing guide](https://github.com/canonical/chisel-releases/blob/main/CONTRIBUTING.md).
+
+    If proposing changes to multiple slice definitions files, only group them
+    into the same PR if they are related to the same scope (e.g. *you're slicing
+    an application and all its dependencies, in the same PR*).
+
+    ```{important}
+    Reminder: all PRs must be forward ported! E.g. if opening a PR against
+    `ubuntu-24.04`, you must also forward port it to `ubuntu-24.10`, `ubuntu-25.04`, and so on, for all supported releases at the time of opening the PR.
+    ```
 
 (create_sdf_examples)=
 

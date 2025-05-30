@@ -45,7 +45,9 @@ observability
 OEM
 OLM
 Permalink
+PR
 pre
+PRs
 Quickstart
 ReadMe
 reST
