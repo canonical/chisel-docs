@@ -24,6 +24,7 @@ behavior
 chiseled
 conffiles
 config
+dev
 distroless
 entrypoint
 esm
