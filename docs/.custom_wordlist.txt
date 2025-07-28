@@ -33,6 +33,7 @@ http
 https
 initialize
 jsonwall
+libs
 linters
 manpages
 openssl
