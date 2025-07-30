@@ -24,6 +24,7 @@ behavior
 chiseled
 conffiles
 config
+dev
 distroless
 entrypoint
 esm
@@ -33,6 +34,7 @@ http
 https
 initialize
 jsonwall
+libs
 linters
 manpages
 openssl

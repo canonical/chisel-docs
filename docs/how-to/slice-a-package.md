@@ -284,10 +284,10 @@ There are **two schools of thought** when designing slices:
   `standard` slice with the additional libraries on top of `core`.
     ```{tip}
     In this case, the most common is to create:
-    - a `core` slice which contains the very minimal, core set of files
-      supporting a minimal yet functional operation of the application,
-    - a `standard` slice which contains a standard set of files supporting the
-      full operation of the application,
+    - a `minimal` slice that offers a stripped down installation, to the absolute essentials, to make the software work. In most cases, such a minimal installation may only be useful if used as a base for another installation/build, where the developer adds their own additional dependencies. Taking the above `python3` example, this slice would only contain the necessary dependencies to run a trivial "Hello World" script, and not much more,
+    - a `core` slice that offers a more complete, though still relatively slim installation. Although slightly larger than minimal, core installations are meant to cover the majority of simple use cases, while also being a small and ideal base to be extended for more complex use cases. Using `python3` as an example again, this slice could only contain the topmost referenced modules in the standard library,
+    - a `standard` slice that provides a normal installation, supporting the full operation of the application, including all the runtime libs/modules and additional utilities, but possibly still leaving out things like debugging and development utilities,
+    - a `dev` slice which is the `standard` slice, plus all the debugging and dev utilities. A close-to full-size installation, designed for development environments, but not production,
     - and other slices which are scoped and named after the functionality they
       provide (e.g. see the [`libpython3.12-stdlib` slices](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/libpython3.12-stdlib.yaml)).
     ```
