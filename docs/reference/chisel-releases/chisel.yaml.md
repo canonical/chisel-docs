@@ -38,6 +38,57 @@ New formats are typically introduced with new _chisel-releases_ and may
 introduce disruptive changes to the previous formats.
 ```
 
+(chisel_yaml_format_spec_maintenance)=
+
+### `maintenance`
+
+| Field         | Type     | Required |
+| ------------- | -------- | -------- |
+| `maintenance` | `object` | Required |
+
+Includes the dates that mark the different stages of Canonical's support for a
+release. In Chisel we say that a release is "unmaintained" after its
+`end-of-life`, and "unstable" before its `standard` date.
+
+Chisel by default will only cut the releases which are officially maintained.
+To use "unstable" or "unmaintained" releases see the reference for the
+{ref}`cut command<cut_command_reference>`.
+
+For more information about Ubuntu's release cycle see
+https://ubuntu.com/about/release-cycle.
+
+### `maintenance.standard`
+
+| Field      | Type                | Required |
+| ---------- | ------------------- | -------- |
+| `standard` | `date (YYYY-MM-DD)` | Required |
+
+Marks the start of standard support.
+
+### `maintenance.expanded`
+
+| Field      | Type                | Required  |
+| ---------- | ------------------- | --------- |
+| `expanded` | `date (YYYY-MM-DD)` | Optional  |
+
+Marks the start of expanded support (only valid for LTS releases).
+
+### `maintenance.legacy`
+
+| Field    | Type                | Required  |
+| -------- | ------------------- | --------- |
+| `legacy` | `date (YYYY-MM-DD)` | Optional  |
+
+Marks the start of legacy support (only valid for LTS releases).
+
+### `maintenance.end-of-life`
+
+| Field         | Type                | Required |
+| ------------- | ------------------- | -------- |
+| `end-of-life` | `date (YYYY-MM-DD)` | Required |
+
+After `end-of-life` the release is no longer officially maintained by
+Canonical.
 
 (chisel_yaml_format_spec_archives)=
 
