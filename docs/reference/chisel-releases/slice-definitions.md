@@ -381,7 +381,9 @@ In the following example, Chisel creates the `/var/lib/chisel` directory with
 Used to resolve a path conflict across multiple packages.
 
 The same path may be declared in multiple packages without a conflict if, and
-only if Chisel can guarantee that the paths’ content will be the same, without downloading the packages. For all other cases, Chisel raises a conflict error, unless the conflict is resolved via the `prefer` field.
+only if Chisel can guarantee that the paths’ content will be the same, without
+downloading the packages. For all other cases, Chisel raises a conflict error,
+unless the conflict is resolved via the `prefer` field.
 
 The value of the `prefer` field must match the name of an existing package in
 the release, and it can be used to specify which package should take
@@ -474,7 +476,6 @@ directory and writes the concatenated data to the previously created
 
 Due to the usage of `until`, the `/usr/share/ca-certificates/mozilla/` directory
 and the files inside are not present in the final root file system.
-
 
 (slice_definitions_example)=
 
