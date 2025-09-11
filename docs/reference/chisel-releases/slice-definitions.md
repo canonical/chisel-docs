@@ -370,55 +370,6 @@ In the following example, Chisel creates the `/var/lib/chisel` directory with
       /var/lib/chisel/**: {generate: manifest}
 ```
 
-(slice_definitions_format_slices_mutate)=
-
-### `slices.<name>.mutate`
-
-| Field    | Type     | Required | Supported values    |
-| -------- | -------- | -------- | ------------------- |
-| `mutate` | `string` | Optional | {{Starlark}} script |
-
-Describes a slice's mutation scripts. The mutation scripts are conceptually similar
-to [Debian's maintainer
-script](https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html).
-
-The mutation scripts are written in Google's {{Starlark}} language and are executed
-after the files of every slice have been installed in the root file system. The
-mutation scripts are run once per each installed slice, in the same order of
-slices.
-
-In addition to {{Starlark}}'s native syntax, Chisel introduces the following
-functions:
-
-| Function              | Return type     | Description                                                      |
-| --------------------- | --------------- | ---------------------------------------------------------------- |
-| `content.list(d)`     | `array<string>` | Lists and returns directory `d`'s contents (similar to GNU `ls`) |
-| `content.read(f)`     | `string`        | Reads a text file `f` and returns its contents                   |
-| `content.write(f, s)` | -               | Writes the text content `s` to a file `f`                        |
-
-Reusing the above {ref}`"ca-certificates_data"<slice_definitions_format_slices>`
-example, Chisel initially creates the `/etc/ssl/certs/ca-certificates.crt` text
-file with `FIXME` as its content. When the mutation scripts execute, Chisel
-concatenates the contents of every file in the `/usr/share/ca-certificates/mozilla/`
-directory and writes the concatenated data to the previously created
-`/etc/ssl/certs/ca-certificates.crt` file.
-
-```yaml
-    contents:
-      /etc/ssl/certs/ca-certificates.crt: {text: FIXME, mutable: true}
-      /usr/share/ca-certificates/mozilla/: {until: mutate}
-      /usr/share/ca-certificates/mozilla/**: {until: mutate}
-    mutate: |
-      certs_dir = "/usr/share/ca-certificates/mozilla/"
-      certs = [
-        content.read(certs_dir + path) for path in content.list(certs_dir)
-      ]
-      content.write("/etc/ssl/certs/ca-certificates.crt", "".join(certs))
-```
-
-Due to the usage of `until`, the `/usr/share/ca-certificates/mozilla/` directory
-and the files inside are not present in the final root file system.
-
 (slice_definitions_format_slices_contents_prefer)=
 
 ### `slices.<name>.contents.<path>.prefer`
@@ -474,6 +425,56 @@ the same for all occurrences of the path within the same package.
 ```{note}
 The `prefer` field cannot be used with globs.
 ```
+
+(slice_definitions_format_slices_mutate)=
+
+### `slices.<name>.mutate`
+
+| Field    | Type     | Required | Supported values    |
+| -------- | -------- | -------- | ------------------- |
+| `mutate` | `string` | Optional | {{Starlark}} script |
+
+Describes a slice's mutation scripts. The mutation scripts are conceptually similar
+to [Debian's maintainer
+script](https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html).
+
+The mutation scripts are written in Google's {{Starlark}} language and are executed
+after the files of every slice have been installed in the root file system. The
+mutation scripts are run once per each installed slice, in the same order of
+slices.
+
+In addition to {{Starlark}}'s native syntax, Chisel introduces the following
+functions:
+
+| Function              | Return type     | Description                                                      |
+| --------------------- | --------------- | ---------------------------------------------------------------- |
+| `content.list(d)`     | `array<string>` | Lists and returns directory `d`'s contents (similar to GNU `ls`) |
+| `content.read(f)`     | `string`        | Reads a text file `f` and returns its contents                   |
+| `content.write(f, s)` | -               | Writes the text content `s` to a file `f`                        |
+
+Reusing the above {ref}`"ca-certificates_data"<slice_definitions_format_slices>`
+example, Chisel initially creates the `/etc/ssl/certs/ca-certificates.crt` text
+file with `FIXME` as its content. When the mutation scripts execute, Chisel
+concatenates the contents of every file in the `/usr/share/ca-certificates/mozilla/`
+directory and writes the concatenated data to the previously created
+`/etc/ssl/certs/ca-certificates.crt` file.
+
+```yaml
+    contents:
+      /etc/ssl/certs/ca-certificates.crt: {text: FIXME, mutable: true}
+      /usr/share/ca-certificates/mozilla/: {until: mutate}
+      /usr/share/ca-certificates/mozilla/**: {until: mutate}
+    mutate: |
+      certs_dir = "/usr/share/ca-certificates/mozilla/"
+      certs = [
+        content.read(certs_dir + path) for path in content.list(certs_dir)
+      ]
+      content.write("/etc/ssl/certs/ca-certificates.crt", "".join(certs))
+```
+
+Due to the usage of `until`, the `/usr/share/ca-certificates/mozilla/` directory
+and the files inside are not present in the final root file system.
+
 
 (slice_definitions_example)=
 
