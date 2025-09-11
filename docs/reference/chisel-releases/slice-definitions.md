@@ -5,7 +5,6 @@
 {ref}`Slices <slices_explanation>` are described in slice definitions files (aka SDFs).
 These are YAML files, named after the package name.
 
-
 (slice_definitions_location)=
 
 ## Location
@@ -19,7 +18,6 @@ Although the `hello.yaml` file can be placed in a sub-directory of `slices/` e.g
 `slices/dir/hello.yaml`, it is generally recommended to keep them at
 `slices/hello.yaml`. The {{chisel_releases_repo}} follows the latter.
 ```
-
 
 (slice_definitions_format)=
 
@@ -43,7 +41,6 @@ For example:
 package: hello
 ```
 
-
 (slice_definitions_format_archive)=
 
 ### `archive`
@@ -65,7 +62,6 @@ For example:
 ```yaml
 archive: ubuntu
 ```
-
 
 (slice_definitions_format_essential)=
 
@@ -95,7 +91,6 @@ slices:
   copyright:
     ...
 ```
-
 
 (slice_definitions_format_slices)=
 
@@ -131,7 +126,6 @@ slices:
       content.write("/etc/ssl/certs/ca-certificates.crt", "".join(certs))
 ```
 
-
 (slice_definitions_format_slices_essential)=
 
 ### `slices.<name>.essential`
@@ -155,7 +149,6 @@ slices:
     essential:
       - libc6_libs
 ```
-
 
 (slice_definitions_format_slices_contents)=
 
@@ -317,7 +310,6 @@ In the following example, `/foo` will be installed for `i386` installations and
       /bar: {arch: [amd64, arm64]}
 ```
 
-
 (slice_definitions_format_slices_contents_mutable)=
 
 ### `slices.<name>.contents.<path>.mutable`
@@ -328,7 +320,6 @@ In the following example, `/foo` will be installed for `i386` installations and
 
 If `mutable` f set to `true`, indicates that this path can be later
 _mutated_ (modified) by the {{mutation_scripts}}.
-
 
 (slice_definitions_format_slices_contents_until)=
 
@@ -353,7 +344,6 @@ system but will exist throughout the execution of the {{mutation_scripts}}.
     contents:
       /file: {until: mutate}
 ```
-
 
 (slice_definitions_format_slices_contents_generate)=
 
@@ -380,6 +370,63 @@ In the following example, Chisel creates the `/var/lib/chisel` directory with
       /var/lib/chisel/**: {generate: manifest}
 ```
 
+(slice_definitions_format_slices_contents_prefer)=
+
+### `slices.<name>.contents.<path>.prefer`
+
+| Field      | Type     | Required |
+| ---------- | -------- | -------- |
+| `prefer`   | `string` | Optional |
+
+Used to resolve a path conflict across multiple packages.
+
+The same path may be declared in multiple packages without a conflict if, and
+only if Chisel can guarantee that the paths’ content will be the same, without
+downloading the packages. For all other cases, Chisel raises a conflict error,
+unless the conflict is resolved via the `prefer` field.
+
+The value of the `prefer` field must match the name of an existing package in
+the release, and it can be used to specify which package should take
+precedence, in a linear sequence, such that when there are multiple occurrences
+of the same path across multiple packages, Chisel will install the one from
+the package that appears last in the linear chain.
+
+For example:
+
+```yaml
+package: hyena
+slices:
+  bins:
+    content:
+      /usr/bin/eat: { text: FOO, prefer: lion }
+---
+package: lion
+slices:
+  bins:
+    content:
+      /usr/bin/eat:  { text: FOO, prefer: hippo }
+---
+package: hippo
+slices:
+  bins:
+    content:
+      /usr/bin/eat:
+```
+
+With the above, the following behavior is observed:
+
+- `chisel cut … <pkg>_bins` would get the path from `<pkg>` (regardless of it being `hyena`, `lion` or `hippo`),
+- `chisel cut … hyena_bins lion_bins` would get the path from `lion`, and
+- `chisel cut … hyena_bins lion_bins hippo_bins` would get the path from `hippo`.
+
+```{note}
+Since `prefer` can only be used for inter-package conflicts, its value must be
+the same for all occurrences of the path within the same package.
+```
+
+```{note}
+The `prefer` field cannot be used with globs.
+```
 
 (slice_definitions_format_slices_mutate)=
 
@@ -429,7 +476,6 @@ directory and writes the concatenated data to the previously created
 
 Due to the usage of `until`, the `/usr/share/ca-certificates/mozilla/` directory
 and the files inside are not present in the final root file system.
-
 
 (slice_definitions_example)=
 
