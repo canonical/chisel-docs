@@ -2,7 +2,7 @@
 
 # Chisel Cryptographic Documentation
 
-Chisel downloads debian packages from
+Chisel downloads Debian packages from
 [archive.ubuntu.com](https://archive.ubuntu.com/), and extracts only selected
 few files from each package.  The slice definition files in
 [chisel-releases](https://github.com/canonical/chisel-releases) specify the

@@ -21,6 +21,7 @@ favicon
 Furo
 Git
 GitHub
+github
 golang
 GPG
 Grafana
