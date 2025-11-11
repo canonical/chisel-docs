@@ -70,6 +70,6 @@ The Chisel project is sponsored by {{Canonical}}.
 
 Tutorial <tutorial/getting-started>
 how-to/index
-explanation/index
 reference/index
+explanation/index
 ```
