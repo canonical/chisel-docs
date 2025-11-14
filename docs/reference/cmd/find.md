@@ -16,7 +16,7 @@ current host, unless the `--release` option is used.
 Run the following command to search python3.10 slices in `ubuntu-22.04` release:
 
 ```{terminal}
-:input: chisel find --release ubuntu-22.04 python3.10
+chisel find --release ubuntu-22.04 python3.10
 
 2024/11/26 13:11:08 Consulting release repository...
 2024/11/26 13:11:10 Fetching current ubuntu-22.04 release...
@@ -40,7 +40,7 @@ because the find command finds partially-matched slices.
 The first three lines are logs, which you can ignore with:
 
 ```{terminal}
-:input: chisel find --release ubuntu-22.04 python3.10 2>/dev/null
+chisel find --release ubuntu-22.04 python3.10 2>/dev/null
 
 Slice                 Summary
 python3.10_copyright  -

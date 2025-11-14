@@ -12,20 +12,19 @@ Chisel is written in Go.
 
 ## Detailed Process
 
-1. Chisel downloads and parses the YAMLs from
+1. Chisel downloads and parses the YAML files from
 [chisel-releases](https://github.com/canonical/chisel-releases) repo[^1]. The
 Go package [net/http](https://pkg.go.dev/net/http) is used and a tarball is
 downloaded over HTTPS. Checksum of the tarball is not checked after downloading.
 
     Chisel maintains a cache of these files[^2]. When making new requests to
-    download a release, Chisel reads the Etag from cache and checks whether the
-    cache is still valid. If it is valid, the cached release YAMLs are used.
+    download a release, Chisel reads the entity tag from cache and checks whether the
+    cache is still valid. If it is valid, the cached release YAML files are used.
 
 1. Chisel downloads a few *InRelease* files from the [Ubuntu Archive
 but](http://archive.ubuntu.com) these files are never cached. The InRelease
-files are signed by GPG, and Chisel verifies[^3] the integrity using the [Ubuntu
-Archive Automatic Signing
-Key](https://keyserver.ubuntu.com/pks/lookup?search=f6ecb3762474eda9d21b7022871920d1991bc93c&fingerprint=on&op=index).[^4]
+files are signed by GPG, and Chisel verifies[^3] the integrity using the <a href="https://keyserver.ubuntu.com/pks/lookup?search=f6ecb3762474eda9d21b7022871920d1991bc93c&fingerprint=on&op=index">Ubuntu
+Archive Automatic Signing Key</a>.[^4]
 The key is specified in the [chisel.yaml in
 chisel-releases](https://github.com/canonical/chisel-releases/blob/a442b2e7208128df6366f859b7a858c0d3fce925/chisel.yaml#L47).
 The Go package [golang.org/x/crypto/openpgp](http://golang.org/x/crypto/openpgp)
@@ -61,10 +60,8 @@ to verify the signed InRelease files it downloads from the Ubuntu Archive. This
 file (chisel.yaml) is exposed to the user and Users can very much specify a
 different key on their forks. 
 
-The default public key in the official repository is the RSA/4096-bit [Ubuntu
-Archive Automatic Signing Key
-(2018)](https://keyserver.ubuntu.com/pks/lookup?search=f6ecb3762474eda9d21b7022871920d1991bc93c&fingerprint=on&op=index)
-with ID 871920D1991BC93C.
+The default public key in the official repository is the RSA/4096-bit <a href="https://keyserver.ubuntu.com/pks/lookup?search=f6ecb3762474eda9d21b7022871920d1991bc93c&fingerprint=on&op=index">Ubuntu
+Archive Automatic Signing Key (2018)</a> with ID 871920D1991BC93C.
 
 ```
 pub (4)rsa4096/f6ecb3762474eda9d21b7022871920d1991bc93c 2018-09-17T15:01:46Z
