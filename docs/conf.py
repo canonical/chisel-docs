@@ -242,8 +242,10 @@ redirects = {}
 #
 # TODO: Remove or adjust the ACME entry after you update the contributing guide
 
-linkcheck_ignore = ["http://127.0.0.1:8000"]
-
+linkcheck_ignore = [
+    "http://127.0.0.1:8000",
+    "https://www.gnu.org/*",
+]
 
 # A regex list of URLs where anchors are ignored by 'make linkcheck'
 
