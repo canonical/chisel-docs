@@ -23,8 +23,7 @@ downloaded over HTTPS. Checksum of the tarball is not checked after downloading.
 
 1. Chisel downloads a few *InRelease* files from the [Ubuntu Archive](http://archive.ubuntu.com) but these files are never cached. The InRelease
 files are signed by GPG, and Chisel verifies[^3] the integrity using the <a href="https://keyserver.ubuntu.com/pks/lookup?search=f6ecb3762474eda9
-                                                                             d21b7022871920d1991bc93c&fingerprint=on&op=index">Ubuntu
-Archive Automatic Signing Key</a>[^4].
+d21b7022871920d1991bc93c&fingerprint=on&op=index">Ubuntu Archive Automatic Signing Key</a>[^4].
 The key is specified in the [chisel.yaml in
 chisel-releases](https://github.com/canonical/chisel-releases/blob/a442b2e7208128df6366f859b7a858c0d3fce925/chisel.yaml#L47).
 The Go package [golang.org/x/crypto/openpgp](http://golang.org/x/crypto/openpgp)
@@ -61,8 +60,7 @@ file (chisel.yaml) is exposed to the user and Users can very much specify a
 different key on their forks. 
 
 The default public key in the official repository is the RSA/4096-bit <a href="https://keyserver.ubuntu.com/pks/lookup?search=f6ecb37624
-                                                                          74eda9d21b7022871920d1991bc93c&fingerprint=on&op=index">Ubuntu
-Archive Automatic Signing Key (2018)</a> 
+74eda9d21b7022871920d1991bc93c&fingerprint=on&op=index">Ubuntu Archive Automatic Signing Key (2018)</a> 
 with ID 871920D1991BC93C.
 
 ```
