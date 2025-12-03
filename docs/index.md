@@ -10,41 +10,20 @@ It operates similarly to a package manager, but for package slices, thus being p
 
 Read more about [Chisel’s approach to security](https://documentation.ubuntu.com/chisel/en/latest/reference/security/).
 
----------
 
 ## In this documentation
 
-````{grid} 1 1 2 2
+---------
 
-```{grid-item-card} [Tutorial](tutorial/getting-started)
+* Tutorial: [Hands-on introduction to Chisel in 15 minutes](https://documentation.ubuntu.com/chisel/en/latest/tutorial/getting-started/)
 
-**Get started** - become familiar with Chisel by slicing Ubuntu packages to create
-a minimal root file system.
-```
+---------
+    
+* Using Chisel: [Installation options](https://documentation.ubuntu.com/chisel/en/latest/how-to/install-chisel/) • [Use Chisel in Dockerfile](https://documentation.ubuntu.com/chisel/en/latest/how-to/use-chisel-in-dockerfile/) • [CLI reference](https://documentation.ubuntu.com/chisel/en/latest/reference/cmd/) • [chisel.yaml](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/chisel.yaml/) 
 
-```{grid-item-card} [How-to guides](how-to/index)
-
-**Step-by-step guides** - learn key operations and common tasks.
-```
-
-````
-
-````{grid} 1 1 2 2
-:reverse:
-
-```{grid-item-card} [Reference](reference/index)
-
-**Technical information** - understand the CLI commands, slice definitions files
-and Chisel manifests.
-```
-
-```{grid-item-card} [Explanations](explanation/index)
-
-**Discussion and clarification** - explore Chisel's mode of operation and learn
-about fundamental topics such as package slices.
-```
-
-````
+---------
+    
+* Slices: [Overview](https://documentation.ubuntu.com/chisel/en/latest/explanation/slices/) • [Chisel releases](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/) • [Slice a package](https://documentation.ubuntu.com/chisel/en/latest/how-to/slice-a-package/) • [Install Ubuntu Pro package slices](https://documentation.ubuntu.com/chisel/en/latest/how-to/install-pro-package-slices/) • [Slice definitions](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/slice-definitions/)
 
 ---------
 
@@ -56,8 +35,6 @@ This documentation uses the [Diátaxis documentation structure](https://diataxis
 - [How-to guides](https://documentation.ubuntu.com/chisel/en/latest/how-to/) assume you have basic familiarity with Chisel. They cover tasks such as installation, slicing and usage of Chisel. 
 - [Reference](https://documentation.ubuntu.com/chisel/en/latest/reference/) provides a guide to CLI commands, chisel-releases and security details.
 - [Explanation](https://documentation.ubuntu.com/chisel/en/latest/explanation/) includes topic overviews, background and context and detailed discussion.
-
----------
 
 ## Project and community
 
