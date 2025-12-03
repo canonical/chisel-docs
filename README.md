@@ -57,7 +57,7 @@ the logs to troubleshoot.
 Note: more tests will be added in the future.
 <!-- TODO: update the tests description once there are more -->
 
-After submitting a pull request, you changes will be reviewed by a project
+After submitting a pull request, your changes will be reviewed by a project
 maintainer.
 
 
