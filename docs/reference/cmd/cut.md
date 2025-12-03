@@ -15,6 +15,9 @@ current host, unless the `--release` option is used.
 - `--release` is a {{chisel_releases_repo}} branch or local directory (e.g. ubuntu-22.04).
 - `--root` is the path for the resulting root file system.
 - `--arch` is used to specify the desired package architecture.
+- `--ignore` is used to allow Chisel to work with "unstable" or "unmaintained"
+  releases (see {ref}`here<chisel_yaml_format_spec_maintenance>`). The valid
+  values are "unstable" or "unmaintained", respectively.
 
 <!-- End: cut command options -->
 
