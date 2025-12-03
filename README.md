@@ -90,7 +90,7 @@ To contact the maintainers for any purposes, please use the [Chisel room in Matr
 [Conventional Commits v1.0.0]: https://www.conventionalcommits.org/en/v1.0.0/
 [Diataxis]: https://diataxis.fr/
 [Read the Docs]: https://about.readthedocs.com/
-[Sphinx starter pack website]: https://canonical-starter-pack.readthedocs-hosted.com/latest/content/set-up/#build-and-run-the-local-server
+[Sphinx starter pack website]: https://canonical-starter-pack.readthedocs-hosted.com/dev/how-to/build/
 [Sphinx starter pack]: https://github.com/canonical/sphinx-docs-starter-pack
 [Ubuntu Code of Conduct]: https://ubuntu.com/community/ethos/code-of-conduct
 [Open Documentation Academy repository]: https://github.com/canonical/open-documentation-academy/
