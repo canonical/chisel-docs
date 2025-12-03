@@ -57,16 +57,30 @@ This documentation uses the [Diátaxis documentation structure](https://diataxis
 - [Reference](https://documentation.ubuntu.com/chisel/en/latest/reference/) provides a guide to CLI commands, chisel-releases and security details.
 - [Explanation](https://documentation.ubuntu.com/chisel/en/latest/explanation/) includes topic overviews, background and context and detailed discussion.
 
+---------
+
 ## Project and community
 
-Chisel is free software and released under {{AGPL3}}.
+Chisel is a member of the Ubuntu family. It’s an open source project that warmly welcomes community contributions, suggestions, fixes and constructive feedback.
 
-The Chisel project is sponsored by {{Canonical}}.
+### Get involved
 
-- [Code of conduct](https://ubuntu.com/community/ethos/code-of-conduct)
-- [Contribute](https://github.com/canonical/chisel)
-- [Security policy](https://github.com/canonical/chisel/blob/main/SECURITY.md)
+* [Support](https://docs.google.com/document/d/1I94nnO1PHx16uKkuFJgDwb-Yl-trd2JhNkE3ELZ0Jvc/edit#)  
+* [Online chat](https://matrix.to/#/#chisel:ubuntu.com) 
+* [Contribute](https://github.com/canonical/chisel)
+    
+### Releases
 
+* [Release notes](https://github.com/canonical/chisel/releases)
+   
+### Governance and policies
+
+* [Code of conduct](https://ubuntu.com/community/docs/ethos/code-of-conduct)  
+* [Security policy](https://github.com/canonical/chisel/blob/main/SECURITY.md)
+    
+### Commercial support
+
+Thinking about using Chisel for your next project? [Get in touch!](https://canonical.com/#get-in-touch#)
 
 ```{toctree}
 :hidden:
