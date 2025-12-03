@@ -48,6 +48,15 @@ about fundamental topics such as package slices.
 
 ---------
 
+## How this documentation is organized
+
+This documentation uses the [Diátaxis documentation structure](https://diataxis.fr/).
+
+- The [Tutorial](https://documentation.ubuntu.com/chisel/en/latest/tutorial/getting-started/) takes you step-by-step through the creation of your first chiseled Ubuntu root file system, from installation to the slicing of Ubuntu packages.
+- [How-to guides](https://documentation.ubuntu.com/chisel/en/latest/how-to/) assume you have basic familiarity with Chisel. They cover tasks such as installation, slicing and usage of Chisel. 
+- [Reference](https://documentation.ubuntu.com/chisel/en/latest/reference/) provides a guide to CLI commands, chisel-releases and security details.
+- [Explanation](https://documentation.ubuntu.com/chisel/en/latest/explanation/) includes topic overviews, background and context and detailed discussion.
+
 ## Project and community
 
 Chisel is free software and released under {{AGPL3}}.
