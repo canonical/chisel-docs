@@ -26,7 +26,7 @@ we can run the following:
 <!-- Start: hello_bins installation -->
 
 ```{terminal}
-:input: chisel cut --release ubuntu-24.04 --root rootfs/ hello_bins
+chisel cut --release ubuntu-24.04 --root rootfs/ hello_bins
 
 2024/11/26 12:21:35 Consulting release repository...
 2024/11/26 12:21:37 Cached ubuntu-24.04 release is still up-to-date.
