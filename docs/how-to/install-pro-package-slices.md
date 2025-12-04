@@ -148,7 +148,7 @@ machine esm.ubuntu.com/infra/ubuntu/ login bearer password <REDACTED>
 Finally, run Chisel to install the required packages.
 
 ```{terminal}
-:input: chisel cut --release ubuntu-20.04 --root out/ openssl_bins
+chisel cut --release ubuntu-20.04 --root out/ openssl_bins
 
 2025/02/11 15:28:20 Consulting release repository...
 2025/02/11 15:28:22 Fetching current ubuntu-20.04 release...

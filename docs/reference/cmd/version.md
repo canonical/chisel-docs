@@ -2,11 +2,10 @@
 
 The **version** command displays the Chisel version and exits.
 
-
 ## Example
 
 ```{terminal}
-:input: chisel version
+chisel version
 
 v1.0.0
 ```

@@ -38,7 +38,8 @@ indicated by the package.
     <summary>Example: vim-tiny pkg dependencies</summary>
 
     ```{terminal}
-    :input: apt depends vim-tiny
+    apt depends vim-tiny
+
     vim-tiny
       Depends: vim-common (= 2:9.1.0016-1ubuntu7.8)
       Depends: libacl1 (>= 2.2.23)
@@ -66,7 +67,7 @@ indicated by the package.
     <summary>Example: vim-tiny contents in Ubuntu 24.04, for amd64</summary>
 
     ```{terminal}
-    :input: dpkg -c vim-tiny_2%3a9.1.0016-1ubuntu7.8_amd64.deb
+    dpkg -c vim-tiny_2%3a9.1.0016-1ubuntu7.8_amd64.deb
 
     drwxr-xr-x root/root         0 2025-04-01 20:12 ./
     drwxr-xr-x root/root         0 2025-04-01 20:12 ./etc/
@@ -120,7 +121,8 @@ indicated by the package.
       <summary>Example: vim-tiny conffiles</summary>
 
       ```{terminal}
-      :input: cat DEBIAN/conffiles
+      cat DEBIAN/conffiles
+
       /etc/vim/vimrc.tiny
       ```
 
@@ -383,7 +385,7 @@ There are **two schools of thought** when designing slices:
     Let's closely look at the `/usr/bin/vim.tiny` file. Let's use the `file` command to determine the type.
 
     ```{terminal}
-    :input: file /usr/bin/vim.tiny
+    file /usr/bin/vim.tiny
 
     /usr/bin/vim.tiny: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=244c06f7943459e771bbf3279ef507ad64f477b5, for GNU/Linux 3.2.0, stripped
     ```
@@ -393,7 +395,8 @@ There are **two schools of thought** when designing slices:
     libraries it depends on.
 
     ```{terminal}
-    :input: ldd /usr/bin/vim.tiny
+    ldd /usr/bin/vim.tiny
+
           linux-vdso.so.1 (0x00007ffcdfecd000)
           libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000744edc6ac000)
           libtinfo.so.6 => /lib/x86_64-linux-gnu/libtinfo.so.6 (0x0000744edc678000)
@@ -562,7 +565,8 @@ specific function. Examples:
     Test the `bins` binary:
 
     ```{terminal}
-    :input: sudo chroot rootfs/ vim.tiny --version
+    sudo chroot rootfs/ vim.tiny --version
+
     VIM - Vi IMproved 9.1 (2024 Jan 02, compiled Apr 01 2025 15:29:41)
     Included patches: 1-16, 647-648, 678, 697, 689, 17-496, 707
     Modified by <team+vim@tracker.debian.org>
@@ -602,7 +606,7 @@ specific function. Examples:
         Run the test with `spread`:
 
         ```{terminal}
-        :input: spread lxd:tests/spread/integration/vim-tiny
+        spread lxd:tests/spread/integration/vim-tiny
 
         ...
         2025-04-14 18:29:40 Preparing lxd:ubuntu-noble:tests/spread/integration/vim-tiny (lxd:ubuntu-noble)...
