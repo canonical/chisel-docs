@@ -11,7 +11,7 @@ selecting only the necessary components from the full Ubuntu package set.
 It operates similarly to a package manager, but for package slices, thus being particularly useful for supporting 
 developers in the creation of hardened, tailored and fully functional container images.
 
-Read more about [Chisel’s approach to security](https://documentation.ubuntu.com/chisel/en/latest/reference/security/).
+Read more about [Chisel’s security](https://documentation.ubuntu.com/chisel/en/latest/reference/security/).
 
 ---------
 
