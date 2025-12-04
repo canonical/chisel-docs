@@ -7,7 +7,6 @@ methods:
 - {ref}`install_chisel_source`
 - {ref}`install_chisel_snap`
 
-
 (install_chisel_binary)=
 
 ## Install the binary
@@ -47,6 +46,7 @@ the latest Chisel binary:
    ```sh
    sudo mv chisel /usr/local/bin/
    ```
+
 <!-- End: Install Chisel binary -->
 
 (install_chisel_source)=
@@ -67,7 +67,6 @@ Alternatively, you can install the latest version of Chisel from source:
    go install github.com/canonical/chisel/cmd/chisel@latest
    ```
 
-
 (install_chisel_snap)=
 
 ## Install Snap
@@ -85,7 +84,6 @@ directory, i.e. the `--root` option of the {ref}`cut_command_reference` must poi
 inside `$HOME`.
 ```
 
-
 ## Verify installation
 
 <!-- Start: Verify Chisel installation -->
@@ -100,7 +98,7 @@ chisel
 This should produce output similar to the following:
 
 ```{terminal}
-:input: chisel
+chisel
 
 Chisel can slice a Linux distribution using a release database
 and construct a new filesystem using the finely defined parts.
