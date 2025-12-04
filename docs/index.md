@@ -1,7 +1,6 @@
 # Chisel
 
-**Chisel** is a developer tool for extracting well-defined portions ({{package_slices}}) of Ubuntu packages to create 
-compact, secure container images.
+**Chisel** is a developer tool for extracting well-defined portions ({{package_slices}}) of Ubuntu packages.
 
 Chisel extracts specialized slices and only installs the necessary files from Ubuntu packages.
 
