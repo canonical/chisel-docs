@@ -56,7 +56,6 @@ suggestions, fixes and constructive feedback.
 
 ### Get involved
 
-* [Support](https://docs.google.com/document/d/1I94nnO1PHx16uKkuFJgDwb-Yl-trd2JhNkE3ELZ0Jvc/edit#)  
 * <a href="https://matrix.to/#/#chisel:ubuntu.com">Online chat</a>
 * [Contribute](https://github.com/canonical/chisel)
     
