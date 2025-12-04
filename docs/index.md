@@ -47,6 +47,8 @@ chisel-releases and security details.
 - [Explanation](https://documentation.ubuntu.com/chisel/en/latest/explanation/) includes topic overviews, background 
 and context and detailed discussion.
 
+---------
+
 ## Project and community
 
 Chisel is a member of the Ubuntu family. It’s an open source project that warmly welcomes community contributions, 
