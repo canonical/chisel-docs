@@ -1,7 +1,7 @@
 # Chisel
 
 *Chisel** is a developer tool for extracting highly customized and specialized ({{package_slices}}) of Ubuntu packages to create 
-compact, secure sotware.
+compact, secure software.
 
 Developers need to be able to create software suited to their specific needs with a reduced attack 
 surface and a small storage footprint. With Chisel, users build a minimal root filesystem by 
@@ -46,8 +46,7 @@ and context and detailed discussion.
 
 ## Project and community
 
-Chisel is a member of the Ubuntu family. It’s an open source project that warmly welcomes community contributions, 
-suggestions, fixes and constructive feedback.
+Chisel is a member of the Ubuntu family. It’s an open source project that warmly welcomes community contributions in the form of new content, fixes, and suggestions.
 
 ### Get involved
 
