@@ -20,13 +20,13 @@ Read more about [Chisel’s security](https://documentation.ubuntu.com/chisel/en
 * **Tutorial**: [Hands-on introduction to Chisel in 15 minutes](https://documentation.ubuntu.com/chisel/en/latest/tutorial/getting-started/)
     
 * **Using Chisel**: [Installation options](https://documentation.ubuntu.com/chisel/en/latest/how-to/install-chisel/) • 
-[Use Chisel in Dockerfile](https://documentation.ubuntu.com/chisel/en/latest/how-to/use-chisel-in-dockerfile/) • 
-[CLI reference](https://documentation.ubuntu.com/chisel/en/latest/reference/cmd/) • 
-[chisel.yaml](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/chisel.yaml/) 
-    
-* **Slices**: [Overview](https://documentation.ubuntu.com/chisel/en/latest/explanation/slices/) • 
-[Chisel releases](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/) • 
 [Slice a package](https://documentation.ubuntu.com/chisel/en/latest/how-to/slice-a-package/) • 
+[Use Chisel in Dockerfile](https://documentation.ubuntu.com/chisel/en/latest/how-to/use-chisel-in-dockerfile/) • 
+[CLI reference](https://documentation.ubuntu.com/chisel/en/latest/reference/cmd/) 
+    
+* **Slices**: [Learn more about slices](https://documentation.ubuntu.com/chisel/en/latest/explanation/slices/) • 
+[Chisel releases](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/) • 
+[chisel.yaml](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/chisel.yaml/) •
 [Install Ubuntu Pro package slices](https://documentation.ubuntu.com/chisel/en/latest/how-to/install-pro-package-slices/) • 
 [Slice definitions](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/slice-definitions/)
 
