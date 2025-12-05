@@ -15,7 +15,7 @@ Read more about [Chisel’s security](https://documentation.ubuntu.com/chisel/en
 
 * **Tutorial**: [Hands-on introduction to Chisel in 15 minutes](https://documentation.ubuntu.com/chisel/en/latest/tutorial/getting-started/)
     
-* **Using Chisel**: [Installation options](https://documentation.ubuntu.com/chisel/en/latest/how-to/install-chisel/) • 
+* **Workflows**: [Installation options](https://documentation.ubuntu.com/chisel/en/latest/how-to/install-chisel/) • 
 [Slice a package](https://documentation.ubuntu.com/chisel/en/latest/how-to/slice-a-package/) • 
 [Use Chisel in Dockerfile](https://documentation.ubuntu.com/chisel/en/latest/how-to/use-chisel-in-dockerfile/) • 
 [CLI reference](https://documentation.ubuntu.com/chisel/en/latest/reference/cmd/) 
