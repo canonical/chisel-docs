@@ -1,30 +1,30 @@
 # Chisel
 
-*Chisel** is a developer tool for extracting highly customized and specialized ({{package_slices}}) of Ubuntu packages to create 
+**Chisel** is a developer tool for extracting highly customized and specialized ({{package_slices}}) of Ubuntu packages to create 
 compact, secure software.
 
 Developers need to be able to create software suited to their specific needs with a reduced attack 
 surface and a small storage footprint. With Chisel, users build a minimal root filesystem by 
 selecting and installing only the necessary slices from the full Ubuntu package set.
 
-Read more about [Chisel’s security](https://documentation.ubuntu.com/chisel/en/latest/reference/security/).
+Read more about [Chisel’s security](reference/security).
 
 ---------
 
 ## In this documentation
 
-* **Tutorial**: [Hands-on introduction to Chisel in 15 minutes](https://documentation.ubuntu.com/chisel/en/latest/tutorial/getting-started/)
+* **Tutorial**: [Hands-on introduction to Chisel in 15 minutes](tutorial/getting-started)
     
-* **Workflows**: [Installation options](https://documentation.ubuntu.com/chisel/en/latest/how-to/install-chisel/) • 
-[Slice a package](https://documentation.ubuntu.com/chisel/en/latest/how-to/slice-a-package/) • 
-[Use Chisel in Dockerfile](https://documentation.ubuntu.com/chisel/en/latest/how-to/use-chisel-in-dockerfile/) • 
-[CLI reference](https://documentation.ubuntu.com/chisel/en/latest/reference/cmd/) 
+* **Workflows**: [Installation options](how-to/install-chisel) • 
+[Slice a package](how-to/slice-a-package/) • 
+[Use Chisel in Dockerfile](how-to/use-chisel-in-dockerfile) • 
+[CLI reference](reference/cmd/index) 
     
-* **Slices**: [Learn more about slices](https://documentation.ubuntu.com/chisel/en/latest/explanation/slices/) • 
-[Chisel releases](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/) • 
-[chisel.yaml](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/chisel.yaml/) •
-[Install Ubuntu Pro package slices](https://documentation.ubuntu.com/chisel/en/latest/how-to/install-pro-package-slices/) • 
-[Slice definitions](https://documentation.ubuntu.com/chisel/en/latest/reference/chisel-releases/slice-definitions/)
+* **Slices**: [Learn more about slices](explanation/slices) • 
+[Chisel releases](reference/chisel-releases/index) • 
+[chisel.yaml](reference/chisel-releases/chisel.yaml) •
+[Slice definitions](reference/chisel-releases/slice-definitions) • 
+[Install Ubuntu Pro package slices](how-to/install-pro-package-slices)
 
 ---------
 
@@ -32,14 +32,14 @@ Read more about [Chisel’s security](https://documentation.ubuntu.com/chisel/en
 
 This documentation uses the [Diátaxis documentation structure](https://diataxis.fr/).
 
-- The [Tutorial](https://documentation.ubuntu.com/chisel/en/latest/tutorial/getting-started/) takes you step-by-step 
+- The [Tutorial](tutorial/getting-started) takes you step-by-step 
 through the creation of your first chiseled Ubuntu root file system, from installation to the slicing of Ubuntu 
 packages.
-- [How-to guides](https://documentation.ubuntu.com/chisel/en/latest/how-to/) assume you have basic familiarity with 
+- [How-to guides](how-to/index) assume you have basic familiarity with 
 Chisel. They cover tasks such as installation, slicing and usage of Chisel. 
-- [Reference](https://documentation.ubuntu.com/chisel/en/latest/reference/) provides a guide to CLI commands, 
+- [Reference](reference/index) provides a guide to CLI commands, 
 chisel-releases and security details.
-- [Explanation](https://documentation.ubuntu.com/chisel/en/latest/explanation/) includes topic overviews, background 
+- [Explanation](explanation/index) includes topic overviews, background 
 and context and detailed discussion.
 
 ---------
