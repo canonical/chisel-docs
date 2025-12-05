@@ -61,6 +61,7 @@ suggestions, fixes and constructive feedback.
 ### Releases
 
 * [Release notes](https://github.com/canonical/chisel/releases)
+* [chisel-releases](https://github.com/canonical/chisel-releases)
    
 ### Governance and policies
 
