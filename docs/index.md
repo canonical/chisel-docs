@@ -7,8 +7,6 @@ Developers need to be able to create software suited to their specific needs wit
 surface and a small storage footprint. With Chisel, users build a minimal root filesystem by 
 selecting and installing only the necessary slices from the full Ubuntu package set.
 
-Read more about [Chisel’s security](reference/security).
-
 ---------
 
 ## In this documentation
