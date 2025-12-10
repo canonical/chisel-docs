@@ -57,16 +57,19 @@ credentials will be automatically picked up from `/etc/apt/auth.conf.d/`.
 However, you must change the default permissions of the credentials file(s)
 so that Chisel can read it.
 
+First, enable the service(s) related to the Pro archive(s) you want Chisel to fetch Pro packages from. This will also generate the archive credentials:
+
 ```sh
-# Enable the service(s) related to the Pro archive(s)
-# you want Chisel to fetch Pro packages from.
-# This will also generate the esm-infra archive credentials.
 sudo pro enable esm-infra
+```
+Next, provide read access to the user. You can do this using `setfacl`:
 
-# Provide read access to the user.
+```sh
 sudo setfacl -m u:$USER:r /etc/apt/auth.conf.d/90ubuntu-advantage
+```
+Alternatively, you can use `chmod`:
 
-# Or, alternatively,
+```sh
 sudo chmod u+r /etc/apt/auth.conf.d/90ubuntu-advantage
 ```
 
