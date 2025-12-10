@@ -46,7 +46,7 @@ and context and detailed discussion.
 
 ## Project and community
 
-Chisel is a member of the Ubuntu family. It’s an open source project that warmly welcomes community contributions in the form of new content, fixes, and suggestions.
+Chisel is a member of the Ubuntu family. It’s an open source project that warmly welcomes [community contributions](https://documentation.ubuntu.com/project/contributors/).
 
 ### Get involved
 
