@@ -24,7 +24,7 @@ directory.
 
 | Field    | Type     | Required | Supported values |
 | -------- | -------- | -------- | ---------------- |
-| `format` | `string` | Required | `v1`             |
+| `format` | `string` | Required | `v1`, `v2`       |
 
 Used to define the supported schemas for the {ref}`chisel-releases_ref`.
 For example:
@@ -38,14 +38,13 @@ New formats are typically introduced with new _chisel-releases_ and may
 introduce disruptive changes to the previous formats.
 ```
 
-
 (chisel_yaml_format_spec_archives)=
 
 ### `archives`
 
-| Field      | Type     | Required |
-| ---------- | -------- | -------- |
-| `archives` | `object` | Required |
+| Field      | Type     | Required | Compatibility |
+| ---------- | -------- | -------- | ------------- |
+| `archives` | `object` | Required | >= `v1`       |
 
 Tells Chisel which Ubuntu archives to fetch packages from.
 
@@ -81,9 +80,9 @@ otherwise, the archive point to the Ubuntu Pro archives listed
 
 ### `archives.<name>.default`
 
-| Field     | Type      | Required                                                                                            | Supported values |
-| --------- | --------- | --------------------------------------------------------------------------------------------------- | ---------------- |
-| `default` | `boolean` | Required with multiple archives, if no {ref}`priorities<chisel_yaml_format_spec_archives_priority>` | `true`, `false`  |
+| Field     | Type      | Required                                                                                            | Supported values | Compatibility |
+| --------- | --------- | --------------------------------------------------------------------------------------------------- | ---------------- | ------------- |
+| `default` | `boolean` | Required with multiple archives, if no {ref}`priorities<chisel_yaml_format_spec_archives_priority>` | `true`, `false`  | `v1`          |
 
 If `default` is `true`, Chisel fetches packages from this archive, unless
 otherwise specified by the field {ref}`"archive"<slice_definitions_format_archive>`
@@ -102,9 +101,9 @@ so use {ref}`chisel_yaml_format_spec_archives_priority` instead.
 
 ### `archives.<name>.version`
 
-| Field     | Type     | Required | Supported values                                        |
-| --------- | -------- | -------- | ------------------------------------------------------- |
-| `version` | `string` | Required | Ubuntu release in `xx.yy` format e.g. 22.04, 24.04 etc. |
+| Field     | Type     | Required | Supported values                                        | Compatibility |
+| --------- | -------- | -------- | ------------------------------------------------------- | ------------- |
+| `version` | `string` | Required | Ubuntu release in `xx.yy` format e.g. 22.04, 24.04 etc. | >= `v1`       |
 
 Indicates the Ubuntu release this archive should fetch the
 packages for. This value is currently only used for logging, and does not change
@@ -115,9 +114,9 @@ the archive behaviour.
 
 ### `archives.<name>.suites`
 
-| Field    | Type            | Required | Supported values                                              |
-| -------- | --------------- | -------- | ------------------------------------------------------------- |
-| `suites` | `array<string>` | Required | Ubuntu archive suite names e.g. `jammy`, `noble-updates` etc. |
+| Field    | Type            | Required | Supported values                                              | Compatibility |
+| -------- | --------------- | -------- | ------------------------------------------------------------- | ------------- |
+| `suites` | `array<string>` | Required | Ubuntu archive suite names e.g. `jammy`, `noble-updates` etc. | >= `v1`       |
 
 Lists the archive suites to fetch packages from. Read more
 about suites in the [Ubuntu packaging
@@ -128,9 +127,9 @@ guide](https://canonical-ubuntu-packaging-guide.readthedocs-hosted.com/en/latest
 
 ### `archives.<name>.components`
 
-| Field        | Type            | Required | Supported values                                   |
-| ------------ | --------------- | -------- | -------------------------------------------------- |
-| `components` | `array<string>` | Required | Suite component names e.g. `main`, `universe` etc. |
+| Field        | Type            | Required | Supported values                                   | Compatibility |
+| ------------ | --------------- | -------- | -------------------------------------------------- | ------------- |
+| `components` | `array<string>` | Required | Suite component names e.g. `main`, `universe` etc. | >= `v1`       |
 
 Lists the components of the archive suites to fetch
 packages from. Read more about components in the [Ubuntu packaging
@@ -144,9 +143,9 @@ locate packages.
 
 ### `archives.<name>.public-keys`
 
-| Field         | Type            | Required | Supported values                                                            |
-| ------------- | --------------- | -------- | --------------------------------------------------------------------------- |
-| `public-keys` | `array<string>` | Required | List of key names, as defined in {ref}`chisel_yaml_format_spec_public_keys` |
+| Field         | Type            | Required | Supported values                                                            | Compatibility |
+| ------------- | --------------- | -------- | --------------------------------------------------------------------------- | ------------- |
+| `public-keys` | `array<string>` | Required | List of key names, as defined in {ref}`chisel_yaml_format_spec_public_keys` | >= `v1`       |
 
 Lists the names of the OpenPGP public keys needed to verify the archive's `InRelease`
 file signatures. These key names must be defined in
@@ -157,9 +156,9 @@ file signatures. These key names must be defined in
 
 ### `archives.<name>.priority`
 
-| Field      | Type      | Required                                         | Supported values                   |
-| ---------- | --------- | ------------------------------------------------ | ---------------------------------- |
-| `priority` | `integer` | Required with multiple archives, if no `default` | Any integer between -1000 and 1000 |
+| Field      | Type      | Required                                         | Supported values                   | Compatibility |
+| ---------- | --------- | ------------------------------------------------ | ---------------------------------- | ------------- |
+| `priority` | `integer` | Required with multiple archives, if no `default` | Any integer between -1000 and 1000 | >= `v1`       |
 
 Describes the priority of an archive compared to other
 archives. It is used to support multiple archives in Chisel. If a package is
@@ -176,9 +175,9 @@ Note that:
 
 ### `archives.<name>.pro`
 
-| Field | Type     | Required | Supported values                                 |
-| ----- | -------- | -------- | ------------------------------------------------ |
-| `pro` | `string` | Optional | `fips`, `fips-updates`, `esm-apps`, `esm-infra`. |
+| Field | Type     | Required | Supported values                                 | Compatibility |
+| ----- | -------- | -------- | ------------------------------------------------ | ------------- |
+| `pro` | `string` | Optional | `fips`, `fips-updates`, `esm-apps`, `esm-infra`. | >= `v1`       |
 
 Specifies the [Ubuntu Pro](https://ubuntu.com/pro) archive to
 fetch and install packages from.
@@ -221,13 +220,65 @@ Although not enforced, the following `priority` values are suggested when
 <!-- End: Suggested Priority values -->
 ```
 
+(chisel_yaml_format_spec_maintenance)=
+
+### `maintenance`
+
+| Field         | Type     | Required | Compatibility |
+| ------------- | -------- | -------- | ------------- |
+| `maintenance` | `object` | Required | >= `v2`       |
+
+Includes the dates that mark the different stages of Canonical's support for a
+release. In Chisel we say that a release is "unmaintained" after its
+`end-of-life`, and "unstable" before its `standard` date.
+
+Chisel by default will only cut the releases which are officially maintained.
+To use "unstable" or "unmaintained" releases see the reference for the
+{ref}`cut command<cut_command_reference>`.
+
+For more information about Ubuntu's release cycle see
+https://ubuntu.com/about/release-cycle.
+
+### `maintenance.standard`
+
+| Field      | Type                | Required | Compatibility |
+| ---------- | ------------------- | -------- | ------------- |
+| `standard` | `date (YYYY-MM-DD)` | Required | >= `v2`       |
+
+Marks the start of standard support.
+
+### `maintenance.expanded`
+
+| Field      | Type                | Required  | Compatibility |
+| ---------- | ------------------- | --------- | ------------- |
+| `expanded` | `date (YYYY-MM-DD)` | Optional  | >= `v2`       |
+
+Marks the start of expanded support (only valid for LTS releases).
+
+### `maintenance.legacy`
+
+| Field    | Type                | Required  | Compatibility |
+| -------- | ------------------- | --------- | ------------- |
+| `legacy` | `date (YYYY-MM-DD)` | Optional  | >= `v2`       |
+
+Marks the start of legacy support (only valid for LTS releases).
+
+### `maintenance.end-of-life`
+
+| Field         | Type                | Required | Compatibility |
+| ------------- | ------------------- | -------- | ------------- |
+| `end-of-life` | `date (YYYY-MM-DD)` | Required | >= `v2`       |
+
+After `end-of-life` the release is no longer officially maintained by
+Canonical.
+
 (chisel_yaml_format_spec_public_keys)=
 
 ### `public-keys`
 
-| Field         | Type     | Required |
-| ------------- | -------- | -------- |
-| `public-keys` | `object` | Required |
+| Field         | Type     | Required | Compatibility |
+| ------------- | -------- | -------- | ------------- |
+| `public-keys` | `object` | Required | >= `v1`       |
 
 The top-level `public-keys` field is used to define OpenPGP public keys that are
 needed to verify the `InRelease` file signatures of the
@@ -255,9 +306,9 @@ The key names are then referenced in
 
 ### `public-keys.<name>.id`
 
-| Field | Type     | Required |
-| ----- | -------- | -------- |
-| `id`  | `string` | Required |
+| Field | Type     | Required | Compatibility |
+| ----- | -------- | -------- | ------------- |
+| `id`  | `string` | Required | >= `v1`       |
 
 The `id` field specifies the OpenPGP public key fingerprint in capital hex e.g.
 `871920D1991BC93C`. It must be 16 chars long and must match the decoded
@@ -268,9 +319,9 @@ fingerprint in {ref}`chisel_yaml_format_spec_public_keys_armor`.
 
 ### `public-keys.<name>.armor`
 
-| Field   | Type     | Required |
-| ------- | -------- | -------- |
-| `armor` | `string` | Required |
+| Field   | Type     | Required | Compatibility |
+| ------- | -------- | -------- | ------------- |
+| `armor` | `string` | Required | >= `v1`       |
 
 The `armor` field contains the multi-line armored ASCII data of OpenPGP public
 key.
