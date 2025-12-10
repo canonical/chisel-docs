@@ -13,10 +13,10 @@ selecting and installing only the necessary slices from the full Ubuntu package 
 
 * **Tutorial**: [Hands-on introduction to Chisel in 15 minutes](tutorial/getting-started)
     
-* **Workflows**: [Installation options](how-to/install-chisel) • 
+* **Common patterns**: [Install Chisel](how-to/install-chisel) • 
 [Slice a package](how-to/slice-a-package/) • 
-[Use Chisel in Dockerfile](how-to/use-chisel-in-dockerfile) • 
-[CLI reference](reference/cmd/index) 
+[Use Chisel in a Dockerfile](how-to/use-chisel-in-dockerfile) • 
+[Explore the Chisel CLI](reference/cmd/index) 
     
 * **Slices**: [Learn more about slices](explanation/slices) • 
 [Chisel releases](reference/chisel-releases/index) • 
