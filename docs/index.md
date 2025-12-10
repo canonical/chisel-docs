@@ -28,8 +28,6 @@ selecting and installing only the necessary slices from the full Ubuntu package 
 
 ## How this documentation is organized
 
-This documentation uses the [Diátaxis documentation structure](https://diataxis.fr/).
-
 - The [Tutorial](tutorial/getting-started) takes you step-by-step 
 through the creation of your first chiseled Ubuntu root file system, from installation to the slicing of Ubuntu 
 packages.
@@ -64,6 +62,10 @@ Chisel is a member of the Ubuntu family. It’s an open source project that warm
 ### Commercial support
 
 Thinking about using Chisel for your next project? <a href="https://canonical.com/#get-in-touch#">Get in touch!</a>
+
+---------
+
+This documentation uses the [Diátaxis documentation structure](https://diataxis.fr/).
 
 ```{toctree}
 :hidden:
