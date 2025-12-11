@@ -1,68 +1,71 @@
 # Chisel
 
-**Chisel** is a tool for carving and cutting Ubuntu packages.
+**Chisel** is a developer tool for extracting highly customized and specialized ({{package_slices}}) of Ubuntu packages to create 
+compact, secure software.
 
-It is built on the idea of {{package_slices}} - minimal, complementary, and
-loosely coupled sets of files, based on the package's metadata and content.
-Slices are basically logical subsets of the Ubuntu packages, with their own
-content and set of dependencies to other internal and external slices.
-
-Chisel is able to extract a highly customised and specialised _Slice_ of the
-Ubuntu distribution, which one could see as a block of stone from which we can
-carve and extract the small and relevant parts we need to run our applications.
-
-It operates similarly to a package manager, but for package slices, thus being
-particularly useful for supporting developers in the creation of smaller but
-equally functional container images.
+Users need to be able to create software suited to their specific needs with a reduced attack 
+surface and a small storage footprint. With Chisel, users build a minimal root filesystem by 
+selecting and installing only the necessary slices from the full Ubuntu package set.
 
 ---------
 
 ## In this documentation
 
-````{grid} 1 1 2 2
+* **Tutorial**: [Hands-on introduction to Chisel in 15 minutes](tutorial/getting-started)
+    
+* **Common patterns**: [Install Chisel](how-to/install-chisel) • 
+[Slice a package](how-to/slice-a-package/) • 
+[Use Chisel in a Dockerfile](how-to/use-chisel-in-dockerfile) • 
+[Explore the Chisel CLI](reference/cmd/index) 
+    
+* **Slices**: [Learn more about slices](explanation/slices) • 
+[Chisel releases](reference/chisel-releases/index) • 
+[chisel.yaml](reference/chisel-releases/chisel.yaml) •
+[Slice definitions](reference/chisel-releases/slice-definitions) • 
+[Install Ubuntu Pro package slices](how-to/install-pro-package-slices)
 
-```{grid-item-card} [Tutorial](tutorial/getting-started)
+---------
 
-**Get started** - become familiar with Chisel by slicing Ubuntu packages to create
-a minimal root file system.
-```
+## How this documentation is organized
 
-```{grid-item-card} [How-to guides](how-to/index)
-
-**Step-by-step guides** - learn key operations and common tasks.
-```
-
-````
-
-````{grid} 1 1 2 2
-:reverse:
-
-```{grid-item-card} [Reference](reference/index)
-
-**Technical information** - understand the CLI commands, slice definitions files
-and Chisel manifests.
-```
-
-```{grid-item-card} [Explanations](explanation/index)
-
-**Discussion and clarification** - explore Chisel's mode of operation and learn
-about fundamental topics such as package slices.
-```
-
-````
+- The [Tutorial](tutorial/getting-started) takes you step-by-step 
+through the creation of your first chiseled Ubuntu root file system, from installation to the slicing of Ubuntu 
+packages.
+- [How-to guides](how-to/index) assume you have basic familiarity with 
+Chisel. They cover tasks such as installation, slicing and usage of Chisel. 
+- [Reference](reference/index) provides a guide to CLI commands, 
+chisel-releases and security details.
+- [Explanation](explanation/index) includes topic overviews, background 
+and context and detailed discussion.
 
 ---------
 
 ## Project and community
 
-Chisel is free software and released under {{AGPL3}}.
+Chisel is a member of the Ubuntu family. It’s an open source project that warmly welcomes [community contributions](https://documentation.ubuntu.com/project/contributors/).
 
-The Chisel project is sponsored by {{Canonical}}.
+### Get involved
 
-- [Code of conduct](https://ubuntu.com/community/ethos/code-of-conduct)
-- [Contribute](https://github.com/canonical/chisel)
-- [Security policy](https://github.com/canonical/chisel/blob/main/SECURITY.md)
+* <a href="https://matrix.to/#/#chisel:ubuntu.com">Online chat</a>
+* [Contribute](https://github.com/canonical/chisel)
+    
+### Releases
 
+* [Release notes](https://github.com/canonical/chisel/releases)
+* [chisel-releases](https://github.com/canonical/chisel-releases)
+   
+### Governance and policies
+
+* [Code of conduct](https://ubuntu.com/community/docs/ethos/code-of-conduct)  
+* [Security policy](https://github.com/canonical/chisel/blob/main/SECURITY.md)
+    
+### Commercial support
+
+Thinking about using Chisel for your next project? <a href="https://canonical.com/#get-in-touch#">Get in touch!</a>
+
+---------
+
+This documentation uses the [Diátaxis documentation structure](https://diataxis.fr/).
 
 ```{toctree}
 :hidden:
