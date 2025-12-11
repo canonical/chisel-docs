@@ -40,12 +40,18 @@ A package's slices can be defined via a YAML slice definitions file. Check
 
 ## Naming convention
 
+### Slice naming
+
 In Chisel, slices are recognized by the following pattern:
 `<package_name>_<slice_name>`. 
 
 For example, the slice `libc6_libs` refers to the slice definition `libs` of the
 package `libc6`.
 
-
 The use of an underscore in this pattern is what distinguishes package names from
 slice names, as this character is not allowed in Debian package names.
+
+### Package naming
+
+Package names must be the same as the package names in the archive, so that
+there's a single namespace to remember and respect.
