@@ -2,7 +2,27 @@
 
 # How Chisel works
 
-Chisel uses the {{cut_cmd}} to _slice_ Ubuntu packages, as described in the workflow below:
+Chisel uses the {{cut_cmd}} to _slice_ Ubuntu packages, following the workflow below:
+
+```mermaid
+graph TD
+    %% Define the nodes with the Hexagon shape
+    step1{{1. Read and parse chisel-releases}}
+    step2{{2. Talk to Ubuntu archives<br>and fetch packages}}
+    step3{{3. Install only the specified<br>files from packages}}
+    step4{{4. Run mutation scripts and<br>remove temporary files}}
+
+    %% Connect the nodes
+    step1 --> step2
+    step2 --> step3
+    step3 --> step4
+    
+    %% Style the nodes to match the original Chisel red
+    style step1 fill:#a81c1c,stroke:#333,stroke-width:1px,color:white
+    style step2 fill:#a81c1c,stroke:#333,stroke-width:1px,color:white
+    style step3 fill:#a81c1c,stroke:#333,stroke-width:1px,color:white
+    style step4 fill:#a81c1c,stroke:#333,stroke-width:1px,color:white
+   ```
 
 1. **Read and parse chisel-releases**
 
