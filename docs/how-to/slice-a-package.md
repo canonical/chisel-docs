@@ -295,7 +295,7 @@ There are **two schools of thought** when designing slices:
     ```
 ```
 
-6. [ ] **Choose the design approach that aligns best with your package**
+1. [ ] **Choose the design approach that aligns best with your package**
 
     Given the {ref}`above package inspection <create_sdf_inspect_pkg>`, the
     `vim-tiny` package can be sliced by *type of content*:
@@ -309,7 +309,7 @@ There are **two schools of thought** when designing slices:
     It is therefore recommended to create a `copyright` slice for every package, that other slices can depend on.
     ```
 
-7. [ ] **Prepare to write the slice definitions**
+2. [ ] **Prepare to write the slice definitions**
 
     ```{note}
     There is one Slice Definitions File per package!
@@ -319,12 +319,12 @@ There are **two schools of thought** when designing slices:
     {{chisel_releases_repo}}. Fork and clone this repo, creating a new
     branch for the packages you are slicing.
 
-8. [ ] **Create the YAML Slice Definitions File**
+3. [ ] **Create the YAML Slice Definitions File**
 
    Create a new file in the `slices/` directory, named after the package you
    are slicing. For example, `vim-tiny.yaml`.
 
-9. [ ] **Specify `package` name**
+4. [ ] **Specify `package` name**
 
    The first thing to do is to write the package name in the
    {ref}`slice_definitions_format_package` field. For example, open
@@ -334,7 +334,7 @@ There are **two schools of thought** when designing slices:
    package: vim-tiny
    ```
 
-10. [ ] **Write the `copyright` slice**
+5. [ ] **Write the `copyright` slice**
 
     Write the copyright slice first and pin it as an {ref}`essential for every
     other package slice <slice_definitions_format_essential>`.
@@ -353,7 +353,7 @@ There are **two schools of thought** when designing slices:
     Although we are writing the copyright slice first, we typically list the
     slice at the bottom of the slice definition file.
 
-11. [ ] [**Write the `config` slice**]{#create_sdf_design_slices_config_slice}
+6. [ ] [**Write the `config` slice**]{#create_sdf_design_slices_config_slice}
 
     Now write the `config` slice, based on the list from the
     {ref}`conffiles <create_sdf_inspect_pkg_conffiles>`.
@@ -374,7 +374,7 @@ There are **two schools of thought** when designing slices:
         So, based on the {ref}`package files <create_sdf_inspect_pkg_files>`,
         you should also identify any other config files.
 
-12. [ ] **Write the `bins` slice**
+7. [ ] **Write the `bins` slice**
 
     `/usr/bin/vim.tiny` is this slice's only content. We know it will need the
     internal slices [`vim-tiny_config`](#create_sdf_design_slices_config_slice). But given the
@@ -457,7 +457,7 @@ There are **two schools of thought** when designing slices:
     assume certain packages (like `coreutils`) are installed.
     ```
 
-13. [ ] **Format your slice definitions files**
+8. [ ] **Format your slice definitions files**
 
       Every slice definition file will be checked with linters.
 
@@ -470,7 +470,7 @@ There are **two schools of thought** when designing slices:
 
           Keep the top-level `essential` at the top, and the `copyright` slice at the bottom.
 
-14. [ ] **Review your slice definitions**
+9. [ ] **Review your slice definitions**
 
     Assemble your slice definitions file, and review it. Make sure you have
     included all the necessary slices, contents, dependencies and mutation
@@ -521,7 +521,7 @@ There are **two schools of thought** when designing slices:
     >  `/usr/lib/*-linux-*/libmvec.so.*: {arch: [amd64, arm64]}`
     ```
 
-15. [ ] **Repeat for nonexistent package slices**
+10. [ ] **Repeat for nonexistent package slices**
 
     If any of the dependencies are not sliced yet, repeat the above design
     process for them too.
@@ -551,7 +551,7 @@ specific function. Examples:
  without other undeclared dependencies.
 ```
 
-16. [ ] **Install the `vim-tiny_bins` locally**
+1. [ ] **Install the `vim-tiny_bins` locally**
 
     Create a new rootfs directory, and pointing Chisel to your "chisel-releases"
     clone, cut your packages locally.
@@ -575,7 +575,7 @@ specific function. Examples:
     ...
     ```
 
-17. [ ] **Create the Spread test**
+2. [ ] **Create the Spread test**
 
     In your clone of the {{chisel_releases_repo}}, create the new folder
     `tests/spread/integration/vim-tiny`.
@@ -616,7 +616,7 @@ specific function. Examples:
         2025-04-14 18:29:52 Aborted tasks: 0
         ```
 
-19. [ ] **Contribute!**
+3. [ ] **Contribute!**
 
     New slice definitions are welcome! Please contribute your new slices to the
     {{chisel_releases_repo}}. See the [contributing guide](https://github.com/canonical/chisel-releases/blob/main/CONTRIBUTING.md).
