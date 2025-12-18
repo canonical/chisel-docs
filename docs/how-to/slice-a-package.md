@@ -459,16 +459,16 @@ There are **two schools of thought** when designing slices:
 
 - [ ] 2.8 **Format your slice definitions files**
 
-      Every slice definition file will be checked with linters.
+    Every slice definition file will be checked with linters.
 
-      1. [ ] **Required: sort all slices' contents**
+    - [ ] a. **Required: sort all slices' contents**
 
-          The slice `contents` entries (i.e. the paths) must be sorted in
-          lexicographical order.
+        The slice `contents` entries (i.e. the paths) must be sorted in
+        lexicographical order.
 
-      2. [ ] **Recommended: consistent YAML placement**
+    - [ ] b. **Recommended: consistent YAML placement**
 
-          Keep the top-level `essential` at the top, and the `copyright` slice at the bottom.
+        Keep the top-level `essential` at the top, and the `copyright` slice at the bottom.
 
 - [ ] 2.9 **Review your slice definitions**
 
