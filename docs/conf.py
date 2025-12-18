@@ -266,8 +266,13 @@ linkcheck_retries = 3
 #       substitution, deflist, linkify
 
 myst_enable_extensions = set(
-    ["substitution", "deflist", "linkify", "tasklist", "attrs_inline"]
+    ["substitution", "deflist", "linkify", "tasklist", "attrs_inline", "colon_fence"]
 )
+
+
+# Fix: Tell MyST to treat "mermaid" code blocks as a directive, 
+# preventing the "Pygments lexer name 'mermaid' is not known" warning.
+myst_fence_as_directive = ["mermaid"]
 
 
 # Custom Sphinx extensions; see
@@ -295,6 +300,7 @@ extensions = [
     "sphinx_last_updated_by_git",
     "sphinx.ext.intersphinx",
     "sphinx_sitemap",
+    "sphinxcontrib.mermaid",
 ]
 
 # Excludes files or directories from processing
