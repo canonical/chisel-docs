@@ -367,5 +367,11 @@ if os.path.exists('./reuse/substitutions.yaml'):
 intersphinx_mapping = {}
 
 #Adding clickable checkboxes
+#def setup(app):
+    #app.add_js_file("tasklist.js")
+
+#Removing bulletpoints created so checklists are clickable
 def setup(app):
-    app.add_js_file("tasklist.js")
+    app.add_css_file("tasklist.css")
+    app.add_js_file("tasklist.js")  #checkbox-enabling JS
+

@@ -1,0 +1,24 @@
+/* 1. Remove bullets from any list item containing a checkbox */
+li:has(input[type="checkbox"]) {
+    list-style-type: none !important;
+}
+
+li:has(input[type="checkbox"])::before {
+    content: "" !important;
+    display: none !important;
+}
+
+/* 2. Style the top-level list items */
+ul > li:has(input[type="checkbox"]) {
+    margin-left: -1.2em !important; /* Pulls first level to the margin */
+}
+
+/* 3. Ensure nested list items keep their indentation */
+ul li ul > li:has(input[type="checkbox"]) {
+    margin-left: 1.5em !important; /* Pushes the nested level back in */
+}
+
+/* Optional: Add a bit of breathing room between the box and your '1.1' text */
+input[type="checkbox"] {
+    margin-right: 8px !important;
+}
