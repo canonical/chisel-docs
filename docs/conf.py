@@ -214,7 +214,7 @@ sitemap_excludes = [
 # Template and asset locations
 #######################
 
-# html_static_path = ["_static"]
+html_static_path = ["_static"]
 # templates_path = ["_templates"]
 
 
@@ -365,3 +365,7 @@ if os.path.exists('./reuse/substitutions.yaml'):
 # Add configuration for intersphinx mapping
 
 intersphinx_mapping = {}
+
+#Adding clickable checkboxes
+def setup(app):
+    app.add_js_file("tasklist.js")
