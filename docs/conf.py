@@ -215,7 +215,7 @@ sitemap_excludes = [
 #######################
 
 html_static_path = ["_static"]
-# templates_path = ["_templates"]
+templates_path = ["_templates"]
 
 
 #############
@@ -305,12 +305,15 @@ exclude_patterns = [
 
 # Adds custom CSS files, located under 'html_static_path'
 
-# html_css_files = []
-
+html_css_files = [
+    'cookie-banner.css'
+]
 
 # Adds custom JavaScript files, located under 'html_static_path'
 
-# html_js_files = []
+html_js_files = [
+    'bundle.js',
+]
 
 
 # Specifies a reST snippet to be appended to each .rst file
