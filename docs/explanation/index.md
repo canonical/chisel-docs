@@ -7,5 +7,4 @@ This section of the documentation covers the core concepts of Chisel.
 
 mode-of-operation
 slices
-faq
 ```

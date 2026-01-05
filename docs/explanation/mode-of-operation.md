@@ -29,7 +29,9 @@ Chisel uses the {{cut_cmd}} to _slice_ Ubuntu packages, as depicted in the workf
 
 Chisel fetches, reads and validates the {ref}`chisel-release<chisel-releases_ref>`.
 This includes parsing the {ref}`chisel_yaml_ref` and {ref}`slice 
-definitions<slice_definitions_ref>` while validating the release and checking for conflicting paths across packages.
+definitions<slice_definitions_ref>` while validating the release and checking for
+conflicting paths across packages. Slice definitions for each Ubuntu release are
+located in the corresponding `ubuntu-XX.YY` branch of the {{chisel_releases_repo}}.
     
 </td>
   </tr>
@@ -50,7 +52,14 @@ definitions<slice_definitions_ref>` while validating the release and checking fo
 Chisel talks to the {ref}`chisel_yaml_format_spec_archives` directly.
 It fetches, validates and parses their `InRelease` files.
 It then resolves which archive holds the **requested** packages and fetches
-the corresponding package tarballs.
+the corresponding package tarballs. Chisel always fetches the latest version of
+a package from the archives, and does not support pinning package versions.
+Thus, the root file systems Chisel produces in subsequent executions may not be
+identical if a package has changed in the meantime.
+
+The supported archives are described at
+{ref}`chisel_yaml_format_spec_archives`; non-Ubuntu archives and PPAs are not
+supported.
     
 </td>
   </tr>
@@ -69,7 +78,8 @@ the corresponding package tarballs.
 
 Chisel groups and merges all slice definitions per package. Then,
 for every package, it extracts the **specified slices' paths** into
-the provided root file system.
+the provided root file system. File ownership (UID:GID) is not preserved
+during this process; the owner of all extracted files is set to the current user.
 
 </td>
   </tr>
