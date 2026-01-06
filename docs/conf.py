@@ -231,6 +231,11 @@ sitemap_excludes = [
 # NOTE: If undefined, set to None, or empty,
 #       the sphinx_reredirects extension will be disabled.
 
+html_static_path = ['_static']
+# Custom JS to fix mermaid diagram height issue
+# See: _static/custom.js
+html_js_files = ['custom.js']
+
 redirects = {}
 
 
