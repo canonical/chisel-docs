@@ -7,14 +7,3 @@ li:has(input[type="checkbox"])::before {
     content: "" !important;
     display: none !important;
 }
-
-/* Standarding the first level */
-ul > li:has(input[type="checkbox"]) {
-    margin-left: -1.0em !important; 
-}
-
-/* Indenting list item that is a child of another list */
-li ul li:has(input[type="checkbox"]),
-li ol li:has(input[type="checkbox"]) {
-    margin-left: 2.0em !important; /* Adjust this value to match your desired indentation */
-}
