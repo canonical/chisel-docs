@@ -29,7 +29,7 @@ Chisel records package, slice, and file metadata to ensure file-level integrity 
 Manifest <manifest>
 ```
 
-Cryptographic verification ensures the integrity and autenticity of the files.
+Cryptographic verification ensures the integrity and authenticity of the files.
 
 ```{toctree}
 :maxdepth: 1
