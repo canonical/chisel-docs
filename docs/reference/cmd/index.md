@@ -1,3 +1,5 @@
+(command_reference)=
+
 # CLI Commands
 
 Chisel uses subcommands, and is invoked using `chisel <command>`.

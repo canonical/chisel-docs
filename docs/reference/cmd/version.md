@@ -1,3 +1,5 @@
+(version_command_reference)=
+
 # version command
 
 The **version** command displays the Chisel version and exits.
