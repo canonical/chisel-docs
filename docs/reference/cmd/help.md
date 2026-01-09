@@ -1,3 +1,5 @@
+(help_command_reference)=
+
 # help command
 
 The **help** command displays information about commands.
