@@ -1,3 +1,5 @@
+(install_chisel)=
+
 # How to install Chisel
 
 To install the latest version of Chisel, you can choose any of the following

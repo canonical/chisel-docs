@@ -1,3 +1,5 @@
+(slice_package)=
+
 # Slice a package
 
 This guide provides instructions on the slicing of an Ubuntu package for
