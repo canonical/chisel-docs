@@ -1,3 +1,5 @@
+(use_chisel_dockerfile)=
+
 # Use Chisel in a Dockerfile
 
 Chiseled file systems are ideal for creating minimal and distroless-like

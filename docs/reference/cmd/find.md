@@ -1,3 +1,5 @@
+(find_command_reference)=
+
 # find command
 
 The **find** command queries {{chisel_releases_repo}} for matching slices.
