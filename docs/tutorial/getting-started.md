@@ -1,3 +1,5 @@
+(chisel_helloworld_tutorial)=
+
 # Getting started with Chisel
 
 This tutorial will walk you through the creation of your first
@@ -59,7 +61,7 @@ A quick look at the `rootfs/` directory will show that the {{hello_pkg}} binary
 has been installed at `rootfs/usr/bin/hello`.
 
 ```{terminal}
-:input: find rootfs
+find rootfs
 
 rootfs
 rootfs/lib64
@@ -107,7 +109,8 @@ This is because the `hello_bins` slice depends on other slices, such as `libc6_l
 which provides necessary runtime libraries:
 
 ```{terminal}
-:input: chisel info --release ubuntu-24.04 hello_bins 2>/dev/null
+chisel info --release ubuntu-24.04 hello_bins 2>/dev/null
+
 package: hello
 archive: ubuntu
 slices:
@@ -127,14 +130,14 @@ When installing a slice, Chisel installs its dependencies as well.
 Run `hello` from the chiseled root file system to verify that it works:
 
 ```{terminal}
-:input: sudo chroot rootfs/ hello
+sudo chroot rootfs/ hello
 
 Hello, world!
 ```
 
 ## Next steps
 
-
 See what other [](/reference/cmd/index) are there, and have a look at
 the {ref}`how_to_guides` for learning about other typical
 Chisel operations.
+

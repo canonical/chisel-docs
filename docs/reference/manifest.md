@@ -144,6 +144,7 @@ Where:
 | `final_sha256` | `string`        | Optional | Checksum of the file after it has been modified during installation (in hex format). This attribute is required only for files that have been mutated.                                   |
 | `size`         | `integer`       | Optional | Final size of the file, in bytes. This attribute is required for regular files, except the `manifest.wall` file itself, which is an exception.                                           |
 | `link`         | `string`        | Optional | The target, if the file is a symbolic link.                                                                                                                                              |
+| `inode`        | `integer`       | Optional | Identifier grouping paths hard linked together. If defined, this attribute is strictly positive.                                                                                         |
 
 
 (chisel_manifest_list_of_paths_in_slice)=

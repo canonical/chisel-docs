@@ -1,3 +1,5 @@
+(slice_package)=
+
 # Slice a package
 
 This guide provides instructions on the slicing of an Ubuntu package for
@@ -25,11 +27,11 @@ be installed alone to accomplish one or more tasks. Consequently, the
 dependencies required for this slice may be a subset of the dependencies
 indicated by the package.
 
-1. [ ] **Is it an Ubuntu package?**
+- [ ] 1.1 **Is it an Ubuntu package?**
 
     Chisel only supports packages from the Ubuntu (and Ubuntu Pro) archives.
 
-2. [ ] [**Get the package dependencies**]{#create_sdf_inspect_pkg_deps}
+- [ ] 1.2 [**Get the package dependencies**]{#create_sdf_inspect_pkg_deps}
 
     You can run `apt depends vim-tiny` or use the [Ubuntu Packages Search] website.
 
@@ -38,7 +40,8 @@ indicated by the package.
     <summary>Example: vim-tiny pkg dependencies</summary>
 
     ```{terminal}
-    :input: apt depends vim-tiny
+    apt depends vim-tiny
+
     vim-tiny
       Depends: vim-common (= 2:9.1.0016-1ubuntu7.8)
       Depends: libacl1 (>= 2.2.23)
@@ -50,7 +53,7 @@ indicated by the package.
 
     </details>
 
-3. [ ] [**Inspect the files the package provides**]{#create_sdf_inspect_pkg_files}
+ - [ ] 1.3 [**Inspect the files the package provides**]{#create_sdf_inspect_pkg_files}
 
     You can run `apt download vim-tiny` and then `dpkg -c vim-tiny*.deb` to
     check the package data contents. Or check the
@@ -66,7 +69,7 @@ indicated by the package.
     <summary>Example: vim-tiny contents in Ubuntu 24.04, for amd64</summary>
 
     ```{terminal}
-    :input: dpkg -c vim-tiny_2%3a9.1.0016-1ubuntu7.8_amd64.deb
+    dpkg -c vim-tiny_2%3a9.1.0016-1ubuntu7.8_amd64.deb
 
     drwxr-xr-x root/root         0 2025-04-01 20:12 ./
     drwxr-xr-x root/root         0 2025-04-01 20:12 ./etc/
@@ -99,7 +102,7 @@ indicated by the package.
     configuration files, the copyright files, manpages and so on.
     </details>
 
-4. [ ] [**Inspect the package metadata**]{#create_sdf_inspect_pkg_control}
+- [ ] 1.4 [**Inspect the package metadata**]{#create_sdf_inspect_pkg_control}
 
     The package metadata files include:
     - the [`control` file] (which you can use
@@ -110,7 +113,7 @@ indicated by the package.
     Run `dpkg -e vim-tiny*.deb` to extract the metadata files into a new
     `DEBIAN/` directory for inspection.
 
-   1. [ ] [**Inspect package [`conffiles`] file**]{#create_sdf_inspect_pkg_conffiles}
+   - [ ] a. [**Inspect package [`conffiles`] file**]{#create_sdf_inspect_pkg_conffiles}
 
       This file lists the configuration files a package provides. This can be
       useful later, when deciding whether to create a `config` slice or not.
@@ -120,13 +123,14 @@ indicated by the package.
       <summary>Example: vim-tiny conffiles</summary>
 
       ```{terminal}
-      :input: cat DEBIAN/conffiles
+      cat DEBIAN/conffiles
+
       /etc/vim/vimrc.tiny
       ```
 
       </details>
 
-   2. [ ] [**Inspect package [maintainer scripts]**]{#create_sdf_inspect_pkg_maintainer_scripts}
+   - [ ] b. [**Inspect package [maintainer scripts]**]{#create_sdf_inspect_pkg_maintainer_scripts}
 
       Since Chisel doesn't remove files (except when [`until: mutate` is used](#slice_definitions_format_slices_contents_until)),
       we can focus only on the `preinst` and
@@ -235,7 +239,7 @@ indicated by the package.
 
       </details>
 
-5. [ ] **Repeat the above for all dependencies**
+- [ ] 1.5 **Repeat the above for all dependencies**
 
     Slices must also exist for every\* other package that `vim-tiny` depends on.
     So if these dependencies aren't yet sliced upstream in [chisel-releases],
@@ -293,7 +297,7 @@ There are **two schools of thought** when designing slices:
     ```
 ```
 
-6. [ ] **Choose the design approach that aligns best with your package**
+- [ ] 2.1 **Choose the design approach that aligns best with your package**
 
     Given the {ref}`above package inspection <create_sdf_inspect_pkg>`, the
     `vim-tiny` package can be sliced by *type of content*:
@@ -307,7 +311,7 @@ There are **two schools of thought** when designing slices:
     It is therefore recommended to create a `copyright` slice for every package, that other slices can depend on.
     ```
 
-7. [ ] **Prepare to write the slice definitions**
+- [ ] 2.2 **Prepare to write the slice definitions**
 
     ```{note}
     There is one Slice Definitions File per package!
@@ -317,12 +321,12 @@ There are **two schools of thought** when designing slices:
     {{chisel_releases_repo}}. Fork and clone this repo, creating a new
     branch for the packages you are slicing.
 
-8. [ ] **Create the YAML Slice Definitions File**
+- [ ] 2.3 **Create the YAML Slice Definitions File**
 
    Create a new file in the `slices/` directory, named after the package you
    are slicing. For example, `vim-tiny.yaml`.
 
-9. [ ] **Specify `package` name**
+- [ ] 2.4 **Specify `package` name**
 
    The first thing to do is to write the package name in the
    {ref}`slice_definitions_format_package` field. For example, open
@@ -332,7 +336,7 @@ There are **two schools of thought** when designing slices:
    package: vim-tiny
    ```
 
-10. [ ] **Write the `copyright` slice**
+- [ ] 2.5 **Write the `copyright` slice**
 
     Write the copyright slice first and pin it as an {ref}`essential for every
     other package slice <slice_definitions_format_essential>`.
@@ -351,7 +355,7 @@ There are **two schools of thought** when designing slices:
     Although we are writing the copyright slice first, we typically list the
     slice at the bottom of the slice definition file.
 
-11. [ ] [**Write the `config` slice**]{#create_sdf_design_slices_config_slice}
+- [ ] 2.6 [**Write the `config` slice**]{#create_sdf_design_slices_config_slice}
 
     Now write the `config` slice, based on the list from the
     {ref}`conffiles <create_sdf_inspect_pkg_conffiles>`.
@@ -372,7 +376,7 @@ There are **two schools of thought** when designing slices:
         So, based on the {ref}`package files <create_sdf_inspect_pkg_files>`,
         you should also identify any other config files.
 
-12. [ ] **Write the `bins` slice**
+- [ ] 2.7 **Write the `bins` slice**
 
     `/usr/bin/vim.tiny` is this slice's only content. We know it will need the
     internal slices [`vim-tiny_config`](#create_sdf_design_slices_config_slice). But given the
@@ -383,7 +387,7 @@ There are **two schools of thought** when designing slices:
     Let's closely look at the `/usr/bin/vim.tiny` file. Let's use the `file` command to determine the type.
 
     ```{terminal}
-    :input: file /usr/bin/vim.tiny
+    file /usr/bin/vim.tiny
 
     /usr/bin/vim.tiny: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=244c06f7943459e771bbf3279ef507ad64f477b5, for GNU/Linux 3.2.0, stripped
     ```
@@ -393,7 +397,8 @@ There are **two schools of thought** when designing slices:
     libraries it depends on.
 
     ```{terminal}
-    :input: ldd /usr/bin/vim.tiny
+    ldd /usr/bin/vim.tiny
+
           linux-vdso.so.1 (0x00007ffcdfecd000)
           libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000744edc6ac000)
           libtinfo.so.6 => /lib/x86_64-linux-gnu/libtinfo.so.6 (0x0000744edc678000)
@@ -454,20 +459,20 @@ There are **two schools of thought** when designing slices:
     assume certain packages (like `coreutils`) are installed.
     ```
 
-13. [ ] **Format your slice definitions files**
+- [ ] 2.8 **Format your slice definitions files**
 
-      Every slice definition file will be checked with linters.
+    Every slice definition file will be checked with linters.
 
-      1. [ ] **Required: sort all slices' contents**
+    - [ ] a. **Required: sort all slices' contents**
 
-          The slice `contents` entries (i.e. the paths) must be sorted in
-          lexicographical order.
+        The slice `contents` entries (i.e. the paths) must be sorted in
+        lexicographical order.
 
-      2. [ ] **Recommended: consistent YAML placement**
+    - [ ] b. **Recommended: consistent YAML placement**
 
-          Keep the top-level `essential` at the top, and the `copyright` slice at the bottom.
+        Keep the top-level `essential` at the top, and the `copyright` slice at the bottom.
 
-14. [ ] **Review your slice definitions**
+- [ ] 2.9 **Review your slice definitions**
 
     Assemble your slice definitions file, and review it. Make sure you have
     included all the necessary slices, contents, dependencies and mutation
@@ -518,7 +523,7 @@ There are **two schools of thought** when designing slices:
     >  `/usr/lib/*-linux-*/libmvec.so.*: {arch: [amd64, arm64]}`
     ```
 
-15. [ ] **Repeat for nonexistent package slices**
+- [ ] 2.10 **Repeat for nonexistent package slices**
 
     If any of the dependencies are not sliced yet, repeat the above design
     process for them too.
@@ -548,7 +553,7 @@ specific function. Examples:
  without other undeclared dependencies.
 ```
 
-16. [ ] **Install the `vim-tiny_bins` locally**
+- [ ] 3.1 **Install the `vim-tiny_bins` locally**
 
     Create a new rootfs directory, and pointing Chisel to your "chisel-releases"
     clone, cut your packages locally.
@@ -562,7 +567,8 @@ specific function. Examples:
     Test the `bins` binary:
 
     ```{terminal}
-    :input: sudo chroot rootfs/ vim.tiny --version
+    sudo chroot rootfs/ vim.tiny --version
+
     VIM - Vi IMproved 9.1 (2024 Jan 02, compiled Apr 01 2025 15:29:41)
     Included patches: 1-16, 647-648, 678, 697, 689, 17-496, 707
     Modified by <team+vim@tracker.debian.org>
@@ -571,12 +577,12 @@ specific function. Examples:
     ...
     ```
 
-17. [ ] **Create the Spread test**
+- [ ] 3.2 **Create the Spread test**
 
     In your clone of the {{chisel_releases_repo}}, create the new folder
     `tests/spread/integration/vim-tiny`.
 
-    1. [ ] **Create the `task.yaml` file**
+    - [ ] a. **Create the `task.yaml` file**
 
         Create a file named `tests/spread/integration/vim-tiny/task.yaml` and
         write your test in the format of a [Spread task](https://github.com/canonical/spread).
@@ -597,12 +603,12 @@ specific function. Examples:
 
         </details>
 
-    2. [ ] **Run your Spread test**
+    - [ ] b. **Run your Spread test**
 
         Run the test with `spread`:
 
         ```{terminal}
-        :input: spread lxd:tests/spread/integration/vim-tiny
+        spread lxd:tests/spread/integration/vim-tiny
 
         ...
         2025-04-14 18:29:40 Preparing lxd:ubuntu-noble:tests/spread/integration/vim-tiny (lxd:ubuntu-noble)...
@@ -612,7 +618,7 @@ specific function. Examples:
         2025-04-14 18:29:52 Aborted tasks: 0
         ```
 
-19. [ ] **Contribute!**
+- [ ] 3.3 **Contribute!**
 
     New slice definitions are welcome! Please contribute your new slices to the
     {{chisel_releases_repo}}. See the [contributing guide](https://github.com/canonical/chisel-releases/blob/main/CONTRIBUTING.md).

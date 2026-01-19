@@ -1,3 +1,5 @@
+(chise_faq)=
+
 # FAQ
 
 This page lists some known limitations and frequently asked questions.

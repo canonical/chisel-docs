@@ -1,0 +1,9 @@
+/* Removing bullets from any list item containing a checkbox */
+li:has(input[type="checkbox"]) {
+    list-style-type: none !important;
+}
+
+li:has(input[type="checkbox"])::before {
+    content: "" !important;
+    display: none !important;
+}

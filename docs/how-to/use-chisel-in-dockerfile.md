@@ -1,9 +1,10 @@
+(use_chisel_dockerfile)=
+
 # Use Chisel in a Dockerfile
 
 Chiseled file systems are ideal for creating minimal and distroless-like
 container images. This guide shows how to use Chisel in a Dockerfile to create a
 chiseled Docker image.
-
 
 ## Design the image
 
@@ -26,11 +27,9 @@ Finally, we will copy the staging area's root file system to the `/` directory
 in the final stage. The final stage's base image will be [`scratch`]. Thus, the
 image only contains the root file system installed by Chisel and nothing else.
 
-
 ## Write the Dockerfile
 
 Create a `Dockerfile` and open it with your favorite text editor.
-
 
 ## Install Chisel and dependencies
 
@@ -70,7 +69,6 @@ ADD "https://github.com/canonical/chisel/releases/download/${CHISEL_VERSION}/chi
 RUN tar -xvf chisel.tar.gz -C /usr/bin/
 ```
 
-
 ## Prepare the chiseled root file system
 
 Now that we have Chisel installed in the `builder` stage, we can install the
@@ -103,7 +101,6 @@ RUN cp /etc/passwd /etc/group /staging-rootfs/etc \
     && install -o ubuntu -g ubuntu -d /staging-rootfs/home/ubuntu
 ```
 
-
 ### Copy the root file system to the final image
 
 Finally, we will initialize a new stage where we will copy the prepared root
@@ -115,7 +112,6 @@ FROM scratch
 COPY --from=builder /staging-rootfs /
 ```
 
-
 ### Set user and working directory
 
 Now we will set the `USER` to `ubuntu` and the `WORKDIR` to `/home/ubuntu`.
@@ -125,7 +121,6 @@ USER ubuntu
 WORKDIR /home/ubuntu
 ```
 
-
 ### Set the entrypoint
 
 All that remains is to set the entrypoint to `python3`.
@@ -133,7 +128,6 @@ All that remains is to set the entrypoint to `python3`.
 ```docker
 ENTRYPOINT ["python3"]
 ```
-
 
 ## Build and test the image
 
@@ -188,7 +182,7 @@ docker build -t python:3-chiseled .
 Once it's built, run the following command to check if the interpreter works.
 
 ```{terminal}
-:input: docker run -it python:3-chiseled
+docker run -it python:3-chiseled
 
 Python 3.12.3 (main, Feb  4 2025, 14:48:35) [GCC 13.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -216,7 +210,7 @@ print(x)
 Run the following command to run the script in our container image.
 
 ```{terminal}
-:input: docker run -v $PWD/src:/src:ro python:3-chiseled /src/app.py
+docker run -v $PWD/src:/src:ro python:3-chiseled /src/app.py
 
 2025-03-11 06:36:50.717280
 ```

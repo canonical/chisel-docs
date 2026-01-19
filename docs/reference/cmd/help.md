@@ -1,13 +1,15 @@
+(help_command_reference)=
+
 # help command
 
 The **help** command displays information about commands.
-
 
 ## Example
 
 ```{terminal}
 :scroll:
-:input: chisel help --all
+
+chisel help --all
 
 Chisel can slice a Linux distribution using a release database
 and construct a new filesystem using the finely defined parts.

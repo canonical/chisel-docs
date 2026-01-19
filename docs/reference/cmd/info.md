@@ -1,3 +1,5 @@
+(info_command_reference)=
+
 # info command
 
 The **info** command shows detailed information about package slices.
@@ -14,7 +16,6 @@ the output is a list of YAML documents separated by a `---` line.
 Slice definitions are shown according to their definition in
 the selected release. For example, globs are not expanded.
 
-
 ## Options
 
 - `--release` is a {{chisel_releases_repo}} branch or local directory (e.g. ubuntu-22.04).
@@ -24,7 +25,7 @@ the selected release. For example, globs are not expanded.
 The following illustrates using the `info` command to inspect multiple slices:
 
 ```{terminal}
-:input: chisel info hello libgcc-s1_libs 2>logs
+chisel info hello libgcc-s1_libs 2>logs
 
 package: hello
 archive: ubuntu

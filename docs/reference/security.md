@@ -12,14 +12,14 @@ Chisel is written in Go.
 
 ## Detailed Process
 
-1. Chisel downloads and parses the YAMLs from
+1. Chisel downloads and parses the YAML files from
 [chisel-releases](https://github.com/canonical/chisel-releases) repo[^1]. The
 Go package [net/http](https://pkg.go.dev/net/http) is used and a tarball is
 downloaded over HTTPS. Checksum of the tarball is not checked after downloading.
 
     Chisel maintains a cache of these files[^2]. When making new requests to
-    download a release, Chisel reads the Etag from cache and checks whether the
-    cache is still valid. If it is valid, the cached release YAMLs are used.
+    download a release, Chisel reads the entity tag from cache and checks whether the
+    cache is still valid. If it is valid, the cached release YAML files are used.
 
 1. Chisel downloads a few *InRelease* files from the [Ubuntu Archive](http://archive.ubuntu.com) but these files are never cached. The InRelease
 files are signed by GPG, and Chisel verifies[^3] the integrity using the <a href="https://keyserver.ubuntu.com/pks/lookup?search=f6ecb3762474eda9
