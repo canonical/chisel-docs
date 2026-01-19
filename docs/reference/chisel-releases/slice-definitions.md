@@ -477,6 +477,44 @@ directory and writes the concatenated data to the previously created
 Due to the usage of `until`, the `/usr/share/ca-certificates/mozilla/` directory
 and the files inside are not present in the final root file system.
 
+(slice_definitions_format_slices_hint)=
+
+### `slices.<name>.hint`
+
+| Field  | Type     | Required |
+| ------ | -------- | -------- |
+| `hint` | `string` | Optional |
+
+Provides a concise and unopinionated discriminator to help the user select slices.
+It focuses on describing the *subset* of contents coming from this slice. It does
+not describe the package.
+
+It must be in a nominal passive style, written as a noun phrase:
+- No articles: Do not start with `A,` `An`, and `The`.
+- No finite verbs: Do not use `is`, `are`, `has,` or `contains`, or active
+  verbs like `generates`.
+
+Formatting:
+- Be maximum 40 characters long.
+- Consist only of alphanumeric characters, periods (`.`), commas (`,`),
+  semicolons (`;`), parenthesis (`(`, `)`).
+- Be sentence case: Start with an uppercase letter (e.g. `All timezones` not
+  `all timezones`).
+- Use semicolons to separate multiple unrelated fragments of information.
+  (e.g. `No jaotc; binutils required`).
+- No trailing punctuation: Do not end with a period or other punctuation
+ marks.
+- No line breaks: Be a single line.
+- Use uppercase for acronyms (e.g. `HTTP` not `Http`).
+
+Example:
+
+```yaml
+slices:
+  tzdata-legacy_etc:
+    hint: Non-standard timezones
+```
+
 (slice_definitions_example)=
 
 ## Example
