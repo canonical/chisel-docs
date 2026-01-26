@@ -1,3 +1,5 @@
+(info_command_reference)=
+
 # info command
 
 The **info** command shows detailed information about package slices.
