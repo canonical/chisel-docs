@@ -495,9 +495,9 @@ It must be in a nominal passive style, written as a noun phrase:
   verbs like `generates`.
 
 Formatting:
-- Be maximum 40 characters long.
+- Be a maximum of 40 characters long.
 - Consist only of alphanumeric characters, periods (`.`), commas (`,`),
-  semicolons (`;`), parenthesis (`(`, `)`).
+  semicolons (`;`), parentheses (`(`, `)`).
 - Be sentence case: Start with an uppercase letter (e.g. `All timezones` not
   `all timezones`).
 - Use semicolons to separate multiple unrelated fragments of information.
