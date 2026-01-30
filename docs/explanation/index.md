@@ -19,3 +19,11 @@ Slices are defined via slice definition files and follow naming conventions.
 
 slices
 ```
+
+Slices can be defined following two different approaches.
+
+```{toctree}
+:maxdepth: 1
+
+slice-design-approaches
+```
