@@ -495,17 +495,17 @@ It must be in a nominal passive style, written as a noun phrase:
   verbs like `generates`.
 
 Formatting:
-- Be a maximum of 40 characters long.
-- Consist only of alphanumeric characters, periods (`.`), commas (`,`),
-  semicolons (`;`), parentheses (`(`, `)`).
-- Be sentence case: Start with an uppercase letter (e.g. `All timezones` not
+- A maximum of 40 characters long.
+- Only of alphanumeric characters, periods (`.`), commas (`,`), semicolons
+  (`;`), parentheses (`(`, `)`).
+- Sentence case: Start with an uppercase letter (e.g. `All timezones` not
   `all timezones`).
-- Use semicolons to separate multiple unrelated fragments of information.
+- Semicolons to separate multiple unrelated fragments of information.
   (e.g. `No jaotc; binutils required`).
 - No trailing punctuation: Do not end with a period or other punctuation
  marks.
-- No line breaks: Be a single line.
-- Use uppercase for acronyms (e.g. `HTTP` not `Http`).
+- No line breaks: Must be a single line.
+- Uppercase for acronyms (e.g. `HTTP` not `Http`).
 
 Example:
 
