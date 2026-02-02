@@ -21,7 +21,7 @@ selecting and installing only the necessary slices from the full Ubuntu package 
 * **Slices**: [Learn more about slices](explanation/slices) • 
 [Chisel releases](reference/chisel-releases/index) • 
 [chisel.yaml](reference/chisel-releases/chisel.yaml) •
-[Slice definitions](reference/chisel-releases/slice-definitions) • 
+[Slice definitions](reference/chisel-releases/slice-definitions) • [Slice design approaches](explanation/slice-design-approaches.md) • 
 [Install Ubuntu Pro package slices](how-to/install-pro-package-slices)
 
 ---------
