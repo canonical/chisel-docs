@@ -21,6 +21,7 @@ armor
 armored
 basename
 behavior
+binutils
 chiseled
 conffiles
 config
@@ -33,6 +34,7 @@ fips
 http
 https
 initialize
+jaotc
 jsonwall
 libs
 linters
@@ -48,6 +50,8 @@ subcommand
 subcommands
 symlink
 symlinks
+timezones
 ubuntu
+unopinionated
 whitespace
 yaml
