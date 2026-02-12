@@ -55,3 +55,4 @@ ubuntu
 unopinionated
 whitespace
 yaml
+Canonical's
