@@ -490,7 +490,7 @@ It focuses on describing the *subset* of contents coming from this slice. It doe
 not describe the package.
 
 It must be in a nominal passive style, written as a noun phrase:
-- No articles: Do not start with `A,` `An`, and `The`.
+- No initial articles: Do not start with `A`, `An`, and `The`.
 - No finite verbs: Do not use `is`, `are`, `has,` or `contains`, or active
   verbs like `generates`.
 
