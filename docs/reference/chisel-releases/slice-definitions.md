@@ -67,12 +67,22 @@ archive: ubuntu
 
 ### `essential`
 
+`````{tab-set}
+````{tab-item} formats `v1` and `v2`
+a
+````
+````{tab-item} format `v3`
+a
+````
+`````
+
 | Field       | Type            | Required | Supported values   |
 | ----------- | --------------- | -------- | ------------------ |
 | `essential` | `array<string>` | Optional | An existing slice. |
+| `essential` | `array<string>` | Optional | An existing slice. |
 
-Lists the slices that are needed for **every slice** of the
-current package. Slices in this list must be written in their full name, e.g.
+
+ Slices in this list must be written in their full name, e.g.
 `hello_copyright`. This field is similar to
 {ref}`slice_definitions_format_slices_essential`, but applicable for every slice
 within the package.

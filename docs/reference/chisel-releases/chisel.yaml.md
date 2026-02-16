@@ -24,7 +24,7 @@ directory.
 
 | Field    | Type     | Required | Supported values |
 | -------- | -------- | -------- | ---------------- |
-| `format` | `string` | Required | `v1`, `v2`       |
+| `format` | `string` | Required | `v1`, `v2`, `v3` |
 
 Used to define the supported schemas for the {ref}`chisel-releases_ref`.
 For example:
@@ -33,10 +33,25 @@ For example:
 format: v1
 ```
 
-```{note}
+```{important}
 New formats are typically introduced with new _chisel-releases_ and may
 introduce disruptive changes to the previous formats.
 ```
+
+
+(chisel_yaml_format_spec_compatibility_matrix)=
+
+#### Compatibility matrix
+
+
+| chisel-release | <br>`v1` | Format<br>`v2` | <br>`v3` |
+| -------------- | :------------: | :------------: | :------------: |
+| {{20.04}}      | {{all Chisel versions}} | x | x |
+| {{22.04}}      | {{all Chisel versions}} | x | x |
+| {{24.04}}      | {{all Chisel versions}} | x | x |
+| {{25.10}}      | x | >={{v1.2.0}} | x |
+| {{26.04}}      | x | x | >={{v1.4.0}} |
+
 
 (chisel_yaml_format_spec_archives)=
 
@@ -380,3 +395,16 @@ public-keys:
       =9AdM
       -----END PGP PUBLIC KEY BLOCK-----
 ```
+
+
+
+<!-- LINKS -->
+
+[20.04]: https://github.com/canonical/chisel-releases/tree/ubuntu-20.04
+[22.04]: https://github.com/canonical/chisel-releases/tree/ubuntu-22.04
+[24.04]: https://github.com/canonical/chisel-releases/tree/ubuntu-24.04
+[25.10]: https://github.com/canonical/chisel-releases/tree/ubuntu-25.10
+[26.04]: https://github.com/canonical/chisel-releases/tree/ubuntu-26.04
+[all chisel versions]: https://github.com/canonical/chisel/releases
+[v1.2.0]: https://github.com/canonical/chisel/releases/tag/v1.2.0
+[v1.4.0]: https://github.com/canonical/chisel/releases/tag/v1.4.0
