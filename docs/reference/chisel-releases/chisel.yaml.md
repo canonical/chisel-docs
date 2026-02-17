@@ -43,14 +43,17 @@ introduce disruptive changes to the previous formats.
 
 #### Compatibility matrix
 
+In this table, you'll find the designated `format` for all existing
+and supported {ref}`chisel-releases_ref`, alongside the Chisel tool versions
+that support said `format`.
 
-| chisel-release | <br>`v1` | Format<br>`v2` | <br>`v3` |
+| chisel-release | <br>v1 | Format<br>v2 | <br>v3 |
 | -------------- | :------------: | :------------: | :------------: |
-| {{20.04}}      | {{all Chisel versions}} | x | x |
-| {{22.04}}      | {{all Chisel versions}} | x | x |
-| {{24.04}}      | {{all Chisel versions}} | x | x |
-| {{25.10}}      | x | >={{v1.2.0}} | x |
-| {{26.04}}      | x | x | >={{v1.4.0}} |
+| [20.04]      | [all Chisel versions] | x | x |
+| [22.04]      | [all Chisel versions] | x | x |
+| [24.04]      | [all Chisel versions] | x | x |
+| [25.10]      | x | >= [v1.2.0] | x |
+| [26.04]      | x | x | >= [v1.4.0] |
 
 
 (chisel_yaml_format_spec_archives)=
