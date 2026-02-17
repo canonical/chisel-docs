@@ -138,7 +138,7 @@ the archive behaviour.
 
 Lists the archive suites to fetch packages from. Read more
 about suites in the [Ubuntu packaging
-guide](https://canonical-ubuntu-packaging-guide.readthedocs-hosted.com/en/latest/explanation/archive/#suite).
+guide](https://documentation.ubuntu.com/project/#suite).
 
 
 (chisel_yaml_format_spec_archives_components)=
@@ -151,7 +151,7 @@ guide](https://canonical-ubuntu-packaging-guide.readthedocs-hosted.com/en/latest
 
 Lists the components of the archive suites to fetch
 packages from. Read more about components in the [Ubuntu packaging
-guide](https://canonical-ubuntu-packaging-guide.readthedocs-hosted.com/en/latest/explanation/archive/#components).
+guide](https://documentation.ubuntu.com/project/#components).
 
 Chisel reads the `InRelease` files from each `(suite, component)` combination to
 locate packages.
