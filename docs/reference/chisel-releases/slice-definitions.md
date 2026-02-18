@@ -82,7 +82,7 @@ but applicable for every slice within the package.
 | ----------- | -------- | -------- |
 | `essential` | `object` | Optional |
 
-A map of slices, in their full name (e.g. `hello_copyright`),
+A map of slices by their full names (e.g. `hello_copyright`),
 alongside their `essential`-specific properties.
 
 #### `essential.<slice>.arch`
