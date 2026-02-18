@@ -92,7 +92,7 @@ alongside their `essential`-specific properties.
 | `arch` | `string` or `array<string>` | Optional | `amd64`, `arm64`, `armhf`, `i386`, `ppc64el`, `riscv64`, `s390x` |
 
 Used to specify the package architectures an _essential_ dependency should be
-installed for. This field can take a single architecture string or a list, as its
+installed for. This field can take a single architecture string or a list as its
 value.
 
 In the following example, `hello_copyright` will be installed for every installation
