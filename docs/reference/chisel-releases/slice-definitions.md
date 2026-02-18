@@ -82,7 +82,7 @@ but applicable for every slice within the package.
 | ----------- | -------- | -------- |
 | `essential` | `object` | Optional |
 
-A map of slices by their full names (e.g. `hello_copyright`),
+A map of slices, in their full name (e.g. `hello_copyright`),
 alongside their `essential`-specific properties.
 
 #### `essential.<slice>.arch`
@@ -92,7 +92,7 @@ alongside their `essential`-specific properties.
 | `arch` | `string` or `array<string>` | Optional | `amd64`, `arm64`, `armhf`, `i386`, `ppc64el`, `riscv64`, `s390x` |
 
 Used to specify the package architectures an _essential_ dependency should be
-installed for. This field can take a single architecture string or a list as its
+installed for. This field can take a single architecture string or a list, as its
 value.
 
 In the following example, `hello_copyright` will be installed for every installation
@@ -468,9 +468,9 @@ In the following example, Chisel creates the `/var/lib/chisel` directory with
 
 ### `slices.<name>.contents.<path>.prefer`
 
-| Field      | Type     | Required | Format compatibility |
+| Field      | Type     | Required | Introduced in format |
 | ---------- | -------- | -------- | -------- |
-| `prefer`   | `string` | Optional | >= {ref}`v2<chisel_yaml_format_spec_format>` |
+| `prefer`   | `string` | Optional | {ref}`v2<chisel_yaml_format_spec_format>` |
 
 Used to resolve a path conflict across multiple packages.
 
@@ -575,9 +575,9 @@ and the files inside are not present in the final root file system.
 
 ### `slices.<name>.hint`
 
-| Field  | Type     | Required | Format compatibility |
+| Field  | Type     | Required | Introduced in format |
 | ------ | -------- | -------- | -------------------- |
-| `hint` | `string` | Optional | >= {ref}`v3<chisel_yaml_format_spec_format>` |
+| `hint` | `string` | Optional | {ref}`v3<chisel_yaml_format_spec_format>` |
 
 Provides a concise and unopinionated discriminator to help the user select slices.
 It focuses on describing the *subset* of contents coming from this slice. It does
