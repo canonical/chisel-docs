@@ -409,14 +409,3 @@ public-keys:
 ```
 
 
-
-<!-- LINKS -->
-
-[20.04]: https://github.com/canonical/chisel-releases/tree/ubuntu-20.04
-[22.04]: https://github.com/canonical/chisel-releases/tree/ubuntu-22.04
-[24.04]: https://github.com/canonical/chisel-releases/tree/ubuntu-24.04
-[25.10]: https://github.com/canonical/chisel-releases/tree/ubuntu-25.10
-[26.04]: https://github.com/canonical/chisel-releases/tree/ubuntu-26.04
-[all chisel versions]: https://github.com/canonical/chisel/releases
-[v1.2.0]: https://github.com/canonical/chisel/releases/tag/v1.2.0
-[v1.4.0]: https://github.com/canonical/chisel/releases/tag/v1.4.0
