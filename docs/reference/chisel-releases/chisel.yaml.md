@@ -24,7 +24,7 @@ directory.
 
 | Field    | Type     | Required | Supported values |
 | -------- | -------- | -------- | ---------------- |
-| `format` | `string` | Required | `v1`, `v2`       |
+| `format` | `string` | Required | `v1`, `v2`, `v3` |
 
 Used to define the supported schemas for the {ref}`chisel-releases_ref`.
 For example:
@@ -33,9 +33,38 @@ For example:
 format: v1
 ```
 
-```{note}
+```{important}
 New formats are typically introduced with new _chisel-releases_ and may
 introduce disruptive changes to the previous formats.
+```
+
+
+(chisel_yaml_format_spec_compatibility_matrix)=
+
+#### Compatibility matrix
+
+In this table, you'll find the designated `format` for all existing
+and supported {ref}`chisel-releases_ref`, alongside the Chisel tool versions
+that support said `format`.
+
+```{eval-rst}
+
++-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
+|                                      chisel-release                         |                                                         .. centered:: Format                                                                                                                  |
++=============================================================================+=======================================================+===================================================================+===================================================================+
+|                                                                             |                         **V1**                        |                              **V2**                               |                              **V3**                               |
++-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
+| `20.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-20.04>`_   | `all <https://github.com/canonical/chisel/releases>`_ |                                x                                  |                                x                                  |
++-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
+| `22.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-22.04>`_   | `all <https://github.com/canonical/chisel/releases>`_ |                                x                                  |                                x                                  |
++-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
+| `24.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-24.04>`_   | `all <https://github.com/canonical/chisel/releases>`_ |                                x                                  |                                x                                  |
++-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
+| `25.10 <https://github.com/canonical/chisel-releases/tree/ubuntu-25.10>`_   |                           x                           | >= `v1.2.0 <https://github.com/canonical/chisel/releases/v1.2.0>`_|                                x                                  |
++-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
+| `26.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-26.04>`_   |                           x                           |                                x                                  | >= `v1.4.0 <https://github.com/canonical/chisel/releases/v1.4.0>`_|
++-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
+
 ```
 
 (chisel_yaml_format_spec_archives)=
@@ -120,7 +149,7 @@ the archive behaviour.
 
 Lists the archive suites to fetch packages from. Read more
 about suites in the [Ubuntu packaging
-guide](https://canonical-ubuntu-packaging-guide.readthedocs-hosted.com/en/latest/explanation/archive/#suite).
+guide](https://documentation.ubuntu.com/project/how-ubuntu-is-made/concepts/package-archive/#suite).
 
 
 (chisel_yaml_format_spec_archives_components)=
@@ -133,7 +162,7 @@ guide](https://canonical-ubuntu-packaging-guide.readthedocs-hosted.com/en/latest
 
 Lists the components of the archive suites to fetch
 packages from. Read more about components in the [Ubuntu packaging
-guide](https://canonical-ubuntu-packaging-guide.readthedocs-hosted.com/en/latest/explanation/archive/#components).
+guide](https://documentation.ubuntu.com/project/how-ubuntu-is-made/concepts/package-archive/#components).
 
 Chisel reads the `InRelease` files from each `(suite, component)` combination to
 locate packages.
@@ -380,3 +409,5 @@ public-keys:
       =9AdM
       -----END PGP PUBLIC KEY BLOCK-----
 ```
+
+
