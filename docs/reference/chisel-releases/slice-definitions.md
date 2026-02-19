@@ -67,15 +67,56 @@ archive: ubuntu
 
 ### `essential`
 
+This field is similar to {ref}`slice_definitions_format_slices_essential`,
+but applicable for every slice within the package.
+
+```{note}
+`essential` has different types across different
+{ref}`formats<chisel_yaml_format_spec_format>`.
+```
+
+`````{tab-set}
+
+````{tab-item} Format **v3**
+| Field       | Type     | Required |
+| ----------- | -------- | -------- |
+| `essential` | `object` | Optional |
+
+A map of slices, in their full name (e.g. `hello_copyright`),
+alongside their `essential`-specific properties.
+
+#### `essential.<slice>.arch`
+
+| Field  | Type                        | Required | Supported values                                                 |
+| ------ | --------------------------- | -------- | ---------------------------------------------------------------- |
+| `arch` | `string` or `array<string>` | Optional | `amd64`, `arm64`, `armhf`, `i386`, `ppc64el`, `riscv64`, `s390x` |
+
+Used to specify the package architectures an _essential_ dependency should be
+installed for. This field can take a single architecture string or a list, as its
+value.
+
+In the following example, `hello_copyright` will be installed for every installation
+of every slice of the `hello` package, while `foo_bar` will only be installed
+for `arm64` installations of any slice within `hello`.
+
+```yaml
+package: hello
+essential:
+  hello_copyright: {}
+  foo_bar: {arch: arm64}
+slices:
+  ...
+```
+
+````
+
+````{tab-item} Formats **v1** and **v2**
 | Field       | Type            | Required | Supported values   |
 | ----------- | --------------- | -------- | ------------------ |
 | `essential` | `array<string>` | Optional | An existing slice. |
 
-Lists the slices that are needed for **every slice** of the
-current package. Slices in this list must be written in their full name, e.g.
-`hello_copyright`. This field is similar to
-{ref}`slice_definitions_format_slices_essential`, but applicable for every slice
-within the package.
+Slices in this list must be written in their full name, e.g.
+`hello_copyright`.
 
 In the following example, the `hello_copyright` slice is an _essential_ for
 every slice including the `hello_bins` slice.
@@ -91,6 +132,9 @@ slices:
   copyright:
     ...
 ```
+````
+`````
+
 
 (slice_definitions_format_slices)=
 
@@ -130,15 +174,60 @@ slices:
 
 ### `slices.<name>.essential`
 
+This field is similar to {ref}`slice_definitions_format_essential`,but only applicable for the current
+slice.
+
+```{note}
+`slices.<name>.essential` has different types across different
+{ref}`formats<chisel_yaml_format_spec_format>`.
+```
+
+`````{tab-set}
+
+````{tab-item} Format **v3**
+| Field       | Type     | Required |
+| ----------- | -------- | -------- |
+| `essential` | `object` | Optional |
+
+A map of slices, and their `essential`-specific properties, that are needed and that must be installed before
+the current slice.
+These slice names must be written in their full name e.g. `hello_copyright`. 
+
+
+#### `slices.<name>.essential.<slice>.arch`
+
+| Field  | Type                        | Required | Supported values                                                 |
+| ------ | --------------------------- | -------- | ---------------------------------------------------------------- |
+| `arch` | `string` or `array<string>` | Optional | `amd64`, `arm64`, `armhf`, `i386`, `ppc64el`, `riscv64`, `s390x` |
+
+Used to specify the package architectures an _essential_ dependency should be
+installed for. This field can take a single architecture string or a list, as its
+value.
+
+In the following example:
+ - `gcc-aarch64-linux-gnu_gcc` is a requirement for the `gcc` slice, only on `arm64` installations,
+ - `gcc-x86-64-linux-gnu_gcc` is a requirement for the `gcc` slice, only on `amd64` installations, and
+ - `gcc-15_gcc-15` is a requirement for the `gcc` slice, for all installations.
+
+```yaml
+slices:
+  gcc:
+    essential:
+      gcc-aarch64-linux-gnu_gcc: {arch: [arm64]}
+      gcc-x86-64-linux-gnu_gcc: {arch: [amd64]}
+      gcc-15_gcc-15:
+
+```
+````
+
+````{tab-item} Formats **v1** and **v2**
 | Field       | Type            | Required | Supported values   |
 | ----------- | --------------- | -------- | ------------------ |
 | `essential` | `array<string>` | Optional | An existing slice. |
 
 Lists the slices that are needed and that must be installed before the current slice.
 Slices in this list must be written in their full name
-e.g. `hello_copyright`. This field is similar to
-{ref}`slice_definitions_format_essential`, but only applicable for the current
-slice.
+e.g. `hello_copyright`. 
 
 In the following example, `libc6_libs` is a requirement for the `bins`
 slice and must be installed when installing the `bins` slice.
@@ -149,6 +238,11 @@ slices:
     essential:
       - libc6_libs
 ```
+````
+
+
+`````
+
 
 (slice_definitions_format_slices_contents)=
 
@@ -374,9 +468,9 @@ In the following example, Chisel creates the `/var/lib/chisel` directory with
 
 ### `slices.<name>.contents.<path>.prefer`
 
-| Field      | Type     | Required |
-| ---------- | -------- | -------- |
-| `prefer`   | `string` | Optional |
+| Field      | Type     | Required | Introduced in format |
+| ---------- | -------- | -------- | -------- |
+| `prefer`   | `string` | Optional | {ref}`v2<chisel_yaml_format_spec_format>` |
 
 Used to resolve a path conflict across multiple packages.
 
@@ -481,9 +575,9 @@ and the files inside are not present in the final root file system.
 
 ### `slices.<name>.hint`
 
-| Field  | Type     | Required |
-| ------ | -------- | -------- |
-| `hint` | `string` | Optional |
+| Field  | Type     | Required | Introduced in format |
+| ------ | -------- | -------- | -------------------- |
+| `hint` | `string` | Optional | {ref}`v3<chisel_yaml_format_spec_format>` |
 
 Provides a concise and unopinionated discriminator to help the user select slices.
 It focuses on describing the *subset* of contents coming from this slice. It does
