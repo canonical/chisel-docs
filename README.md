@@ -26,29 +26,6 @@ The documentation follows the [Diataxis] principles.
 
 The commits follow the [Conventional Commits v1.0.0] guidelines.
 
-### Custom page meta descriptions
-
-The meta description provides a summary of the page. Search engines often reuse this for the search result’s snippet.
-
-All **new** pages must include a meta description. To set custom HTML meta descriptions in MyST-MD, use front matter at the top of the document as shown below:
-
-```
----
-myst:
-  html_meta:
-    description: Your description of the page.
----
-```
-
-Please observe the following guidelines:
-
-- Use a maximum of 160 characters.
-- Summarize the content of the page, where possible.
-- Keep the language simple, avoid unnecessary adverbs or adjectives.
-- Use an informative tone, frame sentences in terms of actions and facts.
-- Use the tool name and page-specific terminology that users are likely to use when searching for information. 
-- Place key terms near the start.
-- Don’t include key terms that aren’t on the page.
 
 ### Configure your environment
 
@@ -83,6 +60,31 @@ Note: more tests will be added in the future.
 After submitting a pull request, your changes will be reviewed by a project
 maintainer.
 
+
+### Custom page meta descriptions
+
+The meta description provides a summary of the page. Search engines often reuse this for the search result’s snippet.
+
+All **new** pages must include a meta description. To set custom HTML meta descriptions in MyST-MD, use front matter at the top of the document as shown below:
+
+```
+---
+myst:
+  html_meta:
+    description: Your description of the page.
+---
+```
+
+Please observe the following guidelines:
+
+- Use a maximum of 160 characters.
+- Summarize the content of the page, where possible.
+- Keep the language simple, avoid unnecessary adverbs or adjectives.
+- Use an informative tone, frame sentences in terms of actions and facts.
+- Use the tool name and page-specific terminology that users are likely to use when searching for information. 
+- Place key terms near the start.
+- Don’t include key terms that aren’t on the page.
+  
 
 ### Get help
 
