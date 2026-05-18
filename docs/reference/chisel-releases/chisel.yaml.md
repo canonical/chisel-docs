@@ -79,7 +79,7 @@ Tells Chisel which Ubuntu archives to fetch packages from.
 
 ```{note}
 Chisel only supports fetching packages from the official Ubuntu archives,
-including ESM.
+including ESM. The use of PPAs is excluded at the moment.
 ```
 
 For example:
