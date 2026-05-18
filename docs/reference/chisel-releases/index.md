@@ -11,6 +11,9 @@ named `chisel.yaml` form what is called a _chisel-release_.
 
 The {{chisel_releases_repo}} contains a number of branches for various
 _chisel-releases_, matching the corresponding Ubuntu releases.
+If you find a specific release missing, let the maintainers know by [creating a
+new issue] in the {{chisel_releases_repo}}.
+
 
 A _chisel-release_ is simply a directory with the following structure:
 
@@ -25,6 +28,8 @@ A _chisel-release_ is simply a directory with the following structure:
 The following pages provide more details on:
 
 ```{toctree}
+
+[creating a new issue]: https://github.com/canonical/chisel-releases/issues/new
 :maxdepth: 1
 
 chisel.yaml
