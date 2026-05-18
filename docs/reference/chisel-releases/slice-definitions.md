@@ -34,6 +34,10 @@ Although the `hello.yaml` file can be placed in a sub-directory of `slices/` e.g
 Indicates the package name. It must follow the
 [Debian policy for package name](https://www.debian.org/doc/debian-policy/ch-binary.html#the-package-name).
 
+The use of arbitrary package names is not allowed; the names must be the 
+same as the package names in the archive to maintain a single namespace 
+to remember and respect.
+
 As indicated above, the value must also match the YAML file basename.
 For example:
 
@@ -55,6 +59,8 @@ fetched from. If specified, Chisel fetches this package from that archive despit
 {ref}`chisel_yaml_format_spec_archives_default` and
 {ref}`chisel_yaml_format_spec_archives_priority` settings in
 {ref}`chisel_yaml_ref`.
+
+The supported archives are described at {ref}`chisel_yaml_format_spec_archives`.
 
 The archive name must be defined in {ref}`chisel_yaml_format_spec_archives`.
 For example:
