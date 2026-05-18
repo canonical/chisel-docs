@@ -69,7 +69,9 @@ the corresponding package tarballs.
 
 Chisel groups and merges all slice definitions per package. Then,
 for every package, it extracts the **specified slices' paths** into
-the provided root file system.
+the provided root file system. Files ownership (UID:GID) is not 
+preserved during this process. The owner of the extracted files 
+is the current user.
 
 </td>
   </tr>
