@@ -45,6 +45,11 @@ For example:
 package: hello
 ```
 
+Chisel does not support pinning package versions. Chisel always fetches 
+the latest version of a package from the archives. Thus,the root file 
+systems Chisel produces in subsequent executions may not be identical if 
+a package has changed in the meantime.
+
 (slice_definitions_format_archive)=
 
 ### `archive`
