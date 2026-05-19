@@ -28,6 +28,7 @@ A _chisel-release_ is simply a directory with the following structure:
 The following pages provide more details on:
 
 ```{toctree}
+:maxdepth: 1
 
 chisel.yaml
 slice-definitions
