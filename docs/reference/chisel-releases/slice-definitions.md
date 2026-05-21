@@ -38,17 +38,16 @@ The use of arbitrary package names is not allowed; the names must be the
 same as the package names in the archive to maintain a single namespace 
 to remember and respect.
 
+Chisel does not support pinning package versions. Chisel always fetches 
+the latest version of a package from the archives. Thus, the root file 
+systems Chisel produces in subsequent executions may not be identical if 
+a package has changed in the meantime.
+
 As indicated above, the value must also match the YAML file basename.
 For example:
 
 ```yaml
 package: hello
-```
-
-Chisel does not support pinning package versions. Chisel always fetches 
-the latest version of a package from the archives. Thus, the root file 
-systems Chisel produces in subsequent executions may not be identical if 
-a package has changed in the meantime.
 
 (slice_definitions_format_archive)=
 
