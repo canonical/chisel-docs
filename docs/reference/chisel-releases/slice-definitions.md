@@ -65,7 +65,6 @@ fetched from. If specified, Chisel fetches this package from that archive despit
 {ref}`chisel_yaml_format_spec_archives_priority` settings in
 {ref}`chisel_yaml_ref`.
 
-The supported archives are described at {ref}`chisel_yaml_format_spec_archives`.
 
 The archive name must be defined in {ref}`chisel_yaml_format_spec_archives`.
 For example:
