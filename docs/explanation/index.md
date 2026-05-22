@@ -9,7 +9,6 @@ Chisel was created to build a minimal, secure Ubuntu root file systems.
 :maxdepth: 1
 
 mode-of-operation
-faq
 ```
 ## Package slices
 Slices are defined via slice definition files and follow naming conventions.
