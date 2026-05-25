@@ -365,9 +365,9 @@ llms_txt_description = (
     "Ideal for building distroless-like Docker containers."
 )
 
-# sphinx-markdown-builder config; URL to the root of docs with no trailing /
-# e.g.:
-markdown_http_base = "https://documentation.ubuntu.com/chisel"
+# The base URL for references built by sphinx-markdown-builder.
+if os.environ.get("READTHEDOCS"):
+    markdown_http_base = html_baseurl
 
 # Workaround for https://github.com/canonical/canonical-sphinx/issues/34
 
