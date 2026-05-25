@@ -356,8 +356,6 @@ rst_prolog = """
 """
 
 # sphinx-llm config - https://github.com/NVIDIA/sphinx-llm
-llms_txt_full_build = False
-llms_txt_suffix_mode = "url-suffix"
 # Short description of your docs set:
 llms_txt_description = (
     "This documentation provides guidance for using Chisel, a developer tool "
