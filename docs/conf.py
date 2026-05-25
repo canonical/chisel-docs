@@ -355,15 +355,16 @@ rst_prolog = """
     :class: hclass2
 """
 
-# sphinx-llm config
+# sphinx-llm config - https://github.com/NVIDIA/sphinx-llm
 llms_txt_full_build = False
 llms_txt_suffix_mode = "url-suffix"
 # Short description of your docs set:
 llms_txt_description = (
     "This documentation provides guidance for using Chisel, a developer tool "
-    "for extracting highly customized and specialized package slices of Ubuntu "
-    "packages to create software with a reduced attack surface "
-    "and a small storage footprint."
+    "for extracting highly customized and specialized slices of Ubuntu "
+    "packages to create minimal Ubuntu filesystems with a reduced attack surface "
+    "and a small storage footprint. "
+    "Ideal for building distroless-like Docker containers."
 )
 
 # sphinx-markdown-builder config; URL to the root of docs with no trailing /
