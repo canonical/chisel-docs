@@ -4,30 +4,34 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXDIR       = .sphinx
-SPHINXOPTS      ?= -c . -d $(SPHINXDIR)/.doctrees -j auto
-SPHINXBUILD     ?= $(VENVDIR)/bin/sphinx-build
-SOURCEDIR       = .
-BUILDDIR        = _build
-VENVDIR         = $(SPHINXDIR)/venv
-PA11Y           = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
-VENV            = $(VENVDIR)/bin/activate
-TARGET          = *
-METRICSDIR      = $(SOURCEDIR)/.sphinx/metrics
-REQPDFPACKS     = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
-CONFIRM_SUDO    ?= N
-VALE_CONFIG     = $(SPHINXDIR)/vale.ini
-VALEDIR         = $(SPHINXDIR)/venv/lib/python*/site-packages/vale
-VOCAB_CANONICAL = $(SPHINXDIR)/styles/config/vocabularies/Canonical
-SPHINX_HOST     ?= 127.0.0.1
-SPHINX_PORT     ?= 8000
+SPHINXDIR         = .sphinx
+SPHINXOPTS        ?= -c . -d $(SPHINXDIR)/.doctrees -j auto
+SPHINXBUILD       ?= $(VENVDIR)/bin/sphinx-build
+SOURCEDIR         = .
+BUILDDIR          = _build
+VENVDIR           = $(SPHINXDIR)/venv
+PA11Y             = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
+VENV              = $(VENVDIR)/bin/activate
+TARGET            = *
+METRICSDIR        = $(SOURCEDIR)/.sphinx/metrics
+REQPDFPACKS       = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
+CONFIRM_SUDO      ?= N
+VALE_CONFIG       = $(SPHINXDIR)/vale.ini
+VALEDIR           = $(SPHINXDIR)/venv/lib/python*/site-packages/vale
+VOCAB_CANONICAL   = $(SPHINXDIR)/styles/config/vocabularies/Canonical
+SPHINX_HOST       ?= 127.0.0.1
+SPHINX_PORT       ?= 8000
+
+# Sphinx options with sphinx-llm artifact generation disabled (for builds where llms.txt is not needed):
+SPHINX_OPTS_NOLLM = $(SPHINXOPTS) -D llms_txt_enabled=0
 
 # Put it first so that "make" without argument is like "make help".
 help:
 	@echo
 	@echo "-------------------------------------------------------------"
 	@echo "* watch, build and serve the documentation:  make run"
-	@echo "* only build:                                make html"
+	@echo "* only build (full, with LLM artifacts):     make html"
+	@echo "* only build (without LLM artifacts):        make html-lite"
 	@echo "* only serve:                                make serve"
 	@echo "* clean built doc files:                     make clean-doc"
 	@echo "* clean full environment:                    make clean"
@@ -44,7 +48,7 @@ help:
 	@echo "-------------------------------------------------------------"
 	@echo
 
-.PHONY: help full‑help html epub pdf linkcheck spelling spellcheck woke \
+.PHONY: help full‑help html html-lite epub pdf linkcheck spelling spellcheck woke \
         vale pa11y run serve install pa11y‑install   \
         vale‑install pdf‑prep pdf‑prep‑force clean clean‑doc allmetrics \
         update lint-md
@@ -84,6 +88,9 @@ run: install
 # Does not depend on $(BUILDDIR) to rebuild properly at every run.
 html: install
 	. $(VENV); $(SPHINXBUILD) --fail-on-warning --keep-going -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
+
+html-lite: install
+	. $(VENV); $(SPHINXBUILD) --fail-on-warning --keep-going -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINX_OPTS_NOLLM)
 
 epub: install
 	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
