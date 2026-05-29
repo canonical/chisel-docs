@@ -286,6 +286,7 @@ extensions = [
     "sphinx_config_options",
     "sphinx_contributor_listing",
     "sphinx_filtered_toctree",
+    "sphinx_llm.txt",
     "sphinx_related_links",
     "sphinx_roles",
     "sphinx_terminal",
@@ -353,6 +354,20 @@ rst_prolog = """
 .. role:: h2
     :class: hclass2
 """
+
+# sphinx-llm config - https://github.com/NVIDIA/sphinx-llm
+# Short description of your docs set:
+llms_txt_description = (
+    "This documentation provides guidance for using Chisel, a developer tool "
+    "for extracting highly customized and specialized slices of Ubuntu "
+    "packages to create minimal Ubuntu filesystems with a reduced attack surface "
+    "and a small storage footprint. "
+    "Ideal for building distroless-like Docker containers."
+)
+
+# The base URL for references built by sphinx-markdown-builder.
+if os.environ.get("READTHEDOCS"):
+    markdown_http_base = html_baseurl
 
 # Workaround for https://github.com/canonical/canonical-sphinx/issues/34
 
