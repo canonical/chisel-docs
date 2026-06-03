@@ -178,7 +178,7 @@ if os.getenv("OPENAPI", ""):
 # TODO: If your documentation is hosted on https://docs.ubuntu.com/,
 #       uncomment and update as needed.
 
-slug = '<product>/docs' # Or '<ecosystem>/<product>/docs'
+slug = 'chisel/docs' # Or '<ecosystem>/<product>/docs'
 
 #######################
 # Sitemap configuration: https://sphinx-sitemap.readthedocs.io/
