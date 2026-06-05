@@ -1,6 +1,6 @@
  // Replace oldDomain with newDomain
  const oldDomain = '<<RtDURL>>';
- const newDomain = 'ubuntu.com/chisel/docs/';
+ const newDomain = 'ubuntu.com/chisel/docs';
 
  function escapeRegExp(value) {
      return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
