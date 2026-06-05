@@ -186,14 +186,14 @@ slug = 'chisel/docs' # Or '<ecosystem>/<product>/docs'
 
 # Use RTD canonical URL to ensure duplicate pages have a specific canonical URL
 
-html_baseurl = f"https://ubuntu.com/chisel/docs/"
+html_baseurl = f"https://ubuntu.com/chisel/docs/{version}/"
 
 # URL scheme. Add language and version scheme elements.
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
 
 if 'READTHEDOCS_VERSION' in os.environ:
     version = os.environ["READTHEDOCS_VERSION"]
-    sitemap_url_scheme = '{version}{link}'
+    sitemap_url_scheme = '{link}'
 else:
     sitemap_url_scheme = 'MANUAL/{link}'
 
