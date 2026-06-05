@@ -1,6 +1,6 @@
  // Replace oldDomain with newDomain
- const oldDomain = 'canonical-chisel-migration.readthedocs-hosted.com';
- const newDomain = 'ubuntu.com/chisel/docs/';
+ const oldDomain = '<<RtDURL>>';
+ const newDomain = 'ubuntu.com/chisel/docs';
 
  function escapeRegExp(value) {
      return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
