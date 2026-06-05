@@ -193,7 +193,7 @@ html_baseurl = f"https://ubuntu.com/chisel/docs/{version}/"
 
 if 'READTHEDOCS_VERSION' in os.environ:
     version = os.environ["READTHEDOCS_VERSION"]
-    sitemap_url_scheme = '{version}{link}'
+    sitemap_url_scheme = '{link}'
 else:
     sitemap_url_scheme = 'MANUAL/{link}'
 
