@@ -186,7 +186,7 @@ slug = 'chisel/docs' # Or '<ecosystem>/<product>/docs'
 
 # Use RTD canonical URL to ensure duplicate pages have a specific canonical URL
 
-html_baseurl = f"https://ubuntu.com/chisel/docs/{version}/"
+html_baseurl = f"https://ubuntu.com/chisel/docs/"
 
 # URL scheme. Add language and version scheme elements.
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
