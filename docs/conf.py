@@ -72,7 +72,7 @@ copyright = "%s CC-BY-SA, %s" % (datetime.date.today().year, author)
 # NOTE: The Open Graph Protocol (OGP) enhances page display in a social graph
 #       and is used by social media platforms; see https://ogp.me/
 
-ogp_site_url = f"https://ubuntu.com/chisel/docs//{version}/"
+ogp_site_url = f"https://ubuntu.com/chisel/docs/{version}/"
 
 
 # Preview name of the documentation website
@@ -186,7 +186,7 @@ slug = 'chisel/docs' # Or '<ecosystem>/<product>/docs'
 
 # Use RTD canonical URL to ensure duplicate pages have a specific canonical URL
 
-html_baseurl = f"https://ubuntu.com/chisel/docs//{version}/"
+html_baseurl = f"https://ubuntu.com/chisel/docs/{version}/"
 
 # URL scheme. Add language and version scheme elements.
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
@@ -200,6 +200,7 @@ else:
 # Include `lastmod` dates in the sitemap:
 
 sitemap_show_lastmod = True
+sitemap_filename = "doc-sitemap.xml"
 
 # Exclude generated pages from the sitemap:
 
