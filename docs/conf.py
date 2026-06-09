@@ -198,6 +198,7 @@ else:
 # Include `lastmod` dates in the sitemap:
 
 sitemap_show_lastmod = True
+sitemap_filename = "doc-sitemap.xml"
 
 # Exclude generated pages from the sitemap:
 
