@@ -31,7 +31,9 @@ author = "Canonical Ltd."
 # Sidebar documentation title; best kept reasonably short
 #
 # TODO: To include a version number, add it here (hardcoded or automated).
-#
+
+version = f"{os.environ.get('READTHEDOCS_VERSION', 'local')}"
+
 # TODO: To disable the title, set to an empty string.
 
 html_title = project + " documentation"
@@ -70,7 +72,7 @@ copyright = "%s CC-BY-SA, %s" % (datetime.date.today().year, author)
 # NOTE: The Open Graph Protocol (OGP) enhances page display in a social graph
 #       and is used by social media platforms; see https://ogp.me/
 
-ogp_site_url = "https://documentation.ubuntu.com/chisel/"
+ogp_site_url = f"https://ubuntu.com/chisel/docs/{version}/"
 
 
 # Preview name of the documentation website
@@ -176,7 +178,7 @@ if os.getenv("OPENAPI", ""):
 # TODO: If your documentation is hosted on https://docs.ubuntu.com/,
 #       uncomment and update as needed.
 
-slug = "chisel"
+slug = 'chisel/docs' # Or '<ecosystem>/<product>/docs'
 
 #######################
 # Sitemap configuration: https://sphinx-sitemap.readthedocs.io/
@@ -184,20 +186,22 @@ slug = "chisel"
 
 # Use RTD canonical URL to ensure duplicate pages have a specific canonical URL
 
-html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
+html_baseurl = f"https://ubuntu.com/chisel/docs/{version}/"
 
 # URL scheme. Add language and version scheme elements.
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
 
 if 'READTHEDOCS_VERSION' in os.environ:
     version = os.environ["READTHEDOCS_VERSION"]
-    sitemap_url_scheme = '{version}{link}'
+    sitemap_url_scheme = '{link}'
 else:
     sitemap_url_scheme = 'MANUAL/{link}'
 
 # Include `lastmod` dates in the sitemap:
 
 sitemap_show_lastmod = True
+sitemap_filename = "doc-sitemap.xml"
+
 sitemap_filename = "doc-sitemap.xml"
 
 # Exclude generated pages from the sitemap:
@@ -315,6 +319,7 @@ html_css_files = [
 
 html_js_files = [
     'bundle.js',
+    "js/overwrite_links.js",
 ]
 
 
@@ -393,4 +398,3 @@ intersphinx_mapping = {}
 def setup(app):
     app.add_css_file("tasklist.css")
     app.add_js_file("tasklist.js")  #checkbox-enabling JS
-
