@@ -1,4 +1,4 @@
-[![Documentation Status](https://readthedocs.com/projects/canonical-chisel/badge/?version=latest)](https://canonical-chisel.readthedocs-hosted.com/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.com/projects/canonical-chisel-migration/badge/?version=latest)](https://ubuntu.com/chisel/docs/latest/?badge=latest)
 
 # Chisel documentation
 
