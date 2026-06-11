@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "How to use Chisel in a multi-stage Dockerfile to build a minimal, distroless-like container image from Ubuntu package slices."
+---
+
 (use_chisel_dockerfile)=
 
 # Use Chisel in a Dockerfile

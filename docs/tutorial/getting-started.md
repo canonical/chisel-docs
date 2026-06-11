@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Learn how to create a chiseled Ubuntu root file system from scratch, from installing Chisel to slicing Ubuntu packages in 15 minutes."
+---
+
 (chisel_helloworld_tutorial)=
 
 # Getting started with Chisel

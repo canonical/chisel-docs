@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Reference for the chisel.yaml configuration file, covering format versions, archive definitions, maintenance, public keys, and Ubuntu Pro settings."
+---
+
 (chisel_yaml_ref)=
 
 # chisel.yaml

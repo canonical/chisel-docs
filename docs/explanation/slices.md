@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Explanation of package slices in Chisel: subsets of Debian packages with their own files and dependencies, used to build minimal Ubuntu root file systems."
+---
+
 (slices_explanation)=
 
 # Slices

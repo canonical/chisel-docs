@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "The practical, goal-oriented documentation for Chisel. These guides provide directions for completing tasks and solving problems with Chisel."
+---
+
 (how_to_guides)=
 
 # How-to guides

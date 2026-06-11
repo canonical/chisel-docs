@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Reference for the Chisel help command, which displays usage information and a summary of available subcommands."
+---
+
 (help_command_reference)=
 
 # help command

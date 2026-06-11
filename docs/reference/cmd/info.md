@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Reference for the Chisel info command, which displays slice definitions for given package or slice names from a chisel-release in YAML format."
+---
+
 (info_command_reference)=
 
 # info command

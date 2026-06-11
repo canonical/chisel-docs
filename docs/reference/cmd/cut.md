@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Reference for the Chisel cut command, which slices Ubuntu packages and installs selected package slices into a root file system directory."
+---
+
 (cut_command_reference)=
 
 # cut command

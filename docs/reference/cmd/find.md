@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Reference for the Chisel find command, which searches chisel-releases for available package slices matching a name pattern."
+---
+
 (find_command_reference)=
 
 # find command

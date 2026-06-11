@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Chisel is a tool for creating minimal Ubuntu root file systems by selecting and installing only the necessary package slices."
+---
+
 # Chisel
 
 **Chisel** is a developer tool for extracting highly customized and specialized [package slices](slices_explanation) of Ubuntu packages to create 

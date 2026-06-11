@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Explanation of the two slice design approaches in Chisel: grouping by content type (bins, libs) or by functionality (minimal, core, standard)."
+---
+
 (slice_design_approaches)=
 
 # Slice design approaches

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "How to configure Chisel to fetch and install Ubuntu Pro package slices, including archive definitions and credentials setup."
+---
+
 (install_pro_packages)=
 
 # Install Ubuntu Pro package slices
