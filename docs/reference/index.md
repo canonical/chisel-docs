@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "The reference documentation for Chisel. These references describe the structure and function of the individual components in Chisel."
+---
+
 # Reference
 
 This section provides concise references on available commands, package slices, and security.

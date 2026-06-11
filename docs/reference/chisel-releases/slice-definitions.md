@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Reference for the slice definitions file format for Ubuntu package slices, covering the location, format specifications and examples."
+---
+
 (slice_definitions_ref)=
 
 # Slice definitions

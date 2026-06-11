@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "The explanatory documentation for Chisel. These explanations aid in understanding the core concepts of Chisel."
+---
+
 # Explanation
 
 This section of the documentation covers the core concepts of Chisel.

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "How to install Chisel on Linux by downloading the pre-built binary, building from source, or installing the Snap package."
+---
+
 (install_chisel)=
 
 # How to install Chisel

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Reference for the Chisel manifest: a ZSTD-compressed jsonwall file listing metadata about installed packages, slices, and files in a root file system."
+---
+
 (chisel_manifest_ref)=
 
 # Chisel Manifest

@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Reference for Chisel's cryptographic verification process, including GPG signature checks and checksum validation."
+---
+
 (chisel_security_ref)=
 
 # Chisel Cryptographic Documentation

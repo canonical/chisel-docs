@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Reference for the Chisel command-line interface, covering the cut, find, info, version, and help subcommands with their options and usage."
+---
+
 (command_reference)=
 
 # CLI Commands

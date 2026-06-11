@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "Reference for chisel-releases, the versioned directory of slice definitions files and chisel.yaml that Chisel uses to identify and fetch package slices."
+---
+
 (chisel-releases_ref)=
 
 # chisel-releases

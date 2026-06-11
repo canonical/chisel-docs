@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: "How to slice an Ubuntu package with Chisel by inspecting its contents, designing slices, and writing and testing a slice definitions file."
+---
+
 (slice_package)=
 
 # Slice a package
