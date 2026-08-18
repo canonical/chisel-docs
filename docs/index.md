@@ -81,4 +81,5 @@ Tutorial <tutorial/getting-started>
 how-to/index
 reference/index
 explanation/index
+contribute-to-documentation
 ```
