@@ -138,7 +138,7 @@ so use {ref}`chisel_yaml_format_spec_archives_priority` instead.
 
 | Field     | Type     | Required | Supported values                                        | Compatibility |
 | --------- | -------- | -------- | ------------------------------------------------------- | ------------- |
-| `version` | `string` | Required | Ubuntu release in `xx.yy` format e.g. 22.04, 24.04 etc. | >= `v1`       |
+| `version` | `string` | Required | Ubuntu release in `xx.yy` format e.g. 22.04, 24.04. | >= `v1`       |
 
 Indicates the Ubuntu release this archive should fetch the
 packages for. This value is currently only used for logging, and does not change
@@ -151,7 +151,7 @@ the archive behaviour.
 
 | Field    | Type            | Required | Supported values                                              | Compatibility |
 | -------- | --------------- | -------- | ------------------------------------------------------------- | ------------- |
-| `suites` | `array<string>` | Required | Ubuntu archive suite names e.g. `jammy`, `noble-updates` etc. | >= `v1`       |
+| `suites` | `array<string>` | Required | Ubuntu archive suite names e.g. `jammy`, `noble-updates`. | >= `v1`       |
 
 Lists the archive suites to fetch packages from. Read more
 about suites in the [Ubuntu packaging
@@ -164,7 +164,7 @@ guide](https://documentation.ubuntu.com/project/how-ubuntu-is-made/concepts/pack
 
 | Field        | Type            | Required | Supported values                                   | Compatibility |
 | ------------ | --------------- | -------- | -------------------------------------------------- | ------------- |
-| `components` | `array<string>` | Required | Suite component names e.g. `main`, `universe` etc. | >= `v1`       |
+| `components` | `array<string>` | Required | Suite component names e.g. `main`, `universe`. | >= `v1`       |
 
 Lists the components of the archive suites to fetch
 packages from. Read more about components in the [Ubuntu packaging
