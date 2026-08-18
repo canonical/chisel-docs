@@ -38,4 +38,4 @@ CODA coordinates work for open source projects throughout Canonical, including C
 way to get started is to volunteer for a topic in the [task aggregator](https://github.com/canonical/open-documentation-academy/issues?q=is%3Aissue%20state%3Aopen%20chisel).
 Please wait to be assigned to an issue before starting your work.
 
-In addition to the above, we have a biweekly [Open Documentation Hour](https://discourse.ubuntu.com/t/open-documentation-hour-schedule/45291). Everyone is welcome.
+In addition to the above, we have a biweekly [Open Documentation Hour](https://discourse.ubuntu.com/t/documentation-community-hour/42771). Everyone is welcome.
