@@ -13,24 +13,16 @@ Users need to be able to create software suited to their specific needs with a r
 surface and a small storage footprint. With Chisel, users build a minimal root filesystem by 
 selecting and installing only the necessary slices from the full Ubuntu package set.
 
----------
 
 ## In this documentation
 
-* **Tutorial**: [Hands-on introduction to Chisel in 15 minutes](tutorial/getting-started)
-    
-* **Common patterns**: [Install Chisel](how-to/install-chisel) • 
-[Slice a package](how-to/slice-a-package/) • 
-[Use Chisel in a Dockerfile](how-to/use-chisel-in-dockerfile) • 
-[Explore the Chisel CLI](reference/cmd/index) 
-    
-* **Slices**: [Learn more about slices](explanation/slices) • 
-[Chisel releases](reference/chisel-releases/index) • 
-[chisel.yaml](reference/chisel-releases/chisel.yaml) •
-[Slice definitions](reference/chisel-releases/slice-definitions) • [Slice design approaches](explanation/slice-design-approaches.md) • 
-[Install Ubuntu Pro package slices](how-to/install-pro-package-slices)
+* **Getting started**: [Hands-on introduction to Chisel in 15 minutes](tutorial/getting-started) • [General installation guide](how-to/install-chisel)
+* **Slices overview:** [Overview](explanation/slices) • [Chisel releases](reference/chisel-releases/index)
+* **Deploying slices:** [Using Chisel in a Dockerfile](how-to/use-chisel-in-dockerfile) • [Install Ubuntu Pro package slices](how-to/install-pro-package-slices) • [Manifest](reference/manifest)
+* **Creating slices:** [Slice definitions](reference/chisel-releases/slice-definitions) • [chisel.yaml](reference/chisel-releases/chisel.yaml) • [Slice design approaches](explanation/slice-design-approaches) • [Slice a package](how-to/slice-a-package)
+* **Chisel CLI:** [Command reference](reference/cmd/index)
+* **Security:** [Cryptographic information](reference/security)
 
----------
 
 ## How this documentation is organized
 
