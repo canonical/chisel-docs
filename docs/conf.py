@@ -1,6 +1,7 @@
 import datetime
 import os
 import yaml
+import textwrap
 
 # Configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.
@@ -21,20 +22,14 @@ import yaml
 #######################
 
 # Project name
-#
-# TODO: Update with the official name of your project or product
 
 project = "Chisel"
 author = "Canonical Ltd."
 
 
 # Sidebar documentation title; best kept reasonably short
-#
-# TODO: To include a version number, add it here (hardcoded or automated).
 
 version = f"{os.environ.get('READTHEDOCS_VERSION', 'local')}"
-
-# TODO: To disable the title, set to an empty string.
 
 html_title = project + " documentation"
 
@@ -43,48 +38,20 @@ html_title = project + " documentation"
 #
 # Now, the starter pack uses CC-BY-SA as the license
 # and the current year as the copyright year.
-#
-# TODO: If your docs need another license, specify it instead of 'CC-BY-SA'.
-#
-# TODO: If your documentation is a part of the code repository of your project,
-#       it inherits the code license instead; specify it instead of 'CC-BY-SA'.
-#
-# NOTE: For static works, it is common to provide the first publication year.
-#       Another option is to provide both the first year of publication
-#       and the current year, especially for docs that frequently change,
-#       e.g. 2022–2023 (note the en-dash).
-#
-#       A way to check a repo's creation date is to get a classic GitHub token
-#       with 'repo' permissions; see https://github.com/settings/tokens
-#       Next, use 'curl' and 'jq' to extract the date from the API's output:
-#
-#       curl -H 'Authorization: token <TOKEN>' \
-#         -H 'Accept: application/vnd.github.v3.raw' \
-#         https://api.github.com/repos/canonical/<REPO> | jq '.created_at'
 
-copyright = "%s CC-BY-SA, %s" % (datetime.date.today().year, author)
+copyright = f"{datetime.date.today().year}"
 
 
 # Documentation website URL
-#
-# TODO: Update with the official URL of your docs or leave empty if unsure.
-#
-# NOTE: The Open Graph Protocol (OGP) enhances page display in a social graph
-#       and is used by social media platforms; see https://ogp.me/
 
 ogp_site_url = f"https://ubuntu.com/chisel/docs/{version}/"
 
 
 # Preview name of the documentation website
-#
-# TODO: To use a different name for the project in previews, update as needed.
 
 ogp_site_name = project
 
-
 # Preview image URL
-#
-# TODO: To customise the preview image, update as needed.
 
 ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 
@@ -93,7 +60,7 @@ ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 
 # TODO: To customise the favicon, uncomment and update as needed.
 
-# html_favicon = '.sphinx/_static/favicon.png'
+# html_favicon = '_static/favicon.png'
 
 
 # Dictionary of values to pass into the Sphinx context for all pages:
@@ -101,49 +68,20 @@ ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 
 html_context = {
     # Product page URL; can be different from product docs URL
-    #
-    # TODO: Change to your product website URL,
-    #       dropping the 'https://' prefix, e.g. 'ubuntu.com/lxd'.
-    #
-    # TODO: If there's no such website,
-    #       remove the {{ product_page }} link from the page header template
-    #       (usually .sphinx/_templates/header.html; also, see README.rst).
     "product_page": "github.com/canonical/chisel",
-    # Product tag image; the orange part of your logo, shown in the page header
-    #
-    # TODO: To add a tag image, uncomment and update as needed.
-    # 'product_tag': '_static/tag.png',
     # Your Discourse instance URL
-    #
-    # TODO: Change to your Discourse instance URL or leave empty.
-    #
-    # NOTE: If set, adding ':discourse: 123' to an .rst file
-    #       will add a link to Discourse topic 123 at the bottom of the page.
     "discourse": "https://discourse.ubuntu.com/tags/c/rocks/117/chisel",
     # Your Mattermost channel URL
     #
     # TODO: Change to your Mattermost channel URL or leave empty.
     "mattermost": "",
     # Your Matrix channel URL
-    #
-    # TODO: Change to your Matrix channel URL or leave empty.
     "matrix": "https://matrix.to/#/#chisel:ubuntu.com",
-    # Your documentation GitHub repository URL
-    #
-    # TODO: Change to your documentation GitHub repository URL or leave empty.
-    #
-    # NOTE: If set, links for viewing the documentation source files
-    #       and creating GitHub issues are added at the bottom of each page.
+    # Your documentation GitHub repository URL    #
     "github_url": "https://github.com/canonical/chisel-docs",
     # Docs branch in the repo; used in links for viewing the source files
-    #
-    # TODO: To customise the branch, uncomment and update as needed.
     'repo_default_branch': 'main',
     # Docs location in the repo; used in links for viewing the source files
-    #
-
-
-    # TODO: To customise the directory, uncomment and update as needed.
     "repo_folder": "/docs/",
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
@@ -153,6 +91,14 @@ html_context = {
 
     # Required for feedback button
     'github_issues': 'enabled',
+
+    # Passes the top-level 'author' value to the theme
+    "author": author,
+    # Documentation license information
+    "license": {
+        "name": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    },
 }
 
 html_extra_path = []
@@ -174,10 +120,6 @@ if os.getenv("OPENAPI", ""):
 # }
 
 # Project slug; see https://meta.discourse.org/t/what-is-category-slug/87897
-#
-# TODO: If your documentation is hosted on https://docs.ubuntu.com/,
-#       uncomment and update as needed.
-
 slug = 'chisel/docs' # Or '<ecosystem>/<product>/docs'
 
 #######################
@@ -210,9 +152,6 @@ sitemap_excludes = [
     'search/',
 ]
 
-# TODO: Add more pages to sitemap_excludes if needed. Wildcards are supported.
-#       For example, to exclude module pages generated by autodoc, add '_modules/*'.
-
 #######################
 # Template and asset locations
 #######################
@@ -225,37 +164,53 @@ templates_path = ["_static/_templates"]
 # Redirects #
 #############
 
-# To set up redirects: https://documatt.gitlab.io/sphinx-reredirects/usage.html
-# For example: 'explanation/old-name.html': '../how-to/prettify.html',
+# Add redirects to the 'redirects.txt' file
+# https://sphinxext-rediraffe.readthedocs.io/en/latest/
 
-# To set up redirects in the Read the Docs project dashboard:
+# Redirects for this project are managed in the Read the Docs project dashboard:
 # https://docs.readthedocs.io/en/stable/guides/redirects.html
+#rediraffe_redirects = "redirects.txt"
 
-# NOTE: If undefined, set to None, or empty,
-#       the sphinx_reredirects extension will be disabled.
+# Strips '/index.html' from destination URLs when building with 'dirhtml'
+#rediraffe_dir_only = True
 
-redirects = {}
+############################
+# sphinx-llm configuration #
+############################
 
+# sphinx-llm config - https://github.com/NVIDIA/sphinx-llm
+# Short description of your docs set:
+llms_txt_description = (
+    "This documentation provides guidance for using Chisel, a developer tool "
+    "for extracting highly customized and specialized slices of Ubuntu "
+    "packages to create minimal Ubuntu filesystems with a reduced attack surface "
+    "and a small storage footprint. "
+    "Ideal for building distroless-like Docker containers."
+)
+
+# The base URL for references built by sphinx-markdown-builder.
+if os.environ.get("READTHEDOCS"):
+    markdown_http_base = html_baseurl
 
 ###########################
 # Link checker exceptions #
 ###########################
 
 # A regex list of URLs that are ignored by 'make linkcheck'
-#
-# TODO: Remove or adjust the ACME entry after you update the contributing guide
 
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://www.gnu.org/*",
+    r"https://matrix\.to/.*",
 ]
 
 # A regex list of URLs where anchors are ignored by 'make linkcheck'
 
 linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
 
+# How long the link checker will wait for a response for each request
 # give linkcheck multiple tries on failure
-# linkcheck_timeout = 30
+#linkcheck_timeout = 30
 linkcheck_retries = 3
 
 ########################
@@ -305,28 +260,23 @@ extensions = [
 
 exclude_patterns = [
     "doc-cheat-sheet*",
+    ".venv*",
+    "_dev",
 ]
 
 # Adds custom CSS files, located under 'html_static_path'
 
 html_css_files = [
-    'cookie-banner.css'
+    "https://assets.ubuntu.com/v1/d86746ef-cookie_banner.css",
 ]
 
 # Adds custom JavaScript files, located under 'html_static_path'
 
 html_js_files = [
-    'bundle.js',
+    "https://assets.ubuntu.com/v1/287a5e8f-bundle.js",
     "js/overwrite_links.js",
 ]
 
-
-# Specifies a reST snippet to be appended to each .rst file
-
-rst_epilog = """
-.. include:: /reuse/links.txt
-.. include:: /reuse/substitutions.txt
-"""
 
 # Feedback button at the top; enabled by default
 #
@@ -346,32 +296,6 @@ rst_epilog = """
 
 # manpages_url = 'https://manpages.ubuntu.com/manpages/{codename}/en/' + \
 #     'man{section}/{page}.{section}.html'
-
-
-# Specifies a reST snippet to be prepended to each .rst file
-# This defines a :center: role that centers table cell content.
-# This defines a :h2: role that styles content for use with PDF generation.
-
-rst_prolog = """
-.. role:: center
-   :class: align-center
-.. role:: h2
-    :class: hclass2
-"""
-
-# sphinx-llm config - https://github.com/NVIDIA/sphinx-llm
-# Short description of your docs set:
-llms_txt_description = (
-    "This documentation provides guidance for using Chisel, a developer tool "
-    "for extracting highly customized and specialized slices of Ubuntu "
-    "packages to create minimal Ubuntu filesystems with a reduced attack surface "
-    "and a small storage footprint. "
-    "Ideal for building distroless-like Docker containers."
-)
-
-# The base URL for references built by sphinx-markdown-builder.
-if os.environ.get("READTHEDOCS"):
-    markdown_http_base = html_baseurl
 
 # Workaround for https://github.com/canonical/canonical-sphinx/issues/34
 
