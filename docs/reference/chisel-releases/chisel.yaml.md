@@ -28,9 +28,9 @@ directory.
 
 ### `format`
 
-| Field    | Type     | Required | Supported values |
-| -------- | -------- | -------- | ---------------- |
-| `format` | `string` | Required | `v1`, `v2`, `v3` |
+| Field    | Type     | Required | Supported values       |
+| -------- | -------- | -------- | ---------------------- |
+| `format` | `string` | Required | `v1`, `v2`, `v3`, `v4` |
 
 Used to define the supported schemas for the {ref}`chisel-releases_ref`.
 For example:
@@ -55,21 +55,23 @@ that support said `format`.
 
 ```{eval-rst}
 
-+-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
-|                                      chisel-release                         |                                                         .. centered:: Format                                                                                                                  |
-+=============================================================================+=======================================================+===================================================================+===================================================================+
-|                                                                             |                         **V1**                        |                              **V2**                               |                              **V3**                               |
-+-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
-| `20.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-20.04>`_   | `all <https://github.com/canonical/chisel/releases>`_ |                                x                                  |                                x                                  |
-+-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
-| `22.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-22.04>`_   | `all <https://github.com/canonical/chisel/releases>`_ |                                x                                  |                                x                                  |
-+-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
-| `24.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-24.04>`_   | `all <https://github.com/canonical/chisel/releases>`_ |                                x                                  |                                x                                  |
-+-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
-| `25.10 <https://github.com/canonical/chisel-releases/tree/ubuntu-25.10>`_   |                           x                           | >= `v1.2.0 <https://github.com/canonical/chisel/releases/v1.2.0>`_|                                x                                  |
-+-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
-| `26.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-26.04>`_   |                           x                           |                                x                                  | >= `v1.4.0 <https://github.com/canonical/chisel/releases/v1.4.0>`_|
-+-----------------------------------------------------------------------------+-------------------------------------------------------+-------------------------------------------------------------------+-------------------------------------------------------------------+
++-----------------------------------------------------------------------------+-------------------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------+
+|                                      chisel-release                         |                                                           .. centered:: Format                                                                                                                                                                                        |
++=============================================================================+=======================================================+====================================================================+====================================================================+=====================================================================+
+|                                                                             |                         **V1**                        |                              **V2**                                |                              **V3**                                |                              **V4**                                 |
++-----------------------------------------------------------------------------+-------------------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------+
+| `20.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-20.04>`_   | `all <https://github.com/canonical/chisel/releases>`_ |                                x                                   |                                x                                   |                                x                                    |
++-----------------------------------------------------------------------------+-------------------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------+
+| `22.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-22.04>`_   | `all <https://github.com/canonical/chisel/releases>`_ |                                x                                   |                                x                                   |                                x                                    |
++-----------------------------------------------------------------------------+-------------------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------+
+| `24.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-24.04>`_   | `all <https://github.com/canonical/chisel/releases>`_ |                                x                                   |                                x                                   |                                x                                    |
++-----------------------------------------------------------------------------+-------------------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------+
+| `25.10 <https://github.com/canonical/chisel-releases/tree/ubuntu-25.10>`_   |                          x                            | >= `v1.2.0 <https://github.com/canonical/chisel/releases/v1.2.0>`_ |                                x                                   |                                x                                    |
++-----------------------------------------------------------------------------+-------------------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------+
+| `26.04 <https://github.com/canonical/chisel-releases/tree/ubuntu-26.04>`_   |                          x                            |                                x                                   | >= `v1.4.0 <https://github.com/canonical/chisel/releases/v1.4.0>`_ |                                x                                    |
++-----------------------------------------------------------------------------+-------------------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------+
+| `26.10 <https://github.com/canonical/chisel-releases/tree/ubuntu-26.10>`_   |                          x                            |                                x                                   |                                x                                   | >= `v1.5.0 <https://github.com/canonical/chisel/releases/v1.5.0>`_  |
++-----------------------------------------------------------------------------+-------------------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------+
 
 ```
 
@@ -360,6 +362,82 @@ fingerprint in {ref}`chisel_yaml_format_spec_public_keys_armor`.
 
 The `armor` field contains the multi-line armored ASCII data of OpenPGP public
 key.
+
+
+(chisel_yaml_format_spec_stores)=
+
+### `stores`
+
+| Field      | Type     | Required | Compatibility |
+| ---------- | -------- | -------- | ------------- |
+| `stores`   | `object` | Optional | >= `v3`       |
+
+Tells Chisel which stores to fetch packages from. A store is an alternative
+package source to {ref}`archives<chisel_yaml_format_spec_archives>`, serving
+packages via a store API rather than from a Debian archive. Stores are used to
+distribute packages that are not available in the standard Ubuntu archives,
+such as `bin` packages.
+
+For example:
+
+```yaml
+stores:
+  bin:
+    kind: bin
+    version: 26.10
+    default-prefix: "bin-"
+```
+
+```{note}
+In format `v3`, bin slice definitions must be stored in a separate, top-level,
+`bin-slices/` directory. This is a backwards compatibility mechanism for Chisel
+versions that do not support stores: those old versions only read `slices/` and
+are unaware of `bin-slices/`, so they are not affected by the new store fields.
+From format `v4` onwards, bin slice definitions live in `slices/` alongside
+regular ones, so `bin-slices/` is not read.
+```
+
+
+(chisel_yaml_format_spec_stores_version)=
+
+### `stores.<name>.version`
+
+| Field     | Type     | Required | Supported values                                        | Compatibility |
+| --------- | -------- | -------- | ------------------------------------------------------- | ------------- |
+| `version` | `string` | Required | Ubuntu release in `xx.yy` format e.g. 22.04, 24.04 etc. | >= `v3`       |
+
+Indicates the Ubuntu release this store should fetch the packages for.
+
+
+(chisel_yaml_format_spec_stores_kind)=
+
+### `stores.<name>.kind`
+
+| Field  | Type     | Required | Supported values | Compatibility |
+| ------ | -------- | -------- | ---------------- | ------------- |
+| `kind` | `string` | Required | `bin`            | >= `v3`       |
+
+Specifies the kind of store. The `bin` kind refers to bin packages
+distributed via a store API.
+
+
+(chisel_yaml_format_spec_stores_default_prefix)=
+
+### `stores.<name>.default-prefix`
+
+| Field            | Type     | Required | Compatibility |
+| ---------------- | -------- | -------- | ------------- |
+| `default-prefix` | `string` | Required | >= `v3`       |
+
+Specifies the prefix prepended to the bare package name (as defined by the
+`package` field in the slice definitions file) to form the unique package
+identifier used across the release. For example, with `default-prefix: "bin-"`
+and a slice definitions file declaring `package: curl`, the unique package
+identifier becomes `bin-curl`.
+
+This unique identifier is used in slice references (e.g. in {ref}`essential<slice_definitions_format_slices_essential>`
+dependencies and {ref}`prefer<slice_definitions_format_slices_contents_prefer>`), while the bare name is used for package lookups
+in the store.
 
 
 (chisel_yaml_example)=

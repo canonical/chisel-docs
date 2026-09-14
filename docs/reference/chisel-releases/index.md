@@ -25,10 +25,21 @@ A _chisel-release_ is simply a directory with the following structure:
 
 ```
 ├── chisel.yaml
-└── slices
-    ├── pkgA.yaml
-    ├── pkgB.yaml
+├── slices
+│   ├── pkgA.yaml
+│   ├── pkgB.yaml
+│   └── ...
+└── bin-slices
+    ├── bin-pkgC.yaml
     └── ...
+```
+
+```{note}
+The `bin-slices/` directory is only used in format `v3`. It contains slice
+definitions for packages fetched from
+{ref}`stores<chisel_yaml_format_spec_stores>`. From format `v4` onwards, bin
+slice definitions live in `slices/` alongside regular ones, so `bin-slices/`
+is not used.
 ```
 
 The following pages provide more details on:

@@ -25,6 +25,17 @@ Although the `hello.yaml` file can be placed in a sub-directory of `slices/` e.g
 `slices/hello.yaml`. The {{chisel_releases_repo}} follows the latter.
 ```
 
+```{note}
+In format `v3`, bin slice definitions (i.e. slice definitions for packages
+fetched from a {ref}`store<slice_definitions_format_store>`) must be stored in
+a separate, top-level, `bin-slices/` directory rather than in `slices/`. This
+is a backwards compatibility mechanism for Chisel versions that do not support
+stores: those old versions only read `slices/` and are unaware of
+`bin-slices/`, so they are not affected by the new store fields. From format
+`v4` onwards, bin slice definitions live in `slices/` alongside regular ones,
+so `bin-slices/` is not read.
+```
+
 (slice_definitions_format)=
 
 ## Format specification
@@ -70,12 +81,65 @@ fetched from. If specified, Chisel fetches this package from that archive despit
 {ref}`chisel_yaml_format_spec_archives_priority` settings in
 {ref}`chisel_yaml_ref`.
 
+The `archive` field and the {ref}`store<slice_definitions_format_store>`
+field are mutually exclusive: a package must be fetched from either an
+archive or a store, but not both.
 
 The archive name must be defined in {ref}`chisel_yaml_format_spec_archives`.
 For example:
 
 ```yaml
 archive: ubuntu
+```
+
+
+(slice_definitions_format_store)=
+
+### `store`
+
+| Field   | Type     | Required | Supported values                                                  | Compatibility |
+| ------- | -------- | -------- | ----------------------------------------------------------------- | ------------- |
+| `store` | `string` | Optional | Store name, from {ref}`stores<chisel_yaml_format_spec_stores>`.   | >= `v3`       |
+
+Specifies a particular {ref}`store<chisel_yaml_format_spec_stores>` from
+where this package should be fetched. If specified, Chisel fetches this
+package from that store rather than from an archive. The store name must be
+defined in {ref}`chisel_yaml_format_spec_stores`.
+
+The `store` field is mutually exclusive with
+{ref}`archive<slice_definitions_format_archive>`: a package must be fetched
+from either an archive or a store, but not both.
+
+When `store` is set, {ref}`default-track<slice_definitions_format_default_track>`
+must also be set.
+
+For example:
+
+```yaml
+store: bin
+default-track: 3.1
+```
+
+
+(slice_definitions_format_default_track)=
+
+### `default-track`
+
+| Field           | Type     | Required                                  | Supported values | Compatibility |
+| --------------- | -------- | ----------------------------------------- | ---------------- | ------------- |
+| `default-track` | `string` | Required when `store` is set.             | A track name.    | >= `v3`       |
+
+Specifies the default track for a {ref}`store<slice_definitions_format_store>`
+package.
+
+This field is required when {ref}`store<slice_definitions_format_store>` is
+set, and must not be included when `store` is not set.
+
+For example:
+
+```yaml
+store: bin
+default-track: 3.1
 ```
 
 (slice_definitions_format_essential)=

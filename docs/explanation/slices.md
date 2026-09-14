@@ -10,11 +10,16 @@ myst:
 
 ## What are package slices?
 
-Since Debian packages are simply archives that can be inspected, navigated and
-deconstructed, it is possible to define slices of packages that contain
+Packages are collections of files that can be inspected, navigated and
+deconstructed. It is possible to define slices of packages that contain
 minimal, complementary, loosely-coupled sets of files based on package metadata
-and content. Such **package slices** are subsets of Debian packages, with their
-own content and set of dependencies to other internal and external slices.
+and content. Such **package slices** are subsets of packages, with their own
+content and set of dependencies to other internal and external slices.
+
+Packages are typically fetched from Debian archives as `.deb` files, but Chisel
+also supports fetching packages from {ref}`stores<chisel_yaml_format_spec_stores>`,
+which serve packages via a store API rather than from a Debian archive. The
+slicing mechanism is the same regardless of the package source.
 
 The use of package slices provides the ability to build minimal root file
 system from the wider set of Ubuntu packages.

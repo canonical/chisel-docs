@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: "Explanation of how Chisel works: reading chisel-releases, fetching packages from Ubuntu archives, and extracting selected files into a root file system."
+    description: "Explanation of how Chisel works: read chisel-releases, fetch packages from Ubuntu archives and stores, and extract selected files into a root file system."
 ---
 
 (chisel_mo_explanation)=
@@ -53,11 +53,14 @@ definitions<slice_definitions_ref>` while validating the release and checking fo
 </td>
     <td>
 
-Chisel talks to the {ref}`chisel_yaml_format_spec_archives` directly.
-It fetches, validates and parses their `InRelease` files.
-It then resolves which archive holds the **requested** packages and fetches
-the corresponding package tarballs.
-    
+Chisel resolves the source of each **requested** package and fetches it.
+Packages are typically fetched from {ref}`archives<chisel_yaml_format_spec_archives>`,
+which are Debian archives Chisel talks to directly by fetching, validating and
+parsing their `InRelease` files. Packages may also be fetched from
+{ref}`stores<chisel_yaml_format_spec_stores>`, which serve packages via a store
+API rather than from a Debian archive. Stores are used to distribute packages
+that are not available in the standard Ubuntu archives, such as `bin` packages.
+   
 </td>
   </tr>
 

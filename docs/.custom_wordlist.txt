@@ -38,9 +38,11 @@ jaotc
 jsonwall
 libs
 linters
+lookups
 manpages
 openssl
 optimize
+prepended
 recognized
 repo
 rootfs
