@@ -267,6 +267,7 @@ exclude_patterns = [
 # Adds custom CSS files, located under 'html_static_path'
 
 html_css_files = [
+    "css/custom.css",
     "https://assets.ubuntu.com/v1/d86746ef-cookie_banner.css",
 ]
 

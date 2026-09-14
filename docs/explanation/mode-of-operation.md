@@ -24,13 +24,8 @@ Chisel uses the {{cut_cmd}} to _slice_ Ubuntu packages, as depicted in the workf
 <!-- MO 1 -->
   <tr>
     <td>
-
-```{image} /_static/MO-1.svg
-  :align: center
-  :alt: Read and parse chisel-releases
-```
-
-</td>
+      <div class="arrow-box">1. Read and parse chisel-releases</div>
+    </td>
     <td>
 
 Chisel fetches, reads and validates the {ref}`chisel-release<chisel-releases_ref>`.
@@ -44,13 +39,8 @@ definitions<slice_definitions_ref>` while validating the release and checking fo
 <!-- MO 2 -->
   <tr>
     <td>
-
-```{image} /_static/MO-2.svg
-  :align: center
-  :alt: Talk to archives and fetch packages
-```
-
-</td>
+      <div class="arrow-box">2. Talk to archives and fetch packages</div>
+    </td>
     <td>
 
 Chisel talks to the {ref}`chisel_yaml_format_spec_archives` directly.
@@ -64,13 +54,8 @@ the corresponding package tarballs.
 <!-- MO 3 -->
   <tr>
     <td>
-
-```{image} /_static/MO-3.svg
-  :align: center
-  :alt: Install package slices
-```
-
-</td>
+      <div class="arrow-box">3. Install package slices</div>
+    </td>
     <td>
 
 Chisel groups and merges all slice definitions per package. Then,
@@ -85,13 +70,8 @@ is the current user.
 <!-- MO 4 -->
   <tr>
     <td>
-
-```{image} /_static/MO-4.svg
-  :align: center
-  :alt: Run mutation scripts
-```
-
-</td>
+      <div class="arrow-box">4. Run mutation scripts</div>
+    </td>
     <td>
 
 Chisel then runs the {{mutation_scripts}}. Only the
