@@ -15,15 +15,15 @@ a preferred approach.
 
 The approaches are not mutually exclusive, and a single slice definitions file
 can mix them. For example, the
-[`systemd` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/systemd.yaml)
-groups most of its contents by type (`bins`, `libs`, `config`), but also has
-function slices such as `dbus-services`.
+[`systemd` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/systemd.yaml)
+has tier slices (`standard`, `dev`), function slices such as `journal`,
+`login` and `dbus-services`, and a `config` slice grouping contents by type.
 
 ## Grouping by type of content
 
 This means putting all the binaries together in one slice, all the libraries
 together in another slice, and so on. A good example is the
-[`dpkg` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/dpkg.yaml).
+[`dpkg` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/dpkg.yaml).
 
 In this case, the best practice is to create:
 
@@ -44,7 +44,7 @@ reserve the above as a catch-all for their respective types.
 This means grouping the contents into slices that deliver a specific
 functionality, and naming each slice after the functionality it provides. For
 example, the
-[`libpython3.12-stdlib` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/libpython3.12-stdlib.yaml)
+[`libpython3.14-stdlib` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/libpython3.14-stdlib.yaml)
 splits the Python standard library into slices such as `crypto`,
 `concurrency` and `internet`, and the `systemd` slice definitions file has a
 `dbus-services` slice with the D-Bus service files.
@@ -59,7 +59,7 @@ just the functionality they need on top of a base installation (see
 
 This means grouping the contents into slices of increasing completeness, where
 each tier is a superset of the previous one. For example, the
-[`python3` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/python3.yaml)
+[`python3` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/python3.yaml)
 has a `core` slice providing a very minimal `python3` runtime, but also a
 `standard` slice with the additional libraries on top of `core`.
 
@@ -85,8 +85,7 @@ In this case, the most common is to create:
   development utilities.
 - A `dev` slice which is the `standard` slice, plus all the debugging and dev
   utilities. A close-to full-size installation, designed for development
-  environments, but not production. For example, the `systemd_dev` slice in
-  [Ubuntu 26.04](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/systemd.yaml)
+  environments, but not production. For example, the `systemd_dev` slice
   adds tools such as `busctl` and `systemd-cgls` on top of `systemd_standard`.
 
 Not all four tiers have to be present, so only define the ones that are
@@ -98,7 +97,7 @@ dependencies:
 slices:
   core:
     essential:
-      - python3.12_core
+      - python3.14_core
       # ...
   standard:
     essential:
@@ -111,4 +110,4 @@ For most applications, the intended use is to install the `core` slice of a
 package plus the [function slices](#slice_design_approaches_function) they
 need, rather than a higher tier. For example, an application that only needs
 Python's cryptographic modules can install `python3_core` and
-`libpython3.12-stdlib_crypto` instead of `python3_standard`.
+`libpython3.14-stdlib_crypto` instead of `python3_standard`.
