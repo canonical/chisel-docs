@@ -13,7 +13,6 @@ Users need to be able to create software suited to their specific needs with a r
 surface and a small storage footprint. With Chisel, users build a minimal root filesystem by 
 selecting and installing only the necessary slices from the full Ubuntu package set.
 
-
 ## In this documentation
 
 * **Getting started**: [Hands-on introduction to Chisel in 15 minutes](tutorial/getting-started) • [General installation guide](how-to/install-chisel)
@@ -22,7 +21,6 @@ selecting and installing only the necessary slices from the full Ubuntu package 
 * **Creating slices:** [Slice definitions](reference/chisel-releases/slice-definitions) • [chisel.yaml](reference/chisel-releases/chisel.yaml) • [Slice design approaches](explanation/slice-design-approaches) • [Slice a package](how-to/slice-a-package)
 * **Chisel CLI:** [Command reference](reference/cmd/index)
 * **Security:** [Cryptographic information](reference/security)
-
 
 ## How this documentation is organized
 

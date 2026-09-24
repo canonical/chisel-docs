@@ -68,11 +68,13 @@ First, enable the service(s) related to the Pro archive(s) you want Chisel to fe
 ```sh
 sudo pro enable esm-infra
 ```
+
 Next, provide read access to the user. You can do this using `setfacl`:
 
 ```sh
 sudo setfacl -m u:$USER:r /etc/apt/auth.conf.d/90ubuntu-advantage
 ```
+
 Alternatively, you can use `chmod`:
 
 ```sh

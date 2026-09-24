@@ -55,6 +55,7 @@ For example:
 ```yaml
 package: hello
 ```
+
 (slice_definitions_format_archive)=
 
 ### `archive`
