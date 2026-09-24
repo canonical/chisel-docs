@@ -6,11 +6,11 @@ myst:
 
 # Chisel
 
-**Chisel** is a developer tool for extracting highly customized and specialized [package slices](slices_explanation) of Ubuntu packages to create 
+**Chisel** is a developer tool for extracting highly customized and specialized [package slices](slices_explanation) of Ubuntu packages to create
 compact, secure software.
 
-Users need to be able to create software suited to their specific needs with a reduced attack 
-surface and a small storage footprint. With Chisel, users build a minimal root filesystem by 
+Users need to be able to create software suited to their specific needs with a reduced attack
+surface and a small storage footprint. With Chisel, users build a minimal root filesystem by
 selecting and installing only the necessary slices from the full Ubuntu package set.
 
 ## In this documentation
@@ -24,14 +24,14 @@ selecting and installing only the necessary slices from the full Ubuntu package 
 
 ## How this documentation is organized
 
-- The [Tutorial](tutorial/getting-started) takes you step-by-step 
-through the creation of your first chiseled Ubuntu root file system, from installation to the slicing of Ubuntu 
+- The [Tutorial](tutorial/getting-started) takes you step-by-step
+through the creation of your first chiseled Ubuntu root file system, from installation to the slicing of Ubuntu
 packages.
-- [How-to guides](how-to/index) assume you have basic familiarity with 
-Chisel. They cover tasks such as installation, slicing and usage of Chisel. 
-- [Reference](reference/index) provides a guide to CLI commands, 
+- [How-to guides](how-to/index) assume you have basic familiarity with
+Chisel. They cover tasks such as installation, slicing and usage of Chisel.
+- [Reference](reference/index) provides a guide to CLI commands,
 chisel-releases and security details.
-- [Explanation](explanation/index) includes topic overviews, background 
+- [Explanation](explanation/index) includes topic overviews, background
 and context and detailed discussion.
 
 ---------
@@ -44,17 +44,17 @@ Chisel is a member of the Ubuntu family. It’s an open source project that warm
 
 * <a href="https://matrix.to/#/#chisel:ubuntu.com">Online chat</a>
 * [Contribute](https://github.com/canonical/chisel)
-    
+
 ### Releases
 
 * [Release notes](https://github.com/canonical/chisel/releases)
 * [chisel-releases](https://github.com/canonical/chisel-releases)
-   
+
 ### Governance and policies
 
-* [Code of conduct](https://ubuntu.com/community/docs/ethos/code-of-conduct)  
+* [Code of conduct](https://ubuntu.com/community/docs/ethos/code-of-conduct)
 * [Security policy](https://github.com/canonical/chisel/blob/main/SECURITY.md)
-    
+
 ### Commercial support
 
 Thinking about using Chisel for your next project? <a href="https://canonical.com/#get-in-touch#">Get in touch!</a>

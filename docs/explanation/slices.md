@@ -47,7 +47,7 @@ A package's slices can be defined via a YAML slice definitions file. Check
 ## Naming convention
 
 In Chisel, slices are recognized by the following pattern:
-`<package_name>_<slice_name>`. 
+`<package_name>_<slice_name>`.
 
 For example, the slice `libc6_libs` refers to the slice definition `libs` of the
 package `libc6`.
