@@ -40,13 +40,13 @@ Although the `hello.yaml` file can be placed in a sub-directory of `slices/` e.g
 Indicates the package name. It must follow the
 [Debian policy for package name](https://www.debian.org/doc/debian-policy/ch-binary.html#the-package-name).
 
-The use of arbitrary package names is not allowed; the names must be the 
-same as the package names in the archive to maintain a single namespace 
+The use of arbitrary package names is not allowed; the names must be the
+same as the package names in the archive to maintain a single namespace
 to remember and respect.
 
-Chisel does not support pinning package versions. Chisel always fetches 
-the latest version of a package from the archives. Thus, the root file 
-systems Chisel produces in subsequent executions may not be identical if 
+Chisel does not support pinning package versions. Chisel always fetches
+the latest version of a package from the archives. Thus, the root file
+systems Chisel produces in subsequent executions may not be identical if
 a package has changed in the meantime.
 
 As indicated above, the value must also match the YAML file basename.
@@ -55,6 +55,7 @@ For example:
 ```yaml
 package: hello
 ```
+
 (slice_definitions_format_archive)=
 
 ### `archive`
@@ -206,7 +207,7 @@ slice.
 
 A map of slices, and their `essential`-specific properties, that are needed and that must be installed before
 the current slice.
-These slice names must be written in their full name e.g. `hello_copyright`. 
+These slice names must be written in their full name e.g. `hello_copyright`.
 
 
 #### `slices.<name>.essential.<slice>.arch`
@@ -242,7 +243,7 @@ slices:
 
 Lists the slices that are needed and that must be installed before the current slice.
 Slices in this list must be written in their full name
-e.g. `hello_copyright`. 
+e.g. `hello_copyright`.
 
 In the following example, `libc6_libs` is a requirement for the `bins`
 slice and must be installed when installing the `bins` slice.
