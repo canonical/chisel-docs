@@ -93,8 +93,10 @@ meaningful for the package. However, since each tier is a superset of the
 previous one, a higher tier must list the lower one in its `essential`
 dependencies.
 
-For most applications, the intended use is to install the `core` slice of a
-package plus the [function slices](#slice_design_approaches_function) they
-need, rather than a higher tier. For example, an application that only needs
+`standard` is the convenient choice when the package should behave like a
+regular installation. Applications that only need part of a package should
+instead install the `core` slice plus the
+[function slices](#slice_design_approaches_function) they use, which keeps the
+root file system smaller. For example, an application that only needs
 Python's cryptographic modules can install `python3_core` and
 `libpython3.14-stdlib_crypto` instead of `python3_standard`.
