@@ -91,20 +91,7 @@ In this case, the most common is to create:
 Not all four tiers have to be present, so only define the ones that are
 meaningful for the package. However, since each tier is a superset of the
 previous one, a higher tier must list the lower one in its `essential`
-dependencies:
-
-```yaml
-slices:
-  core:
-    essential:
-      - python3.14_core
-      # ...
-  standard:
-    essential:
-      - python3_core
-      - libpython3-stdlib_crypto
-      # ...
-```
+dependencies.
 
 For most applications, the intended use is to install the `core` slice of a
 package plus the [function slices](#slice_design_approaches_function) they
