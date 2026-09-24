@@ -32,7 +32,7 @@ files are signed by GPG, and Chisel verifies[^3] the integrity using the <a href
 d21b7022871920d1991bc93c&fingerprint=on&op=index">Ubuntu Archive Automatic Signing Key</a>[^4].
 The key is specified in the [chisel.yaml in
 chisel-releases](https://github.com/canonical/chisel-releases/blob/a442b2e7208128df6366f859b7a858c0d3fce925/chisel.yaml#L47).
-The Go package [golang.org/x/crypto/openpgp](http://golang.org/x/crypto/openpgp)
+The Go package [golang.org/x/crypto/openpgp](https://golang.org/x/crypto/openpgp)
 is used for these purposes.
 
 1. After parsing the *InRelease* files, Chisel downloads *Packages.gz* and
@@ -50,7 +50,7 @@ downloaded Debian packages.
 Following lists the relevant packages used by Chisel to support its
 cryptographic needs:
 
-* [golang.org/x/crypto/openpgp](http://golang.org/x/crypto/openpgp)	(Go package)
+* [golang.org/x/crypto/openpgp](https://golang.org/x/crypto/openpgp)	(Go package)
 
 Additionally these Go standard library packages are used:
 

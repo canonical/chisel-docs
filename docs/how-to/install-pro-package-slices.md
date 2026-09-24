@@ -227,4 +227,4 @@ archives.
 
 <!-- LINKS -->
 
-[Pro client]: https://ubuntu.com/pro/tutorial
+[Pro client]: https://ubuntu.com/pro/docs/
