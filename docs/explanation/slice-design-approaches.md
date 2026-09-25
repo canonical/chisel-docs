@@ -8,7 +8,7 @@ myst:
 
 # Slice design approaches
 
-There are three approaches to design slices: **grouping by content**,
+There are three approaches to design slices: **grouping by type of content**,
 **grouping by function** and **grouping by tier**. Depending on the package,
 one of these approaches might be more suitable. It is up to the user to choose
 a preferred approach.
