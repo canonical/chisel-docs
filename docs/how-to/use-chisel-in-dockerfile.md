@@ -45,7 +45,7 @@ of Chisel and assign the latest version to `CHISEL_VERSION`.
 
 ```docker
 ARG UBUNTU_RELEASE=24.04
-ARG CHISEL_VERSION=v1.1.0
+ARG CHISEL_VERSION=v1.5.0
 ```
 
 Let's now initialize a new build stage where we install Chisel and dependencies
@@ -141,7 +141,7 @@ Let's copy all the code-blocks above and save it to `Dockerfile`.
 
 ```docker
 ARG UBUNTU_RELEASE=24.04
-ARG CHISEL_VERSION=v1.1.0
+ARG CHISEL_VERSION=v1.5.0
 
 FROM ubuntu:$UBUNTU_RELEASE AS builder
 ARG TARGETARCH UBUNTU_RELEASE CHISEL_VERSION

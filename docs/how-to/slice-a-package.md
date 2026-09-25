@@ -674,5 +674,5 @@ slices:
 [`vim-tiny` package contents in the Ubuntu Packages Search]: https://packages.ubuntu.com/noble/amd64/vim-tiny/filelist
 [`conffiles`]: https://www.debian.org/doc/debian-policy/ap-pkg-conffiles.html
 [maintainer scripts]: https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html
-[chisel-releases]: https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/
+[chisel-releases]: https://github.com/canonical/chisel-releases/tree/ubuntu-24.04
 [`control` file]: https://www.debian.org/doc/debian-policy/ch-controlfields.html

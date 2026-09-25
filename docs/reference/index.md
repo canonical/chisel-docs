@@ -19,6 +19,7 @@ cmd/index
 ```
 
 ## Package slices
+
 Chisel relies on package slices.
 
 ```{toctree}
@@ -26,7 +27,9 @@ Chisel relies on package slices.
 
 chisel-releases/index
 ```
+
 ## Security
+
 Chisel records package, slice, and file metadata to ensure file-level integrity and traceability of the slices.
 
 ```{toctree}

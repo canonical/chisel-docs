@@ -25,28 +25,28 @@ the latest Chisel binary:
 <!-- Start: Install Chisel binary -->
 
 1. Visit the {{latest_release_page}} to determine the latest version, for example,
-   `v1.0.0` (update the following steps according to your desired version and
+   `v1.5.0` (update the following steps according to your desired version and
    architecture).
 
 2. Run the following command to download the file.
    ```sh
-   wget https://github.com/canonical/chisel/releases/download/v1.0.0/chisel_v1.0.0_linux_amd64.tar.gz
+   wget https://github.com/canonical/chisel/releases/download/v1.5.0/chisel_v1.5.0_linux_amd64.tar.gz
    ```
 
 3. We publish checksum files for the release tarballs. Download the appropriate
    checksum file with the following command.
    ```sh
-   wget https://github.com/canonical/chisel/releases/download/v1.0.0/chisel_v1.0.0_linux_amd64.tar.gz.sha384
+   wget https://github.com/canonical/chisel/releases/download/v1.5.0/chisel_v1.5.0_linux_amd64.tar.gz.sha384
    ```
 
 4. Verify the checksum with the following command:
    ```sh
-   sha384sum -c chisel_v1.0.0_linux_amd64.tar.gz.sha384
+   sha384sum -c chisel_v1.5.0_linux_amd64.tar.gz.sha384
    ```
 
 5. Extract the contents of the downloaded tarball by running:
    ```sh
-   tar zxvf chisel_v1.0.0_linux_amd64.tar.gz
+   tar zxvf chisel_v1.5.0_linux_amd64.tar.gz
    ```
 
 6. Install the Chisel binary. Make sure the installation directory is included
