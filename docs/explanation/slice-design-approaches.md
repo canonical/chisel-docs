@@ -82,6 +82,9 @@ In this case, the most common is to create:
   environments, but not production. For example, the `systemd_dev` slice
   adds tools such as `busctl` and `systemd-cgls` on top of `systemd_standard`.
 
+You should reserve the above names for their respective tiers, and not use
+them for slices with a different purpose.
+
 Not all four tiers have to be present, so only define the ones that are
 meaningful for the package. However, since each tier is a superset of the
 previous one, a higher tier must list the lower one in its `essential`
