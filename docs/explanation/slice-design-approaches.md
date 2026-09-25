@@ -13,12 +13,6 @@ There are three approaches to design slices: **grouping by content**,
 one of these approaches might be more suitable. It is up to the user to choose
 a preferred approach.
 
-The approaches are not mutually exclusive, and a single slice definitions file
-can mix them. For example, the
-[`systemd` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/systemd.yaml)
-has tier slices (`standard`, `dev`), function slices such as `journal`,
-`login` and `dbus-services`, and a `config` slice grouping contents by type.
-
 ## Grouping by type of content
 
 This means putting all the binaries together in one slice, all the libraries
@@ -100,3 +94,11 @@ instead install the `core` slice plus the
 root file system smaller. For example, an application that only needs
 Python's cryptographic modules can install `python3_core` and
 `libpython3.14-stdlib_crypto` instead of `python3_standard`.
+
+## Mixing approaches
+
+The approaches are not mutually exclusive, and a single slice definitions file
+can mix them. For example, the
+[`systemd` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/systemd.yaml)
+has tier slices (`standard`, `dev`), function slices such as `journal`,
+`login` and `dbus-services`, and a `config` slice grouping contents by type.
