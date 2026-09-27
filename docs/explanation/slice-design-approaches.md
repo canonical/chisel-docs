@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: "Explanation of the three slice design approaches in Chisel: grouping by content type (bins, libs), function (crypto, dbus-services) or tier (minimal, core)."
+    description: "Explanation of the three slice design approaches in Chisel: grouping by content type (bins, libs), function (crypto, internet) or tier (minimal, core)."
 ---
 
 (slice_design_approaches)=
@@ -12,6 +12,12 @@ There are three approaches to design slices: **grouping by type of content**,
 **grouping by function** and **grouping by tier**. Depending on the package,
 one of these approaches might be more suitable. It is up to the user to choose
 a preferred approach.
+
+Whichever the approach, the slices do not have to cover all the contents of a
+package. It is fine to leave out files that no slice needs, such as manual pages
+or examples.
+
+(slice_design_approaches_content)=
 
 ## Grouping by type of content
 
@@ -40,8 +46,7 @@ functionality, and naming each slice after the functionality it provides. For
 example, the
 [`libpython3.14-stdlib` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/libpython3.14-stdlib.yaml)
 splits the Python standard library into slices such as `crypto`,
-`concurrency` and `internet`, and the `systemd` slice definitions file has a
-`dbus-services` slice with the D-Bus service files.
+`concurrency` and `internet`.
 
 Such slices are best kept small and single-purpose, so that users can install
 just the functionality they need on top of a base installation (see
@@ -59,7 +64,7 @@ has a `core` slice providing a very minimal `python3` runtime, but also a
 
 In this case, the most common is to create:
 
-- A `minimal` slice that offers a stripped down installation, with the
+- A `minimal` slice that offers a stripped down, base installation, with the
   absolute bare minimum which still retains the identity of the package. In
   most cases, such a minimal installation may only be useful if used as a base
   for another installation/build, where the developer adds their own
@@ -98,10 +103,12 @@ root file system smaller. For example, an application that only needs
 Python's cryptographic modules can install `python3_core` and
 `libpython3.14-stdlib_crypto` instead of `python3_standard`.
 
+(slice_design_approaches_mixing)=
+
 ## Mixing approaches
 
 The approaches are not mutually exclusive, and a single slice definitions file
 can mix them. For example, the
 [`systemd` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/systemd.yaml)
-has tier slices (`standard`, `dev`), function slices such as `journal`,
-`login` and `dbus-services`, and a `config` slice grouping contents by type.
+has tier (`standard`, `dev`), function (`journal`, `login`, `dbus-services`),
+and content type slices (`config`).
