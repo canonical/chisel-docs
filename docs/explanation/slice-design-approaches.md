@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: "Explanation of the three slice design approaches in Chisel: grouping by content type (bins, libs), by function (crypto, dbus-services) or by tier (minimal, core, standard, dev)."
+    description: "Explanation of the three slice design approaches in Chisel: grouping by content type (bins, libs), function (crypto, dbus-services) or tier (minimal, core)."
 ---
 
 (slice_design_approaches)=
@@ -77,7 +77,7 @@ In this case, the most common is to create:
   the runtime libs/modules and additional utilities. It still does not include
   everything, leaving out things like manual pages, examples, and debugging and
   development utilities.
-- A `dev` slice which is the `standard` slice, plus all the debugging and dev
+- A `dev` slice that includes all the debugging and dev
   utilities. A close-to full-size installation, designed for development
   environments, but not production. For example, the `systemd_dev` slice
   adds tools such as `busctl` and `systemd-cgls` on top of `systemd_standard`.
