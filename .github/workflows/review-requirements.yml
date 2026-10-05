@@ -63,14 +63,12 @@ jobs:
                 docPatches.push(`--- ${path}\n${file.patch}`);
               }
 
-              if (file.status === 'added') {
-                reasons.push(`new file: \`${path}\``);
-              } else if (isDoc) {
-                if (linesChanged >= SIGNIFICANT_LINE_THRESHOLD) {
-                  reasons.push(
-                    `significant doc rewrite: \`${path}\` (${linesChanged} lines changed)`
-                  );
-                }
+              if (file.status === 'added' && isDoc) {
+                reasons.push(`new doc file: \`${path}\``);
+              } else if (isDoc && linesChanged >= SIGNIFICANT_LINE_THRESHOLD) {
+                reasons.push(
+                  `significant doc rewrite: \`${path}\` (${linesChanged} lines changed)`
+                );
               }
             }
 
