@@ -58,7 +58,7 @@ just the functionality they need on top of a base installation.
 This means grouping the contents into slices of increasing completeness, where
 each tier is a superset of the previous one. For example, the
 [`python3` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/python3.yaml)
-has a `core` slice providing a very minimal `python3` runtime, but also a
+has a `core` slice providing a small `python3` runtime, but also a
 `standard` slice with the additional libraries on top of `core`.
 
 In this case, the most common is to create:
@@ -81,10 +81,10 @@ In this case, the most common is to create:
   the runtime libs/modules and additional utilities. It still does not include
   everything, leaving out things like manual pages, examples, and debugging and
   development utilities.
-- A `dev` slice that includes all the debugging and dev
-  utilities. A close-to full-size installation, designed for development
-  environments, but not production. For example, the `systemd_dev` slice
-  adds tools such as `busctl` and `systemd-cgls` on top of `systemd_standard`.
+- A `dev` slice that includes all the debugging and dev utilities. A
+  close-to full-size installation, designed for development environments, but
+  not production. For example, the `systemd_dev` slice adds tools such as
+  `busctl` and `systemd-cgls` on top of `systemd_standard`.
 
 You should reserve the above names for their respective tiers, and not use
 them for slices with a different purpose.
