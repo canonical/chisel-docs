@@ -49,8 +49,7 @@ splits the Python standard library into slices such as `crypto`,
 `concurrency` and `internet`.
 
 Such slices are best kept small and single-purpose, so that users can install
-just the functionality they need on top of a base installation (see
-[grouping by tier](#slice_design_approaches_tier)).
+just the functionality they need on top of a base installation.
 
 (slice_design_approaches_tier)=
 
@@ -103,12 +102,10 @@ root file system smaller. For example, an application that only needs
 Python's cryptographic modules can install `python3_core` and
 `libpython3.14-stdlib_crypto` instead of `python3_standard`.
 
-(slice_design_approaches_mixing)=
-
-## Mixing approaches
-
-The approaches are not mutually exclusive, and a single slice definitions file
-can mix them. For example, the
+:::{note}
+These approaches can be combined in one slice definitions file. For example,
+the
 [`systemd` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/systemd.yaml)
-has tier (`standard`, `dev`), function (`journal`, `login`, `dbus-services`),
-and content type slices (`config`).
+uses tier slices (`standard`, `dev`), function slices (`journal`, `login`,
+`dbus-services`) and a content type slice (`config`).
+:::
