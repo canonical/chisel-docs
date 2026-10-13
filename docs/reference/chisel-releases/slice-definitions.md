@@ -162,9 +162,10 @@ slices:
 
 Defines the slices of a package.
 
-The slice names must consist only of lower case letters(`a-z`), digits(`0-9`)
+The slice names must consist only of lower case letters (`a-z`), digits (`0-9`)
 and minus (`-`) signs. They must be at least three characters long and must start
-with a letter(`a-z`).
+with a letter (`a-z`). They cannot contain two consecutive minus (`-`) signs, nor
+end with a minus (`-`) sign.
 
 For example, a slice definition called `data`, for the `ca-certificates` package,
 could look like the following:
