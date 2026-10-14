@@ -61,7 +61,7 @@ each tier is a superset of the previous one. For example, the
 has a `core` slice providing a small `python3` runtime, but also a
 `standard` slice with the additional libraries on top of `core`.
 
-In this case, the most common is to create:
+In this case, the most common approach is to create:
 
 - A `minimal` slice that offers a stripped down, base installation, with the
   absolute bare minimum which still retains the identity of the package. In
