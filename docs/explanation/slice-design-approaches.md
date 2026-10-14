@@ -102,10 +102,10 @@ root file system smaller. For example, an application that only needs
 Python's cryptographic modules can install `python3_core` and
 `libpython3.14-stdlib_crypto` instead of `python3_standard`.
 
-:::{note}
+```{note}
 These approaches can be combined in one slice definitions file. For example,
 the
 [`systemd` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/systemd.yaml)
 uses tier slices (`standard`, `dev`), function slices (`journal`, `login`,
 `dbus-services`) and a content type slice (`config`).
-:::
+```
