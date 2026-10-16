@@ -98,9 +98,9 @@ You should reserve the above names for their respective tiers, and not use
 them for slices with a different purpose.
 
 Not all four tiers have to be present, so only define the ones that are
-meaningful for the package. However, since each tier is a superset of the
-previous one, a higher tier must list the lower one in its `essential`
-dependencies.
+meaningful for the package. Each tier is a superset of the previous one.
+Therefore, if more than one tier is present, the higher tier must list
+the lower one in its `essential` dependencies.
 
 `standard` is the convenient choice when the package should behave like a
 regular installation. Applications that only need part of a package should
