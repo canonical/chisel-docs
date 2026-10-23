@@ -32,7 +32,7 @@ files are signed by GPG, and Chisel verifies[^3] the integrity using the <a href
 d21b7022871920d1991bc93c&fingerprint=on&op=index">Ubuntu Archive Automatic Signing Key</a>[^4].
 The key is specified in the [chisel.yaml in
 chisel-releases](https://github.com/canonical/chisel-releases/blob/a442b2e7208128df6366f859b7a858c0d3fce925/chisel.yaml#L47).
-The Go package [golang.org/x/crypto/openpgp](http://golang.org/x/crypto/openpgp)
+The Go package [golang.org/x/crypto/openpgp](https://golang.org/x/crypto/openpgp)
 is used for these purposes.
 
 1. After parsing the *InRelease* files, Chisel downloads *Packages.gz* and
@@ -50,7 +50,7 @@ downloaded Debian packages.
 Following lists the relevant packages used by Chisel to support its
 cryptographic needs:
 
-* [golang.org/x/crypto/openpgp](http://golang.org/x/crypto/openpgp)	(Go package)
+* [golang.org/x/crypto/openpgp](https://golang.org/x/crypto/openpgp) (Go package)
 
 Additionally these Go standard library packages are used:
 
@@ -63,10 +63,10 @@ Chisel needs a GPG public key specified in the [chisel.yaml in
 chisel-releases](https://github.com/canonical/chisel-releases/blob/a442b2e7208128df6366f859b7a858c0d3fce925/chisel.yaml#L47)
 to verify the signed InRelease files it downloads from the Ubuntu Archive. This
 file (chisel.yaml) is exposed to the user and Users can very much specify a
-different key on their forks. 
+different key on their forks.
 
 The default public key in the official repository is the RSA/4096-bit <a href="https://keyserver.ubuntu.com/pks/lookup?search=f6ecb37624
-74eda9d21b7022871920d1991bc93c&fingerprint=on&op=index">Ubuntu Archive Automatic Signing Key (2018)</a> 
+74eda9d21b7022871920d1991bc93c&fingerprint=on&op=index">Ubuntu Archive Automatic Signing Key (2018)</a>
 with ID 871920D1991BC93C.
 
 ```
@@ -75,12 +75,12 @@ uid Ubuntu Archive Automatic Signing Key (2018) <ftpmaster@ubuntu.com>
 ```
 
 
-[^1]: [https://github.com/canonical/chisel/blob/v1.2.0/internal/setup/fetch.go#L32](https://github.com/canonical/chisel/blob/v1.2.0/internal/setup/fetch.go#L32) 
+[^1]: [https://github.com/canonical/chisel/blob/v1.2.0/internal/setup/fetch.go#L32](https://github.com/canonical/chisel/blob/v1.2.0/internal/setup/fetch.go#L32)
 
-[^2]: [https://github.com/canonical/chisel/blob/v1.2.0/internal/cache/cache.go](https://github.com/canonical/chisel/blob/v1.2.0/internal/cache/cache.go) 
+[^2]: [https://github.com/canonical/chisel/blob/v1.2.0/internal/cache/cache.go](https://github.com/canonical/chisel/blob/v1.2.0/internal/cache/cache.go)
 
 [^3]: The chain of trust here is that we fully trust GitHub so when we download the chisel-release from it we are also "downloading" the public keys. So, because the public keys are trusted, the downloads from the Ubuntu archives can also be trusted.
 
 [^4]: [https://github.com/canonical/chisel/blob/v1.2.0/internal/archive/archive.go#L285](https://github.com/canonical/chisel/blob/v1.2.0/internal/archive/archive.go#L285)
 
-[^5]: [https://github.com/canonical/chisel/blob/v1.2.0/internal/cache/cache.go#L72-L78](https://github.com/canonical/chisel/blob/v1.2.0/internal/cache/cache.go#L72-L78) 
+[^5]: [https://github.com/canonical/chisel/blob/v1.2.0/internal/cache/cache.go#L72-L78](https://github.com/canonical/chisel/blob/v1.2.0/internal/cache/cache.go#L72-L78)

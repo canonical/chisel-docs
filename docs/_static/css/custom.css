@@ -1,0 +1,6 @@
+.arrow-box {
+  background-color: #A81C1C;
+  color: white;
+  padding: 25px 32px;
+  clip-path: polygon(0% 0%, 88% 0%, 100% 50%, 88% 100%, 0% 100%);
+}

@@ -11,7 +11,7 @@ myst:
 The **find** command queries {{chisel_releases_repo}} for matching slices.
 
 Globs (`*` and `?`) are allowed in the query.
- 
+
 By default it fetches the slices for the same Ubuntu version as the
 current host, unless the `--release` option is used.
 

@@ -9,6 +9,7 @@ myst:
 This section of the documentation covers the core concepts of Chisel.
 
 ## Overview
+
 Chisel was created to build a minimal, secure Ubuntu root file systems.
 
 ```{toctree}
@@ -16,7 +17,9 @@ Chisel was created to build a minimal, secure Ubuntu root file systems.
 
 mode-of-operation
 ```
+
 ## Package slices
+
 Slices are defined via slice definition files and follow naming conventions.
 
 ```{toctree}

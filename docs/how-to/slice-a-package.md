@@ -265,7 +265,7 @@ Your second task is to **design the slices**. There are a few
 considerations to be made, such as figuring out what slices we need and the
 contents of those slices.
 
-There are **two approaches** when designing slices: "grouping by type of content" or "grouping by function". More information on them can be found {ref}`here <slice_design_approaches>`. This guide groups slices **by type of content**.
+There are **three approaches** when designing slices: "grouping by type of content", "grouping by function" or "grouping by tier". More information on them can be found {ref}`here <slice_design_approaches>`. This guide groups slices **by type of content**.
 
 - [ ] 2.1 **Choose the design approach that aligns best with your package**
 
@@ -674,5 +674,5 @@ slices:
 [`vim-tiny` package contents in the Ubuntu Packages Search]: https://packages.ubuntu.com/noble/amd64/vim-tiny/filelist
 [`conffiles`]: https://www.debian.org/doc/debian-policy/ap-pkg-conffiles.html
 [maintainer scripts]: https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html
-[chisel-releases]: https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/
+[chisel-releases]: https://github.com/canonical/chisel-releases/tree/ubuntu-24.04
 [`control` file]: https://www.debian.org/doc/debian-policy/ch-controlfields.html

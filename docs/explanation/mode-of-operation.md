@@ -24,19 +24,14 @@ Chisel uses the {{cut_cmd}} to _slice_ Ubuntu packages, as depicted in the workf
 <!-- MO 1 -->
   <tr>
     <td>
-
-```{image} /_static/MO-1.svg
-  :align: center
-  :alt: Read and parse chisel-releases
-```
-
-</td>
+      <div class="arrow-box">1. Read and parse chisel-releases</div>
+    </td>
     <td>
 
 Chisel fetches, reads and validates the {ref}`chisel-release<chisel-releases_ref>`.
-This includes parsing the {ref}`chisel_yaml_ref` and {ref}`slice 
+This includes parsing the {ref}`chisel_yaml_ref` and {ref}`slice
 definitions<slice_definitions_ref>` while validating the release and checking for conflicting paths across packages.
-    
+
 </td>
   </tr>
 
@@ -44,39 +39,29 @@ definitions<slice_definitions_ref>` while validating the release and checking fo
 <!-- MO 2 -->
   <tr>
     <td>
-
-```{image} /_static/MO-2.svg
-  :align: center
-  :alt: Talk to archives and fetch packages
-```
-
-</td>
+      <div class="arrow-box">2. Talk to archives and fetch packages</div>
+    </td>
     <td>
 
 Chisel talks to the {ref}`chisel_yaml_format_spec_archives` directly.
 It fetches, validates and parses their `InRelease` files.
 It then resolves which archive holds the **requested** packages and fetches
 the corresponding package tarballs.
-    
+
 </td>
   </tr>
 
 <!-- MO 3 -->
   <tr>
     <td>
-
-```{image} /_static/MO-3.svg
-  :align: center
-  :alt: Install package slices
-```
-
-</td>
+      <div class="arrow-box">3. Install package slices</div>
+    </td>
     <td>
 
 Chisel groups and merges all slice definitions per package. Then,
 for every package, it extracts the **specified slices' paths** into
-the provided root file system. Files ownership (UID:GID) is not 
-preserved during this process. The owner of the extracted files 
+the provided root file system. Files ownership (UID:GID) is not
+preserved during this process. The owner of the extracted files
 is the current user.
 
 </td>
@@ -85,13 +70,8 @@ is the current user.
 <!-- MO 4 -->
   <tr>
     <td>
-
-```{image} /_static/MO-4.svg
-  :align: center
-  :alt: Run mutation scripts
-```
-
-</td>
+      <div class="arrow-box">4. Run mutation scripts</div>
+    </td>
     <td>
 
 Chisel then runs the {{mutation_scripts}}. Only the
@@ -100,7 +80,7 @@ modified at this stage. Finally, the files specified with
 {ref}`until:mutate<slice_definitions_format_slices_contents_until>` are
 removed from the provided root file system.
 
-    
+
 </td>
   </tr>
 </table>
