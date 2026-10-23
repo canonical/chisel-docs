@@ -4,6 +4,7 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
   pull_request_review:
     types: [submitted, dismissed]
+  workflow_dispatch:
 
 permissions:
   contents: read
