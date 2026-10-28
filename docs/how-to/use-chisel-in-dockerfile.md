@@ -16,7 +16,7 @@ chiseled Docker image.
 
 Let's set some goals for our chiseled image. Consider a Python 3 image, which
 contains a Python 3 interpreter and is able to run Python 3 scripts and
-commands.
+commands. The image must meet these goals:
 
 - The [image entrypoint] must be `python3`.
 - The image must be able to run Python 3 scripts.
@@ -24,10 +24,8 @@ commands.
 
 To build this image, we will use [multi-stage docker builds].
 
-In earlier stage(s), we will
-
-1. install Chisel and other dependencies that we may need, and
-2. install the slices, using Chisel, into a staging area.
+In earlier stage(s), we will install Chisel and other dependencies that we may
+need, then use Chisel to install the slices into a staging area.
 
 Finally, we will copy the staging area's root file system to the `/` directory
 in the final stage. The final stage's base image will be [`scratch`]. Thus, the
