@@ -16,11 +16,11 @@ chiseled Docker image.
 
 Let's set some goals for our chiseled image. Consider a Python 3 image, which
 contains a Python 3 interpreter and is able to run Python 3 scripts and
-commands. The image must meet these goals:
+commands. The image must:
 
-- The [image entrypoint] must be `python3`.
-- The image must be able to run Python 3 scripts.
-- The image must be minimal.
+- have `python3` as the [image entrypoint]
+- be able to run Python 3 scripts
+- be minimal
 
 To build this image, we will use [multi-stage docker builds].
 
