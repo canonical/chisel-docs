@@ -28,8 +28,8 @@ ubuntu_pro_docs: |
 
 slices: "[slices](/explanation/slices)"
 package_slices: "[package slices](/explanation/slices)"
-cut_cmd: "{doc}`/reference/cmd/cut`"
-find_cmd: "{doc}`/reference/cmd/find`"
-info_cmd: "{doc}`/reference/cmd/info`"
+cut_cmd: "{ref}`cut command <cut_command_reference>`"
+find_cmd: "{ref}`find command <find_command_reference>`"
+info_cmd: "{ref}`info command <info_command_reference>`"
 mutation_scripts: |
   {ref}`mutation scripts <slice_definitions_format_slices_mutate>`
