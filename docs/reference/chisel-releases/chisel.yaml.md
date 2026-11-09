@@ -120,7 +120,7 @@ otherwise, the archive point to the Ubuntu Pro archives listed
 | `default` | `boolean` | Required with multiple archives, if no {ref}`priorities<chisel_yaml_format_spec_archives_priority>` | `true`, `false`  | `v1`          |
 
 If `default` is `true`, Chisel fetches packages from this archive, unless
-otherwise specified by the field {ref}`"archive"<slice_definitions_format_archive>`
+otherwise specified by the field {ref}`"archive"<package_slices_file_format_archive>`
 in the package slices file.
 
 In case there are multiple archives, one, **and only one**, must be the default,
@@ -198,7 +198,7 @@ file signatures. These key names must be defined in
 Describes the priority of an archive compared to other
 archives. It is used to support multiple archives in Chisel. If a package is
 available in two archives, it is fetched from the archive with higher priority,
-unless the package slices file specifies {ref}`"archive"<slice_definitions_format_archive>`.
+unless the package slices file specifies {ref}`"archive"<package_slices_file_format_archive>`.
 
 Note that:
 

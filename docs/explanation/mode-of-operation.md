@@ -30,7 +30,7 @@ Chisel uses the {{cut_cmd}} to _slice_ Ubuntu packages, as depicted in the workf
 
 Chisel fetches, reads and validates the {ref}`chisel-release<chisel-releases_ref>`.
 This includes parsing the {ref}`chisel_yaml_ref` and {ref}`package slices
-files<slice_definitions_ref>` while validating the release and checking for conflicting paths across packages.
+files<package_slices_file_ref>` while validating the release and checking for conflicting paths across packages.
 
 </td>
   </tr>
@@ -75,9 +75,9 @@ is the current user.
     <td>
 
 Chisel then runs the {{mutation_scripts}}. Only the
-{ref}`mutable<slice_definitions_format_slices_contents_mutable>` files may be
+{ref}`mutable<package_slices_file_format_slices_contents_mutable>` files may be
 modified at this stage. Finally, the files specified with
-{ref}`until:mutate<slice_definitions_format_slices_contents_until>` are
+{ref}`until:mutate<package_slices_file_format_slices_contents_until>` are
 removed from the provided root file system.
 
 

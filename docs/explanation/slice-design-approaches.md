@@ -37,7 +37,7 @@ In this case, the best practice is to create:
 
 - a `bins` slice which contains all the binaries
 - a `libs` slice which contains all the libraries
-- a `config` slice which contains all [configuration files](#create_sdf_inspect_pkg_conffiles)
+- a `config` slice which contains all [configuration files](#create_package_slices_file_inspect_pkg_conffiles)
 - a `scripts` slice which contains ASCII executable scripts, e.g. Python,
   Perl scripts
 - other slices analogously (e.g. `data`, `modules`, `services`, etc)

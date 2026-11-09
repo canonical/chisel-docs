@@ -12,13 +12,15 @@ This guide provides instructions on the slicing of an Ubuntu package for
 Chisel.
 
 A package's slices are represented via a
-{ref}`Package Slices File<slice_definitions_ref>`, and the creation
+{ref}`Package Slices File<package_slices_file_ref>`, and the creation
 of said file is a result of the **inspection** and **design
 process** depicted below.
 
 As an example, this guide will focus on **slicing the `vim-tiny` package from
 Ubuntu 24.04**.
 
+% second label is legacy, kept so old deep links resolve
+(create_package_slices_file_inspect_pkg)=
 (create_sdf_inspect_pkg)=
 
 ## Inspect the package
@@ -37,7 +39,7 @@ indicated by the package.
 
     Chisel only supports packages from the Ubuntu (and Ubuntu Pro) archives.
 
-- [ ] 1.2 [**Get the package dependencies**]{#create_sdf_inspect_pkg_deps}
+- [ ] 1.2 [**Get the package dependencies**]{#create_package_slices_file_inspect_pkg_deps}[]{#create_sdf_inspect_pkg_deps}<!-- second anchor is legacy, kept so old deep links resolve -->
 
     You can run `apt depends vim-tiny` or use the [Ubuntu Packages Search] website.
 
@@ -59,7 +61,7 @@ indicated by the package.
 
     </details>
 
- - [ ] 1.3 [**Inspect the files the package provides**]{#create_sdf_inspect_pkg_files}
+ - [ ] 1.3 [**Inspect the files the package provides**]{#create_package_slices_file_inspect_pkg_files}[]{#create_sdf_inspect_pkg_files}<!-- second anchor is legacy, kept so old deep links resolve -->
 
     You can run `apt download vim-tiny` and then `dpkg -c vim-tiny*.deb` to
     check the package data contents. Or check the
@@ -108,7 +110,7 @@ indicated by the package.
     configuration files, the copyright files, manpages and so on.
     </details>
 
-- [ ] 1.4 [**Inspect the package metadata**]{#create_sdf_inspect_pkg_control}
+- [ ] 1.4 [**Inspect the package metadata**]{#create_package_slices_file_inspect_pkg_control}[]{#create_sdf_inspect_pkg_control}<!-- second anchor is legacy, kept so old deep links resolve -->
 
     The package metadata files include:
     - the [`control` file] (which you can use
@@ -119,7 +121,7 @@ indicated by the package.
     Run `dpkg -e vim-tiny*.deb` to extract the metadata files into a new
     `DEBIAN/` directory for inspection.
 
-   - [ ] a. [**Inspect package [`conffiles`] file**]{#create_sdf_inspect_pkg_conffiles}
+   - [ ] a. [**Inspect package [`conffiles`] file**]{#create_package_slices_file_inspect_pkg_conffiles}[]{#create_sdf_inspect_pkg_conffiles}<!-- second anchor is legacy, kept so old deep links resolve -->
 
       This file lists the configuration files a package provides. This can be
       useful later, when deciding whether to create a `config` slice or not.
@@ -136,9 +138,9 @@ indicated by the package.
 
       </details>
 
-   - [ ] b. [**Inspect package [maintainer scripts]**]{#create_sdf_inspect_pkg_maintainer_scripts}
+   - [ ] b. [**Inspect package [maintainer scripts]**]{#create_package_slices_file_inspect_pkg_maintainer_scripts}[]{#create_sdf_inspect_pkg_maintainer_scripts}<!-- second anchor is legacy, kept so old deep links resolve -->
 
-      Since Chisel doesn't remove files (except when [`until: mutate` is used](#slice_definitions_format_slices_contents_until)),
+      Since Chisel doesn't remove files (except when [`until: mutate` is used](#package_slices_file_format_slices_contents_until)),
       we can focus only on the `preinst` and
       `postinst` scripts. Whatever these scripts do, you should aim to reproduce
       when defining the slices. For the simplest cases where the maintainer
@@ -257,6 +259,8 @@ indicated by the package.
     scripts). In such cases, you may not need to slice said dependencies in
     order to create a functional slice.*
 
+% second label is legacy, kept so old deep links resolve
+(create_package_slices_file_design_slices)=
 (create_sdf_design_slices)=
 
 ## Design the slices
@@ -269,10 +273,10 @@ There are **three approaches** when designing slices: "grouping by type of conte
 
 - [ ] 2.1 **Choose the design approach that aligns best with your package**
 
-    Given the {ref}`above package inspection <create_sdf_inspect_pkg>`, the
+    Given the {ref}`above package inspection <create_package_slices_file_inspect_pkg>`, the
     `vim-tiny` package can be sliced by *type of content*:
      - a `bins` slice for the `/usr/bin/vim.tiny` binary,
-     - a `config` slice for the {ref}`configuration files <create_sdf_inspect_pkg_conffiles>`, and
+     - a `config` slice for the {ref}`configuration files <create_package_slices_file_inspect_pkg_conffiles>`, and
      - a `copyright` slice for the copyright file.
 
     ```{important}
@@ -299,7 +303,7 @@ There are **three approaches** when designing slices: "grouping by type of conte
 - [ ] 2.4 **Specify `package` name**
 
    The first thing to do is to write the package name in the
-   {ref}`slice_definitions_format_package` field. For example, open
+   {ref}`package_slices_file_format_package` field. For example, open
    `slices/vim-tiny.yaml` and write:
 
    ```yaml
@@ -309,7 +313,7 @@ There are **three approaches** when designing slices: "grouping by type of conte
 - [ ] 2.5 **Write the `copyright` slice**
 
     Write the copyright slice first and pin it as an {ref}`essential for every
-    other package slice <slice_definitions_format_essential>`.
+    other package slice <package_slices_file_format_essential>`.
 
     ```yaml
     essential:
@@ -325,10 +329,10 @@ There are **three approaches** when designing slices: "grouping by type of conte
     Although we are writing the copyright slice first, we typically list the
     slice at the bottom of the package slices file.
 
-- [ ] 2.6 [**Write the `config` slice**]{#create_sdf_design_slices_config_slice}
+- [ ] 2.6 [**Write the `config` slice**]{#create_package_slices_file_design_slices_config_slice}[]{#create_sdf_design_slices_config_slice}<!-- second anchor is legacy, kept so old deep links resolve -->
 
     Now write the `config` slice, based on the list from the
-    {ref}`conffiles <create_sdf_inspect_pkg_conffiles>`.
+    {ref}`conffiles <create_package_slices_file_inspect_pkg_conffiles>`.
 
     ```yaml
     slices:
@@ -339,18 +343,18 @@ There are **three approaches** when designing slices: "grouping by type of conte
 
     1. [ ] **Are there any other files of the same type?**
 
-        The {ref}`conffiles <create_sdf_inspect_pkg_conffiles>` may not list
+        The {ref}`conffiles <create_package_slices_file_inspect_pkg_conffiles>` may not list
         everything that can be considered as a configuration file. These can
         sometimes be different from regular files, live outside `/etc/`, be
         created by a maintainer script, etc.
-        So, based on the {ref}`package files <create_sdf_inspect_pkg_files>`,
+        So, based on the {ref}`package files <create_package_slices_file_inspect_pkg_files>`,
         you should also identify any other config files.
 
 - [ ] 2.7 **Write the `bins` slice**
 
     `/usr/bin/vim.tiny` is this slice's only content. We know it will need the
-    internal slices [`vim-tiny_config`](#create_sdf_design_slices_config_slice). But given the
-    {ref}`above package dependency inspection <create_sdf_inspect_pkg_deps>`,
+    internal slices [`vim-tiny_config`](#create_package_slices_file_design_slices_config_slice). But given the
+    {ref}`above package dependency inspection <create_package_slices_file_inspect_pkg_deps>`,
     we should confirm whether this binary also needs all of those package
     dependencies, or just a subset.
 
@@ -398,7 +402,7 @@ There are **three approaches** when designing slices: "grouping by type of conte
     `libselinux1`, which is an original dependency of `vim-tiny`.
 
     So it matches with what we expected in the {ref}`initial dependency analysis
-    <create_sdf_inspect_pkg_deps>`.
+    <create_package_slices_file_inspect_pkg_deps>`.
 
     By running `chisel info --release ubuntu-24.04 libc6 libtinfo6 libselinux1
     libacl1 vim-common` we can
@@ -453,7 +457,7 @@ There are **three approaches** when designing slices: "grouping by type of conte
        other slices
      - [ ] be cautious with broad globs. A good glob simplifies the writing of a
      slice while keeping the resulting paths specific to the package. See
-     {ref}`create_sdf_examples`.
+     {ref}`create_package_slices_file_examples`.
 
     The complete `slices/vim-tiny.yaml` file should look something like this:
 
@@ -498,6 +502,8 @@ There are **three approaches** when designing slices: "grouping by type of conte
     If any of the dependencies are not sliced yet, repeat the above design
     process for them too.
 
+% second label is legacy, kept so old deep links resolve
+(create_package_slices_file_test)=
 (create_sdf_test)=
 
 ## Test the slices
@@ -602,6 +608,8 @@ specific function. Examples:
     `ubuntu-24.04`, you must also forward port it to `ubuntu-24.10`, `ubuntu-25.04`, and so on, for all supported releases at the time of opening the PR.
     ```
 
+% second label is legacy, kept so old deep links resolve
+(create_package_slices_file_examples)=
 (create_sdf_examples)=
 
 ## Example: good vs bad slices

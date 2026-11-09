@@ -26,7 +26,7 @@ generators and vulnerability scanners) can work with.
 Chisel manifests may be generated anywhere in the newly created root file system.
 To specify the location, Chisel must be instructed to install a slice where at least
 one of its contents points to a path with the property
-{ref}`generate: manifest<slice_definitions_format_slices_contents_generate>`.
+{ref}`generate: manifest<package_slices_file_format_slices_contents_generate>`.
 
 When such a slice is installed, a `manifest.wall` file is generated at the specified
 path. If there are multiple paths of this kind being installed, a manifest will be

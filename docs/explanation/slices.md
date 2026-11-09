@@ -42,7 +42,7 @@ file system small and less exposed to vulnerabilities.
 ## Defining slices
 
 A package's slices can be defined via a YAML package slices file. Check
-{ref}`slice_definitions_ref` for more information about this file's format.
+{ref}`package_slices_file_ref` for more information about this file's format.
 
 ## Naming convention
 
