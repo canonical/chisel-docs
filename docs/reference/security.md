@@ -10,7 +10,7 @@ myst:
 
 Chisel downloads Debian packages from
 [archive.ubuntu.com](https://archive.ubuntu.com/), and extracts only selected
-few files from each package.  The slice definition files in
+few files from each package.  The package slices files in
 [chisel-releases](https://github.com/canonical/chisel-releases) specify the
 files to extract.
 
@@ -42,7 +42,7 @@ later the digests are cross-checked[^5]. The Go package
 downloaded files. Each file is stored in the cache with their digest as the
 filename.
 
-1. The specified files in the slice definition files are extracted from the
+1. The specified files in the package slices files are extracted from the
 downloaded Debian packages.
 
 ## (Relevant) Packages used by Chisel

@@ -33,7 +33,7 @@ into slices that serve this purpose. In this example, the files in the package
 slice, _A_slice3_, are not needed for _B_ to function. To make package _B_
 usable in the same way, it can also be divided into slices.
 
-With these slice definitions in place, Chisel is able to extract a
+With these slices in place, Chisel is able to extract a
 highly-customised and specialised slice of the Ubuntu distribution, which one
 could see as a block of stone from which we can carve and extract only the
 small and relevant parts that we need to run our applications, thus keeping the
@@ -41,7 +41,7 @@ file system small and less exposed to vulnerabilities.
 
 ## Defining slices
 
-A package's slices can be defined via a YAML slice definitions file. Check
+A package's slices can be defined via a YAML package slices file. Check
 {ref}`slice_definitions_ref` for more information about this file's format.
 
 ## Naming convention
@@ -49,7 +49,7 @@ A package's slices can be defined via a YAML slice definitions file. Check
 In Chisel, slices are recognized by the following pattern:
 `<package_name>_<slice_name>`.
 
-For example, the slice `libc6_libs` refers to the slice definition `libs` of the
+For example, the slice `libc6_libs` refers to the slice `libs` of the
 package `libc6`.
 
 

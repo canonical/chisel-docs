@@ -1,21 +1,21 @@
 ---
 myst:
   html_meta:
-    description: "Reference for the slice definitions file format for Ubuntu package slices, covering the location, format specifications and examples."
+    description: "Reference for the package slices file format for Ubuntu package slices, covering the location, format specifications and examples."
 ---
 
 (slice_definitions_ref)=
 
-# Slice definitions
+# Package slices files
 
-{ref}`Slices <slices_explanation>` are described in slice definitions files (aka SDFs).
+{ref}`Slices <slices_explanation>` are described in package slices files.
 These are YAML files, named after the package name.
 
 (slice_definitions_location)=
 
 ## Location
 
-The slice definitions files are located in the `slices/` directory of
+The package slices files are located in the `slices/` directory of
 {ref}`chisel-releases_ref`. And the slices for a given package `hello` are defined in
 `slices/hello.yaml`.
 
@@ -167,7 +167,7 @@ and minus (`-`) signs. They must be at least three characters long and must star
 with a letter (`a-z`). They cannot contain two consecutive minus (`-`) signs, nor
 end with a minus (`-`) sign.
 
-For example, a slice definition called `data`, for the `ca-certificates` package,
+For example, a slice called `data`, for the `ca-certificates` package,
 could look like the following:
 
 ```yaml
@@ -630,9 +630,9 @@ slices:
 
 ## Example
 
-The slice definitions files can be found in the {{chisel_releases_repo}}, or
+The package slices files can be found in the {{chisel_releases_repo}}, or
 inspected via the {{info_cmd}}. Here is a short example of the `hello` package
-slice definitions:
+slices file:
 
 ```yaml
 package: hello

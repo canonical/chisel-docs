@@ -18,7 +18,7 @@ selecting and installing only the necessary slices from the full Ubuntu package 
 * **Getting started**: [Hands-on introduction to Chisel in 15 minutes](tutorial/getting-started) • [General installation guide](how-to/install-chisel)
 * **Slices overview:** [Overview](explanation/slices) • [Chisel releases](reference/chisel-releases/index)
 * **Deploying slices:** [Using Chisel in a Dockerfile](how-to/use-chisel-in-dockerfile) • [Install Ubuntu Pro package slices](how-to/install-pro-package-slices) • [Manifest](reference/manifest)
-* **Creating slices:** [Slice definitions](reference/chisel-releases/slice-definitions) • [chisel.yaml](reference/chisel-releases/chisel.yaml) • [Slice design approaches](explanation/slice-design-approaches) • [Slice a package](how-to/slice-a-package)
+* **Creating slices:** [Package slices files](reference/chisel-releases/slice-definitions) • [chisel.yaml](reference/chisel-releases/chisel.yaml) • [Slice design approaches](explanation/slice-design-approaches) • [Slice a package](how-to/slice-a-package)
 * **Chisel CLI:** [Command reference](reference/cmd/index)
 * **Security:** [Cryptographic information](reference/security)
 

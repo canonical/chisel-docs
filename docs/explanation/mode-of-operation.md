@@ -29,8 +29,8 @@ Chisel uses the {{cut_cmd}} to _slice_ Ubuntu packages, as depicted in the workf
     <td>
 
 Chisel fetches, reads and validates the {ref}`chisel-release<chisel-releases_ref>`.
-This includes parsing the {ref}`chisel_yaml_ref` and {ref}`slice
-definitions<slice_definitions_ref>` while validating the release and checking for conflicting paths across packages.
+This includes parsing the {ref}`chisel_yaml_ref` and {ref}`package slices
+files<slice_definitions_ref>` while validating the release and checking for conflicting paths across packages.
 
 </td>
   </tr>
@@ -58,7 +58,7 @@ the corresponding package tarballs.
     </td>
     <td>
 
-Chisel groups and merges all slice definitions per package. Then,
+Chisel groups and merges all slices per package. Then,
 for every package, it extracts the **specified slices' paths** into
 the provided root file system. Files ownership (UID:GID) is not
 preserved during this process. The owner of the extracted files

@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: "How to slice an Ubuntu package with Chisel by inspecting its contents, designing slices, and writing and testing a slice definitions file."
+    description: "How to slice an Ubuntu package with Chisel by inspecting its contents, designing slices, and writing and testing a package slices file."
 ---
 
 (slice_package)=
@@ -11,9 +11,9 @@ myst:
 This guide provides instructions on the slicing of an Ubuntu package for
 Chisel.
 
-A package slice is represented via a
-{ref}`Slice Definitions File<slice_definitions_ref>` (aka SDF), and the creation
-of said slice definitions is a result of the **inspection** and **design
+A package's slices are represented via a
+{ref}`Package Slices File<slice_definitions_ref>`, and the creation
+of said file is a result of the **inspection** and **design
 process** depicted below.
 
 As an example, this guide will focus on **slicing the `vim-tiny` package from
@@ -241,7 +241,7 @@ indicated by the package.
       The `vim-tiny` maintainer scripts register `/usr/bin/vim.tiny` as an
       alternative implementation for various standard editor commands like `vi`,
       `view`, `editor`, etc. This is done by the `update-alternatives` command,
-      and if necessary, we can reproduce this in our slice definitions.
+      and if necessary, we can reproduce this in our slices.
 
       </details>
 
@@ -281,17 +281,17 @@ There are **three approaches** when designing slices: "grouping by type of conte
     It is therefore recommended to create a `copyright` slice for every package, that other slices can depend on.
     ```
 
-- [ ] 2.2 **Prepare to write the slice definitions**
+- [ ] 2.2 **Prepare to write the package slices file**
 
     ```{note}
-    There is one Slice Definitions File per package!
+    There is one Package Slices File per package!
     ```
 
-    Slice definitions live in the `slices/` directory of the
+    Package slices files live in the `slices/` directory of the
     {{chisel_releases_repo}}. Fork and clone this repo, creating a new
     branch for the packages you are slicing.
 
-- [ ] 2.3 **Create the YAML Slice Definitions File**
+- [ ] 2.3 **Create the YAML Package Slices File**
 
    Create a new file in the `slices/` directory, named after the package you
    are slicing. For example, `vim-tiny.yaml`.
@@ -323,7 +323,7 @@ There are **three approaches** when designing slices: "grouping by type of conte
     ```
 
     Although we are writing the copyright slice first, we typically list the
-    slice at the bottom of the slice definition file.
+    slice at the bottom of the package slices file.
 
 - [ ] 2.6 [**Write the `config` slice**]{#create_sdf_design_slices_config_slice}
 
@@ -429,9 +429,9 @@ There are **three approaches** when designing slices: "grouping by type of conte
     assume certain packages (like `coreutils`) are installed.
     ```
 
-- [ ] 2.8 **Format your slice definitions files**
+- [ ] 2.8 **Format your package slices files**
 
-    Every slice definition file will be checked with linters.
+    Every package slices file will be checked with linters.
 
     - [ ] a. **Required: sort all slices' contents**
 
@@ -442,9 +442,9 @@ There are **three approaches** when designing slices: "grouping by type of conte
 
         Keep the top-level `essential` at the top, and the `copyright` slice at the bottom.
 
-- [ ] 2.9 **Review your slice definitions**
+- [ ] 2.9 **Review your package slices file**
 
-    Assemble your slice definitions file, and review it. Make sure you have
+    Assemble your package slices file, and review it. Make sure you have
     included all the necessary slices, contents, dependencies and mutation
     scripts, and that you have followed the best practices:
 
@@ -502,7 +502,7 @@ There are **three approaches** when designing slices: "grouping by type of conte
 
 ## Test the slices
 
-A slice definition is only complete when it has been tested.
+A slice is only complete when it has been tested.
 
 As a manual test, you can just install your slices into an empty folder, and test your application with `chroot`.
 
@@ -590,10 +590,10 @@ specific function. Examples:
 
 - [ ] 3.3 **Contribute!**
 
-    New slice definitions are welcome! Please contribute your new slices to the
+    New package slices files are welcome! Please contribute your new slices to the
     {{chisel_releases_repo}}. See the [contributing guide](https://github.com/canonical/chisel-releases/blob/main/CONTRIBUTING.md).
 
-    If proposing changes to multiple slice definitions files, only group them
+    If proposing changes to multiple package slices files, only group them
     into the same PR if they are related to the same scope (e.g. *you're slicing
     an application and all its dependencies, in the same PR*).
 
@@ -604,7 +604,7 @@ specific function. Examples:
 
 (create_sdf_examples)=
 
-## Example: good vs bad slice definitions
+## Example: good vs bad slices
 
 `````{tab-set}
 ````{tab-item} Good

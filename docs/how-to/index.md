@@ -46,9 +46,9 @@ with Ubuntu Pro.
 install-pro-package-slices
 ```
 
-## Creating a slice definition
+## Creating a package slices file
 
-Creating slice definitions can be simple and fun. Make sure to follow the best
+Creating package slices files can be simple and fun. Make sure to follow the best
 practices.
 
 ```{toctree}
