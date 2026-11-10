@@ -34,7 +34,7 @@ slice, _A_slice3_, are not needed for _B_ to function. To make package _B_
 usable in the same way, it can also be divided into slices.
 
 With these slices in place, Chisel is able to extract a
-highly-customised and specialised slice of the Ubuntu distribution, which one
+highly-customised and specialised part of the Ubuntu distribution, which one
 could see as a block of stone from which we can carve and extract only the
 small and relevant parts that we need to run our applications, thus keeping the
 file system small and less exposed to vulnerabilities.
