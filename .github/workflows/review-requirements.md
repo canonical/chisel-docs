@@ -59,9 +59,8 @@ reviewer(s) as follows:
 
 ## Step 3: Check existing reviewers
 
-List reviewers already requested on this pull request, and reviews already
-submitted. Drop from the target list in Step 2 anyone who is already a
-requested reviewer or who has already submitted a review.
+List all reviewer already
+submitted. Drop from the target list in Step 2 anyone who has already submitted a review.
 
 ## Step 4: Request reviewers if needed
 
@@ -69,3 +68,19 @@ Add whoever remains in the target list (if anyone) as a reviewer.
 
 If you cannot determine significance, the author, or reviewer status for any
 reason, call `noop` explaining why instead of guessing.
+
+## Step 5: Publish the decision summary
+
+Append a concise Markdown report to the file specified by
+$GITHUB_STEP_SUMMARY. Include:
+
+- Required reviewer count: 1 or 2.
+- Changed Markdown files and their additions/deletions.
+- Classification: significant or not significant, with a brief
+  explanation grounded in the diff and the rule applied.
+- Target reviewers and why they were selected.
+- Reviewers already involved and new review requests emitted.
+- Any missing information or reason for taking no action.
+
+Publish this summary even when no new reviewers are needed.
+Do not claim requests were applied if you only emitted them.
