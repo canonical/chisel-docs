@@ -169,10 +169,10 @@ templates_path = ["_static/_templates"]
 
 # Redirects for this project are managed in the Read the Docs project dashboard:
 # https://docs.readthedocs.io/en/stable/guides/redirects.html
-#rediraffe_redirects = "redirects.txt"
+rediraffe_redirects = "redirects.txt"
 
 # Strips '/index.html' from destination URLs when building with 'dirhtml'
-#rediraffe_dir_only = True
+rediraffe_dir_only = True
 
 ############################
 # sphinx-llm configuration #
