@@ -12,7 +12,7 @@ This guide provides instructions on the slicing of an Ubuntu package for
 Chisel.
 
 A package's slices are represented via a
-{ref}`Package Slices File<package_slices_file_ref>`, and the creation
+{ref}`package slices file<package_slices_file_ref>`, and the creation
 of said file is a result of the **inspection** and **design
 process** depicted below.
 
@@ -288,14 +288,14 @@ There are **three approaches** when designing slices: "grouping by type of conte
 - [ ] 2.2 **Prepare to write the package slices file**
 
     ```{note}
-    There is one Package Slices File per package!
+    There is one package slices file per package!
     ```
 
     Package slices files live in the `slices/` directory of the
     {{chisel_releases_repo}}. Fork and clone this repo, creating a new
     branch for the packages you are slicing.
 
-- [ ] 2.3 **Create the YAML Package Slices File**
+- [ ] 2.3 **Create the YAML package slices file**
 
    Create a new file in the `slices/` directory, named after the package you
    are slicing. For example, `vim-tiny.yaml`.
