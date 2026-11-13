@@ -1,0 +1,90 @@
+name: New CODA issue
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 'Short description (used in the issue title)'
+        required: true
+      background:
+        description: 'Expand on the title and provide clear context that helps users understand the product and the problem.'
+        required: true
+      task:
+        description: 'Expected steps for completion of the issue'
+        required: true
+      prerequisites:
+        description: 'Prerequisites (optional)'
+        required: false
+      what_you_will_learn:
+        description: 'Explicitly state if specific domain knowledge or tools are required, or if the issue is beginner-friendly.'
+        required: true
+      outcome:
+        description: 'Expected result needed to close the issue'
+        required: true
+      resources:
+        description: 'URLs or references that help the contributor (optional)'
+        required: false
+      mentor:
+        description: 'Who is the mentor'
+        required: true
+        default: '@asanvaq'
+        type: choice
+        options:
+        - '@asanvaq'
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          gh issue create --title "CODA: $TITLE" --label "coda" --body "$(cat <<EOF
+          # Background
+
+          Chisel is a developer tool for extracting highly customized and specialized package slices of Ubuntu packages to create compact, secure software.
+          This issue is part of [Canonical's Open Documentation Academy (CODA)](https://documentationacademy.org/).
+
+          $BACKGROUND
+
+          # Task
+
+          $TASK
+
+          Once you’re assigned this issue, please open a pull request directly into [canonical/chisel-docs](https://github.com/canonical/chisel-docs). In order to contribute, you must sign the [Canonical contributor license agreement](https://ubuntu.com/legal/contributors).
+
+          # Prerequisites
+
+          $PREREQUISITES
+
+          # What you will learn
+
+          $WHAT_YOU_WILL_LEARN
+
+          # Outcome
+
+          $OUTCOME
+
+          # Resources
+
+          $RESOURCES
+
+          # Mentor
+
+          The mentor for this issue is $MENTOR. They are the Technical Author for Rockcraft and Chisel.
+
+          Please feel free to reach out to the mentor on [Matrix](https://matrix.to/#/@sanchovaquera:ubuntu.com) if you have further questions.
+          EOF
+          )"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: ${{ inputs.title }}
+          BACKGROUND: ${{ inputs.background }}
+          TASK: ${{ inputs.task }}
+          PREREQUISITES: ${{ inputs.prerequisites }}
+          WHAT_YOU_WILL_LEARN: ${{ inputs.what_you_will_learn }}
+          OUTCOME: ${{ inputs.outcome }}
+          RESOURCES: ${{ inputs.resources }}
+          MENTOR: ${{ inputs.mentor }}
