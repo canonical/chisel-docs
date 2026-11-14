@@ -32,4 +32,4 @@ cut_cmd: "{doc}`/reference/cmd/cut`"
 find_cmd: "{doc}`/reference/cmd/find`"
 info_cmd: "{doc}`/reference/cmd/info`"
 mutation_scripts: |
-  {ref}`mutation scripts <slice_definitions_format_slices_mutate>`
+  {ref}`mutation scripts <package_slices_file_format_slices_mutate>`

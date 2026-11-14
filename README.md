@@ -9,7 +9,7 @@ Sources for building the [Chisel documentation].
 
 - [chisel] - main repository of the project
 - [chisel-docs] - documentation repository
-- [chisel-releases] - collection of package slice definitions
+- [chisel-releases] - collection of package slices files
 
 
 ## Contribution guides

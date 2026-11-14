@@ -18,9 +18,9 @@ package. It is fine to leave out files that no slice needs, such as manual pages
 or examples.
 
 ```{note}
-These approaches can be combined in one slice definitions file. For example,
+These approaches can be combined in one package slices file. For example,
 the
-[`systemd` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/systemd.yaml)
+[`systemd` slices file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/systemd.yaml)
 uses tier slices (`standard`, `dev`), function slices (`journal`, `login`,
 `dbus-services`) and a content type slice (`config`).
 ```
@@ -31,13 +31,13 @@ uses tier slices (`standard`, `dev`), function slices (`journal`, `login`,
 
 This means putting all the binaries together in one slice, all the libraries
 together in another slice, and so on. A good example is the
-[`dpkg` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/dpkg.yaml).
+[`dpkg` slices file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/dpkg.yaml).
 
 In this case, the best practice is to create:
 
 - a `bins` slice which contains all the binaries
 - a `libs` slice which contains all the libraries
-- a `config` slice which contains all [configuration files](#create_sdf_inspect_pkg_conffiles)
+- a `config` slice which contains all [configuration files](#create_package_slices_file_inspect_pkg_conffiles)
 - a `scripts` slice which contains ASCII executable scripts, e.g. Python,
   Perl scripts
 - other slices analogously (e.g. `data`, `modules`, `services`, etc)
@@ -52,7 +52,7 @@ reserve the above as a catch-all for their respective types.
 This means grouping the contents into slices that deliver a specific
 functionality, and naming each slice after the functionality it provides. For
 example, the
-[`libpython3.14-stdlib` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/libpython3.14-stdlib.yaml)
+[`libpython3.14-stdlib` slices file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/libpython3.14-stdlib.yaml)
 splits the Python standard library into slices such as `crypto`,
 `concurrency` and `internet`.
 
@@ -65,7 +65,7 @@ just the functionality they need on top of a base installation.
 
 This means grouping the contents into slices of increasing completeness, where
 each tier is a superset of the previous one. For example, the
-[`python3` slice definitions file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/python3.yaml)
+[`python3` slices file](https://github.com/canonical/chisel-releases/blob/ubuntu-26.04/slices/python3.yaml)
 has a `core` slice providing a small `python3` runtime, but also a
 `standard` slice with the additional libraries on top of `core`.
 

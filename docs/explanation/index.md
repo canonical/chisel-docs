@@ -20,7 +20,7 @@ mode-of-operation
 
 ## Package slices
 
-Slices are defined via slice definition files and follow naming conventions.
+Slices are defined via package slices files and follow naming conventions.
 
 ```{toctree}
 :maxdepth: 1

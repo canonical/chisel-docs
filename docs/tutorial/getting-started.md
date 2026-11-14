@@ -42,7 +42,7 @@ To install the latest Chisel binary:
 
 ## Slice the "{{hello_pkg}}" package
 
-The {{hello_pkg}} package has already been sliced and its slice definitions are
+The {{hello_pkg}} package has already been sliced and its package slices file is
 [available in the chisel-releases
 repository](https://github.com/canonical/chisel-releases/blob/ubuntu-24.04/slices/hello.yaml).
 

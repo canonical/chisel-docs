@@ -8,8 +8,6 @@ OpenSSL
 OpenSSL's
 PPAs
 SBOM
-SDF
-SDFs
 Starlark
 Subcommands
 UID

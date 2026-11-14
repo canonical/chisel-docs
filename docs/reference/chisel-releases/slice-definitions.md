@@ -1,21 +1,25 @@
 ---
 myst:
   html_meta:
-    description: "Reference for the slice definitions file format for Ubuntu package slices, covering the location, format specifications and examples."
+    description: "Reference for the package slices file format for Ubuntu package slices, covering the location, format specifications and examples."
 ---
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_ref)=
 (slice_definitions_ref)=
 
-# Slice definitions
+# Package slices files
 
-{ref}`Slices <slices_explanation>` are described in slice definitions files (aka SDFs).
+{ref}`Slices <slices_explanation>` are described in package slices files.
 These are YAML files, named after the package name.
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_location)=
 (slice_definitions_location)=
 
 ## Location
 
-The slice definitions files are located in the `slices/` directory of
+The slices files are located in the `slices/` directory of
 {ref}`chisel-releases_ref`. And the slices for a given package `hello` are defined in
 `slices/hello.yaml`.
 
@@ -25,10 +29,14 @@ Although the `hello.yaml` file can be placed in a sub-directory of `slices/` e.g
 `slices/hello.yaml`. The {{chisel_releases_repo}} follows the latter.
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format)=
 (slice_definitions_format)=
 
 ## Format specification
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_package)=
 (slice_definitions_format_package)=
 
 ### `package`
@@ -56,6 +64,8 @@ For example:
 package: hello
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_archive)=
 (slice_definitions_format_archive)=
 
 ### `archive`
@@ -79,11 +89,13 @@ For example:
 archive: ubuntu
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_essential)=
 (slice_definitions_format_essential)=
 
 ### `essential`
 
-This field is similar to {ref}`slice_definitions_format_slices_essential`,
+This field is similar to {ref}`package_slices_file_format_slices_essential`,
 but applicable for every slice within the package.
 
 ```{note}
@@ -152,6 +164,8 @@ slices:
 `````
 
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices)=
 (slice_definitions_format_slices)=
 
 ### `slices`
@@ -167,7 +181,7 @@ and minus (`-`) signs. They must be at least three characters long and must star
 with a letter (`a-z`). They cannot contain two consecutive minus (`-`) signs, nor
 end with a minus (`-`) sign.
 
-For example, a slice definition called `data`, for the `ca-certificates` package,
+For example, a slice called `data`, for the `ca-certificates` package,
 could look like the following:
 
 ```yaml
@@ -187,11 +201,13 @@ slices:
       content.write("/etc/ssl/certs/ca-certificates.crt", "".join(certs))
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_essential)=
 (slice_definitions_format_slices_essential)=
 
 ### `slices.<name>.essential`
 
-This field is similar to {ref}`slice_definitions_format_essential`,but only applicable for the current
+This field is similar to {ref}`package_slices_file_format_essential`,but only applicable for the current
 slice.
 
 ```{note}
@@ -261,6 +277,8 @@ slices:
 `````
 
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents)=
 (slice_definitions_format_slices_contents)=
 
 ### `slices.<name>.contents`
@@ -281,6 +299,8 @@ Also, paths can have wildcard characters (`?`, `*` and `**`), where
  * `**` matches zero or more characters, including `/`.
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents_copy)=
 (slice_definitions_format_slices_contents_copy)=
 
 ### `slices.<name>.contents.<path>.copy`
@@ -304,6 +324,8 @@ This field is only applicable to paths with no wildcards, and its value
 must also be an absolute path with no wildcards.
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents_make)=
 (slice_definitions_format_slices_contents_make)=
 
 ### `slices.<name>.contents.<path>.make`
@@ -314,7 +336,7 @@ must also be an absolute path with no wildcards.
 
 If `make` is true, Chisel creates the specified directory path. Note that, the
 path must be an absolute directory path with a trailing `/`. If
-{ref}`mode<slice_definitions_format_slices_contents_mode>` is not specified, Chisel
+{ref}`mode<package_slices_file_format_slices_contents_mode>` is not specified, Chisel
 creates the directory with `0755`.
 
 ```yaml
@@ -326,6 +348,8 @@ creates the directory with `0755`.
 This field is only applicable for paths with no wildcards.
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents_text)=
 (slice_definitions_format_slices_contents_text)=
 
 ### `slices.<name>.contents.<path>.text`
@@ -338,7 +362,7 @@ The `text` field instructs Chisel to create a text file with the specified
 value as the file content. If empty, Chisel creates an empty file of 0 bytes.
 
 In the following example, `/file` is created with the content `Hello world!`.
-If {ref}`mode<slice_definitions_format_slices_contents_mode>` is not specified,
+If {ref}`mode<package_slices_file_format_slices_contents_mode>` is not specified,
 Chisel creates the file with `0644`.
 
 ```yaml
@@ -350,6 +374,8 @@ Chisel creates the file with `0644`.
 This field is only applicable for paths with no wildcards.
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents_symlink)=
 (slice_definitions_format_slices_contents_symlink)=
 
 ### `slices.<name>.contents.<path>.symlink`
@@ -374,6 +400,8 @@ In the following example, Chisel creates the symlink `/link` which points to
 This field is only applicable for paths with no wildcards.
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents_mode)=
 (slice_definitions_format_slices_contents_mode)=
 
 ### `slices.<name>.contents.<path>.mode`
@@ -393,13 +421,15 @@ format e.g. `0755` or `0o755`. For example:
 
 ```{note}
 It can only be used with
-{ref}`copy<slice_definitions_format_slices_contents_copy>`,
-{ref}`make<slice_definitions_format_slices_contents_make>` and
-{ref}`text<slice_definitions_format_slices_contents_text>`.
+{ref}`copy<package_slices_file_format_slices_contents_copy>`,
+{ref}`make<package_slices_file_format_slices_contents_make>` and
+{ref}`text<package_slices_file_format_slices_contents_text>`.
 
 This field is only applicable for paths with no wildcards.
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents_arch)=
 (slice_definitions_format_slices_contents_arch)=
 
 ### `slices.<name>.contents.<path>.arch`
@@ -421,6 +451,8 @@ In the following example, `/foo` will be installed for `i386` installations and
       /bar: {arch: [amd64, arm64]}
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents_mutable)=
 (slice_definitions_format_slices_contents_mutable)=
 
 ### `slices.<name>.contents.<path>.mutable`
@@ -432,6 +464,8 @@ In the following example, `/foo` will be installed for `i386` installations and
 If `mutable` f set to `true`, indicates that this path can be later
 _mutated_ (modified) by the {{mutation_scripts}}.
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents_until)=
 (slice_definitions_format_slices_contents_until)=
 
 ### `slices.<name>.contents.<path>.until`
@@ -456,6 +490,8 @@ system but will exist throughout the execution of the {{mutation_scripts}}.
       /file: {until: mutate}
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents_generate)=
 (slice_definitions_format_slices_contents_generate)=
 
 ### `slices.<name>.contents.<path>.generate`
@@ -481,6 +517,8 @@ In the following example, Chisel creates the `/var/lib/chisel` directory with
       /var/lib/chisel/**: {generate: manifest}
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_contents_prefer)=
 (slice_definitions_format_slices_contents_prefer)=
 
 ### `slices.<name>.contents.<path>.prefer`
@@ -539,6 +577,8 @@ the same for all occurrences of the path within the same package.
 The `prefer` field cannot be used with globs.
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_mutate)=
 (slice_definitions_format_slices_mutate)=
 
 ### `slices.<name>.mutate`
@@ -565,7 +605,7 @@ functions:
 | `content.read(f)`     | `string`        | Reads a text file `f` and returns its contents                   |
 | `content.write(f, s)` | -               | Writes the text content `s` to a file `f`                        |
 
-Reusing the above {ref}`"ca-certificates_data"<slice_definitions_format_slices>`
+Reusing the above {ref}`"ca-certificates_data"<package_slices_file_format_slices>`
 example, Chisel initially creates the `/etc/ssl/certs/ca-certificates.crt` text
 file with `FIXME` as its content. When the mutation scripts execute, Chisel
 concatenates the contents of every file in the `/usr/share/ca-certificates/mozilla/`
@@ -588,6 +628,8 @@ directory and writes the concatenated data to the previously created
 Due to the usage of `until`, the `/usr/share/ca-certificates/mozilla/` directory
 and the files inside are not present in the final root file system.
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_format_slices_hint)=
 (slice_definitions_format_slices_hint)=
 
 ### `slices.<name>.hint`
@@ -626,13 +668,15 @@ slices:
     hint: Non-standard timezones
 ```
 
+% second label is legacy, kept so old deep links resolve
+(package_slices_file_example)=
 (slice_definitions_example)=
 
 ## Example
 
-The slice definitions files can be found in the {{chisel_releases_repo}}, or
-inspected via the {{info_cmd}}. Here is a short example of the `hello` package
-slice definitions:
+The slices files can be found in the {{chisel_releases_repo}}, or
+inspected via the {{info_cmd}}. Here is a short example of the `hello` slices
+file:
 
 ```yaml
 package: hello

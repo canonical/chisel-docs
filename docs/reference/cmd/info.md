@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: "Reference for the Chisel info command, which displays slice definitions for given package or slice names from a chisel-release in YAML format."
+    description: "Reference for the Chisel info command, which displays the packages and slices for given package or slice names from a chisel-release in YAML format."
 ---
 
 (info_command_reference)=
@@ -12,14 +12,14 @@ The **info** command shows detailed information about package slices.
 
 It complements the {{find_cmd}}. Whereas the `find` command searches for existing
 slices, the `info` command takes in slice or package name(s) and displays the
-slice definition(s).
+matching packages and slices.
 
 It accepts a whitespace-separated list of strings. The list can be
 composed of package names, slice names, or a combination of both. The
 default output format is YAML. When multiple arguments are provided,
 the output is a list of YAML documents separated by a `---` line.
 
-Slice definitions are shown according to their definition in
+Packages and slices are shown according to their definition in
 the selected release. For example, globs are not expanded.
 
 ## Options
