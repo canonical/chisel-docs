@@ -198,7 +198,7 @@ file signatures. These key names must be defined in
 Describes the priority of an archive compared to other
 archives. It is used to support multiple archives in Chisel. If a package is
 available in two archives, it is fetched from the archive with higher priority,
-unless the package slices file specifies {ref}`"archive"<package_slices_file_format_archive>`.
+unless the slices file specifies {ref}`"archive"<package_slices_file_format_archive>`.
 
 Note that:
 

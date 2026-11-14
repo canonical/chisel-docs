@@ -48,7 +48,7 @@ install-pro-package-slices
 
 ## Creating a package slices file
 
-Creating package slices files can be simple and fun. Make sure to follow the best
+Creating slices files can be simple and fun. Make sure to follow the best
 practices.
 
 ```{toctree}

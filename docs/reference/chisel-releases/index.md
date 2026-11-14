@@ -9,10 +9,10 @@ myst:
 # chisel-releases
 
 Chisel uses **package slices files** to define the slices of packages.
-Package slices files are YAML files, and there is one per package and per Ubuntu release, named
+Slices files are YAML files, and there is one per package and per Ubuntu release, named
 after the package name.
 
-For a given Ubuntu release, the collection of package slices files plus a configuration file
+For a given Ubuntu release, the collection of slices files plus a configuration file
 named `chisel.yaml` form what is called a _chisel-release_.
 
 The {{chisel_releases_repo}} contains a number of branches for various

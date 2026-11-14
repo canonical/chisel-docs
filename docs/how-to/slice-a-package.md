@@ -288,14 +288,14 @@ There are **three approaches** when designing slices: "grouping by type of conte
 - [ ] 2.2 **Prepare to write the package slices file**
 
     ```{note}
-    There is one package slices file per package!
+    There is one slices file per package!
     ```
 
-    Package slices files live in the `slices/` directory of the
+    Slices files live in the `slices/` directory of the
     {{chisel_releases_repo}}. Fork and clone this repo, creating a new
     branch for the packages you are slicing.
 
-- [ ] 2.3 **Create the YAML package slices file**
+- [ ] 2.3 **Create the YAML slices file**
 
    Create a new file in the `slices/` directory, named after the package you
    are slicing. For example, `vim-tiny.yaml`.
@@ -327,7 +327,7 @@ There are **three approaches** when designing slices: "grouping by type of conte
     ```
 
     Although we are writing the copyright slice first, we typically list the
-    slice at the bottom of the package slices file.
+    slice at the bottom of the slices file.
 
 - [ ] 2.6 [**Write the `config` slice**]{#create_package_slices_file_design_slices_config_slice}[]{#create_sdf_design_slices_config_slice}<!-- second anchor is legacy, kept so old deep links resolve -->
 
@@ -433,9 +433,9 @@ There are **three approaches** when designing slices: "grouping by type of conte
     assume certain packages (like `coreutils`) are installed.
     ```
 
-- [ ] 2.8 **Format your package slices files**
+- [ ] 2.8 **Format your slices files**
 
-    Every package slices file will be checked with linters.
+    Every slices file will be checked with linters.
 
     - [ ] a. **Required: sort all slices' contents**
 
@@ -446,9 +446,9 @@ There are **three approaches** when designing slices: "grouping by type of conte
 
         Keep the top-level `essential` at the top, and the `copyright` slice at the bottom.
 
-- [ ] 2.9 **Review your package slices file**
+- [ ] 2.9 **Review your slices file**
 
-    Assemble your package slices file, and review it. Make sure you have
+    Assemble your slices file, and review it. Make sure you have
     included all the necessary slices, contents, dependencies and mutation
     scripts, and that you have followed the best practices:
 
@@ -596,10 +596,10 @@ specific function. Examples:
 
 - [ ] 3.3 **Contribute!**
 
-    New package slices files are welcome! Please contribute your new slices to the
+    New slices files are welcome! Please contribute your new slices to the
     {{chisel_releases_repo}}. See the [contributing guide](https://github.com/canonical/chisel-releases/blob/main/CONTRIBUTING.md).
 
-    If proposing changes to multiple package slices files, only group them
+    If proposing changes to multiple slices files, only group them
     into the same PR if they are related to the same scope (e.g. *you're slicing
     an application and all its dependencies, in the same PR*).
 

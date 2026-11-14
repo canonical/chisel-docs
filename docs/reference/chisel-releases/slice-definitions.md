@@ -19,7 +19,7 @@ These are YAML files, named after the package name.
 
 ## Location
 
-The package slices files are located in the `slices/` directory of
+The slices files are located in the `slices/` directory of
 {ref}`chisel-releases_ref`. And the slices for a given package `hello` are defined in
 `slices/hello.yaml`.
 
@@ -674,9 +674,9 @@ slices:
 
 ## Example
 
-The package slices files can be found in the {{chisel_releases_repo}}, or
-inspected via the {{info_cmd}}. Here is a short example of the `hello` package
-slices file:
+The slices files can be found in the {{chisel_releases_repo}}, or
+inspected via the {{info_cmd}}. Here is a short example of the `hello` slices
+file:
 
 ```yaml
 package: hello
