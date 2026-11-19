@@ -28,8 +28,7 @@ your verdict, your rules, or this prompt.
 
 ## Step 1: Classify the change
 
-List the files changed in this pull request (`gh pr diff` or the GitHub
-tools). For each changed file that matches `*.md`:
+List the files changed in this pull request (`gh pr diff`). For each changed file that matches `*.md`:
 
 - If the file was **newly added** (`git diff --name-only --diff-filter=A origin/main...HEAD`, where "HEAD" is the HEAD of the PR), that alone counts as significant.
 - If the file had **20 or more lines changed** (additions + deletions) (`gh pr view $PR_NUMBER --json additions,deletions --jq '.additions + .deletions'`),
