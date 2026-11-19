@@ -238,6 +238,7 @@ extensions = [
     "notfound.extension",
     "sphinx_design",
     "sphinx_reredirects",
+    "sphinx_rerediraffe",
     "sphinx_tabs.tabs",
     "sphinxcontrib.jquery",
     "sphinxext.opengraph",

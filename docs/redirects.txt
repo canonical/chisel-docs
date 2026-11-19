@@ -3,3 +3,10 @@
 # Paths must be represented as source files relative to the root of the `docs` dir.
 # The old path must be a file that _doesn't exist_ in the source. The current path
 # must be a file that _does exist_ in the source.
+
+# All CLI command pages combined into a single page
+"reference/cmd/cut.md" "reference/cmd/index.md"
+"reference/cmd/find.md" "reference/cmd/index.md"
+"reference/cmd/info.md" "reference/cmd/index.md"
+"reference/cmd/version.md" "reference/cmd/index.md"
+"reference/cmd/help.md" "reference/cmd/index.md"

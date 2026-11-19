@@ -56,7 +56,7 @@ mkdir rootfs
 Finally, use the {{cut_cmd}} to install the `hello_bins` slice from the `ubuntu-24.04`
 _chisel-release_:
 
-```{include} /reference/cmd/cut.md
+```{include} /reference/cmd/index.md
   :start-after: "<!-- Start: hello_bins installation -->"
   :end-before:  "<!-- End: hello_bins installation -->"
 ```
