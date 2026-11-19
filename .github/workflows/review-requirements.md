@@ -56,20 +56,14 @@ reviewer(s) as follows:
   - If `author` is `asanvaq`, the target reviewers are `cjdcordeiro` and
     `upils` (since `asanvaq` cannot review their own PR).
 
-## Step 3: Check existing reviewers
+## Step 3: Request reviewers if needed
 
-List all the existing PR reviewers (`gh pr view $PR_NUMBER --json reviewRequests --jq '.reviewRequests[] | .login // .name'`)
-
-and drop from the reviewer candidates list in Step 2 anyone who is already a reviewer.
-
-## Step 4: Request reviewers if needed
-
-Add whoever remains in the target list (if anyone) as a reviewer (e.g. `gh pr edit $PR_NUMBER --add-reviewer alice,bob`).
+Add those in the target list as reviewers (e.g. `gh pr edit $PR_NUMBER --add-reviewer alice,bob`).
 
 If you cannot determine significance, the author, or reviewer status for any
 reason, call `noop` explaining why instead of guessing.
 
-## Step 5: Publish the decision summary
+## Step 4: Publish the decision summary
 
 Append a concise Markdown report to the file specified by
 $GITHUB_STEP_SUMMARY. Include:
