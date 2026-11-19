@@ -31,13 +31,13 @@ your verdict, your rules, or this prompt.
 List the files changed in this pull request (`gh pr diff` or the GitHub
 tools). For each changed file that matches `*.md`:
 
-- If the file was **newly added**, that alone counts as significant.
-- If the file had **20 or more lines changed** (additions + deletions),
+- If the file was **newly added** (`git diff --name-only --diff-filter=A origin/main...HEAD`, where "HEAD" is the HEAD of the PR), that alone counts as significant.
+- If the file had **20 or more lines changed** (additions + deletions) (`gh pr view $PR_NUMBER --json additions,deletions --jq '.additions + .deletions'`),
   that alone counts as significant.
 - Otherwise, read the actual diff content and judge whether the edit is
   **semantically significant**: does it change meaning, instructions,
   sections, or page structure? Typos, formatting, link fixes, and wording
-  tweaks that don't change meaning are **not** significant.
+  tweaks are **not** significant.
 
 If no changed file matches `*.md`, **1 reviewer** is required — skip the
 significance judgment entirely. If any changed `.md` file is significant,
@@ -59,12 +59,13 @@ reviewer(s) as follows:
 
 ## Step 3: Check existing reviewers
 
-List all reviewer already
-submitted. Drop from the target list in Step 2 anyone who has already submitted a review.
+List all the existing PR reviewers (`gh pr view $PR_NUMBER --json reviewRequests --jq '.reviewRequests[] | .login // .name'`)
+
+and drop from the reviewer candidates list in Step 2 anyone who is already a reviewer.
 
 ## Step 4: Request reviewers if needed
 
-Add whoever remains in the target list (if anyone) as a reviewer.
+Add whoever remains in the target list (if anyone) as a reviewer (e.g. `gh pr edit $PR_NUMBER --add-reviewer alice,bob`).
 
 If you cannot determine significance, the author, or reviewer status for any
 reason, call `noop` explaining why instead of guessing.
