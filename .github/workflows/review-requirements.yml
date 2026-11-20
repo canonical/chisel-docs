@@ -1,0 +1,136 @@
+name: Review Requirements
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+  pull_request_review:
+    types: [submitted, dismissed]
+
+concurrency:
+  group: review-requirements-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  route:
+    if: github.event.pull_request.head.repo.id == github.repository_id
+    runs-on: ubuntu-latest
+    outputs:
+      ai_required: ${{ steps.route.outputs.ai_required }}
+      classification: ${{ steps.route.outputs.classification }}
+      reason: ${{ steps.route.outputs.reason }}
+    steps:
+      - name: Check out trusted workflow files
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+
+      - name: Route review
+        id: route
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: bash .github/scripts/request-reviewers.sh --route "$PR_NUMBER"
+
+  classify:
+    needs: route
+    if: needs.route.outputs.ai_required == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      classification: ${{ steps.result.outputs.classification }}
+      reason: ${{ steps.result.outputs.reason }}
+    steps:
+      - name: Check out trusted prompt
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+
+      - name: Fetch Markdown diff
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          DIFF_FILE: ${{ runner.temp }}/markdown-diff.txt
+        run: |
+          set -o pipefail
+          gh api --paginate --slurp "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/files" |
+            jq -r '
+              [.[][] | select(.filename | endswith(".md"))] |
+              if length == 0 then error("No Markdown files found")
+              elif any(.[]; .patch == null) then error("A Markdown patch is unavailable")
+              else .[] | "## " + .filename + "\n" + .patch + "\n"
+              end
+            ' > "$DIFF_FILE"
+
+      - name: Verify Copilot credential is configured
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+        run: |
+          if [[ -z "$COPILOT_GITHUB_TOKEN" ]]; then
+            echo "Configure the COPILOT_GITHUB_TOKEN Actions secret to use AI classification." >&2
+            exit 1
+          fi
+
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+
+      - name: Install Copilot CLI
+        run: npm install --global @github/copilot@1.0.114
+
+      - name: Classify Markdown changes
+        id: inference
+        uses: actions/ai-inference@b81b2afb8390ee6839b494a404766bef6493c7d9 # v1
+        with:
+          prompt-file: .github/prompts/review-requirements.prompt.yml
+          file_input: |
+            diff: ${{ runner.temp }}/markdown-diff.txt
+          model: gpt-4.1
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+
+      - name: Validate AI result
+        id: result
+        env:
+          RESPONSE_FILE: ${{ steps.inference.outputs.response-file }}
+        run: |
+          jq -sr '
+            if length != 1 or (.[0] | type) != "object" then error("Expected one JSON object")
+            elif (.[0].classification != "significant" and .[0].classification != "not-significant")
+              then error("Invalid classification")
+            elif (.[0].reason | type) != "string" or (.[0].reason | length) == 0
+              then error("Missing reason")
+            else .[0] |
+              "classification=\(.classification)\nreason=\(.reason | gsub("[\u0000-\u001f\u007f]+"; " ") | .[0:300])"
+            end
+          ' "$RESPONSE_FILE" >> "$GITHUB_OUTPUT"
+
+  request-reviewers:
+    needs: [route, classify]
+    if: >-
+      always() &&
+      needs.route.result == 'success' &&
+      (needs.route.outputs.ai_required != 'true' || needs.classify.result == 'success')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Check out trusted reviewer script
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+
+      - name: Apply reviewer decision
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          CLASSIFICATION: ${{ needs.route.outputs.ai_required == 'true' && needs.classify.outputs.classification || needs.route.outputs.classification }}
+          REASON: ${{ needs.route.outputs.ai_required == 'true' && needs.classify.outputs.reason || needs.route.outputs.reason }}
+        run: bash .github/scripts/request-reviewers.sh "$PR_NUMBER" "$CLASSIFICATION" "$REASON"
