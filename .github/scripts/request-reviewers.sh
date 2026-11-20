@@ -1,33 +1,29 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ $# -eq 2 && $1 == --gate && $2 =~ ^[1-9][0-9]*$ ]]; then
-  mode=gate
+if [[ $# -eq 2 && $1 == --route && $2 =~ ^[1-9][0-9]*$ ]]; then
+  mode=route
   pr=$2
 elif [[ $# -eq 3 && $1 =~ ^[1-9][0-9]*$ &&
   $2 =~ ^(significant|not-significant)$ && -n $3 ]]; then
-  mode=agent
+  mode=request
   pr=$1
   classification=$2
   reason=$3
 else
-  echo "Usage: $0 --gate <pull-request-number>" >&2
+  echo "Usage: $0 --route <pull-request-number>" >&2
   echo "   or: $0 <pull-request-number> <classification> <reason>" >&2
   exit 2
 fi
 
 : "${GITHUB_REPOSITORY:?GITHUB_REPOSITORY must be set}"
-: "${GITHUB_STEP_SUMMARY:?GITHUB_STEP_SUMMARY must be set}"
 repo=$GITHUB_REPOSITORY
 reason=${reason:-}
 reason=${reason//$'\n'/ }
 reason=${reason//$'\r'/ }
 
-author=$(gh api "repos/$repo/pulls/$pr" --jq '.user.login | ascii_downcase')
 md=$(gh api --paginate "repos/$repo/pulls/$pr/files" \
   --jq '.[] | select(.filename | endswith(".md")) | [(.filename | @base64), .status, .additions, .deletions] | @tsv')
-requested=$(gh api "repos/$repo/pulls/$pr" --jq '.requested_reviewers[].login | ascii_downcase')
-reviewed=$(gh api --paginate "repos/$repo/pulls/$pr/reviews" --jq '.[].user.login | ascii_downcase')
 
 md_count=0
 total_changed_lines=0
@@ -48,25 +44,23 @@ if ((total_changed_lines >= 20)); then
   has_deterministic_significance=1
 fi
 
-if [[ $mode == gate ]]; then
+if [[ $mode == route ]]; then
+  : "${GITHUB_OUTPUT:?GITHUB_OUTPUT must be set in route mode}"
   if ((md_count > 0 && !has_deterministic_significance)); then
-    : "${DEFAULT_BRANCH:?DEFAULT_BRANCH must be set in gate mode}"
-    gh api --method POST "repos/$repo/actions/workflows/review-requirements.lock.yml/dispatches" \
-      -f "ref=$DEFAULT_BRANCH" \
-      -f "inputs[item_number]=$pr"
-    {
-      echo "## Review requirements for #$pr"
-      echo "- Changed Markdown files: ${file_summary[*]}"
-      echo "- AI semantic review: dispatched (existing Markdown files only, fewer than 20 changed lines total)."
-    } >>"$GITHUB_STEP_SUMMARY"
+    printf 'ai_required=true\n' >>"$GITHUB_OUTPUT"
     exit 0
-  elif ((has_deterministic_significance)); then
-    classification=significant
-    reason="A Markdown file is new, renamed, deleted, or the total additions and deletions across changed Markdown files is 20 or more ($total_changed_lines lines)."
-  else
+  fi
+
+  if ((md_count == 0)); then
     classification=not-significant
     reason="No Markdown files changed."
+  else
+    classification=significant
+    reason="A Markdown file is new, renamed, deleted, or the total additions and deletions across changed Markdown files is 20 or more ($total_changed_lines lines)."
   fi
+  printf 'ai_required=false\nclassification=%s\nreason=%s\n' \
+    "$classification" "$reason" >>"$GITHUB_OUTPUT"
+  exit 0
 fi
 
 if ((md_count == 0)); then
@@ -81,6 +75,11 @@ else
   count=1
   [[ $classification == significant ]] && count=2
 fi
+
+: "${GITHUB_STEP_SUMMARY:?GITHUB_STEP_SUMMARY must be set in request mode}"
+author=$(gh api "repos/$repo/pulls/$pr" --jq '.user.login | ascii_downcase')
+requested=$(gh api "repos/$repo/pulls/$pr" --jq '.requested_reviewers[].login | ascii_downcase')
+reviewed=$(gh api --paginate "repos/$repo/pulls/$pr/reviews" --jq '.[].user.login | ascii_downcase')
 
 contains_line() {
   local needle=$1 line
@@ -104,17 +103,11 @@ for target in "${targets[@]}"; do
 done
 
 if ((${#new[@]})); then
-  if [[ $mode == gate ]]; then
-    args=()
-    for reviewer in "${new[@]}"; do
-      args+=(-f "reviewers[]=$reviewer")
-    done
-    gh api --method POST "repos/$repo/pulls/$pr/requested_reviewers" "${args[@]}"
-  else
-    reviewers_json=$(printf '"%s",' "${new[@]}")
-    reviewers_json=${reviewers_json%,}
-    safeoutputs add_reviewer "{\"pull_request_number\":$pr,\"reviewers\":[$reviewers_json]}"
-  fi
+  args=()
+  for reviewer in "${new[@]}"; do
+    args+=(-f "reviewers[]=$reviewer")
+  done
+  gh api --method POST "repos/$repo/pulls/$pr/requested_reviewers" "${args[@]}"
 fi
 
 {
@@ -131,9 +124,5 @@ fi
   echo "- Target reviewers: ${targets[*]}"
   echo "- Already requested: ${requested//$'\n'/, }"
   echo "- Already reviewed: ${reviewed//$'\n'/, }"
-  if [[ $mode == gate ]]; then
-    echo "- New requests applied: ${new[*]:-none}"
-  else
-    echo "- New requests emitted: ${new[*]:-none}"
-  fi
+  echo "- New requests applied: ${new[*]:-none}"
 } >>"$GITHUB_STEP_SUMMARY"
